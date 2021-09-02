@@ -1,6 +1,6 @@
 {
-    "name": "ground_breaking",
-    "short_name": "ground_breaking",
+    "name": "gve_launch",
+    "short_name": "gve_launch",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
