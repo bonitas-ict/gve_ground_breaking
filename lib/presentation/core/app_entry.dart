@@ -4,10 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../application/application.dart';
 import '../presentation.dart';
 
+final AppRouter _appRouter = AppRouter();
+
 class AppEntry extends StatelessWidget {
   AppEntry({Key? key}) : super(key: key);
-  final AppRouter _appRouter = AppRouter();
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -18,6 +19,8 @@ class AppEntry extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       themeMode: ThemeMode.system,
+      theme: LightTheme.day(),
+      darkTheme: DarkTheme.night(),
       builder: (BuildContext ctx, Widget? child) {
         return BlocListener<AuthenticationBloc, AuthenticationState>(
           listener: (context, state) {
