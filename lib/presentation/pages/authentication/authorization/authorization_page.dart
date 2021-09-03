@@ -1,11 +1,33 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();
 
-class AuthorizationPage extends StatelessWidget {
+class AuthorizationPage extends StatefulWidget {
   const AuthorizationPage({ Key? key }) : super(key: key);
-  
+
+  @override
+  _AuthorizationPageState createState() => _AuthorizationPageState();
+}
+
+class _AuthorizationPageState extends State<AuthorizationPage> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  Barcode? result;
+  QRViewController? controller;
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller?.pauseCamera();
+    } else if (Platform.isIOS) {
+      controller?.resumeCamera();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +51,40 @@ class AuthorizationPage extends StatelessWidget {
                     children: [
                       Text('Please verify your invite'),
                       FormBuilderTextField(name: 'pin', keyboardType: TextInputType.number,),
-                    ],
-                  ),
+                      SizedBox(
+                        height: 120,
+                        child: QRView(
+                          key: qrKey,
+                          onQRViewCreated: _onQRViewCreated,
+                        ),
+                      ),
+                      (result != null)
+                      ? Text(
+                          'Barcode Type:   Data: ${result?.code}')
+                      : Text('Scan a code'),
+                        
+                    ]
                 ),
               ),
-            )
+            ))
           ],
         ),
       ),
     );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 }
