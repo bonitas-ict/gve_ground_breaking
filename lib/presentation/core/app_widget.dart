@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-      BlocProvider(create: (_) => getIt<AuthenticationBloc>()..add(const UnAuthenticatedEvent())),
+        BlocProvider(create: (_) => getIt<AuthenticationBloc>()..add(const AuthenticationEvent.verifiedState())),
       ],
       child: AppEntry(),
     );

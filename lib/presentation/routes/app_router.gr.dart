@@ -15,6 +15,11 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
+    OnboardingRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.OnboardingPage();
+        }),
     VerificationRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -34,10 +39,17 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(OnboardingRoute.name, path: '/onboarding-page'),
         _i1.RouteConfig(VerificationRoute.name, path: '/'),
         _i1.RouteConfig(AuthorizationRoute.name, path: '/authorization-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page')
       ];
+}
+
+class OnboardingRoute extends _i1.PageRouteInfo {
+  const OnboardingRoute() : super(name, path: '/onboarding-page');
+
+  static const String name = 'OnboardingRoute';
 }
 
 class VerificationRoute extends _i1.PageRouteInfo {

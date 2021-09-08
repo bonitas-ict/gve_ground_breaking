@@ -16,12 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthenticationEventTearOff {
   const _$AuthenticationEventTearOff();
 
-  UnAuthenticatedEvent unAuthenticatedEvent() {
-    return const UnAuthenticatedEvent();
+  VerifiedStateEvent verifiedState() {
+    return const VerifiedStateEvent();
   }
 
-  AuthenticatedEvent authenticatedEvent() {
-    return const AuthenticatedEvent();
+  SwitchAppState switchAppState(AppState appState) {
+    return SwitchAppState(
+      appState,
+    );
   }
 }
 
@@ -32,27 +34,27 @@ const $AuthenticationEvent = _$AuthenticationEventTearOff();
 mixin _$AuthenticationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unAuthenticatedEvent,
-    required TResult Function() authenticatedEvent,
+    required TResult Function() verifiedState,
+    required TResult Function(AppState appState) switchAppState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unAuthenticatedEvent,
-    TResult Function()? authenticatedEvent,
+    TResult Function()? verifiedState,
+    TResult Function(AppState appState)? switchAppState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnAuthenticatedEvent value) unAuthenticatedEvent,
-    required TResult Function(AuthenticatedEvent value) authenticatedEvent,
+    required TResult Function(VerifiedStateEvent value) verifiedState,
+    required TResult Function(SwitchAppState value) switchAppState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnAuthenticatedEvent value)? unAuthenticatedEvent,
-    TResult Function(AuthenticatedEvent value)? authenticatedEvent,
+    TResult Function(VerifiedStateEvent value)? verifiedState,
+    TResult Function(SwitchAppState value)? switchAppState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -76,37 +78,37 @@ class _$AuthenticationEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $UnAuthenticatedEventCopyWith<$Res> {
-  factory $UnAuthenticatedEventCopyWith(UnAuthenticatedEvent value,
-          $Res Function(UnAuthenticatedEvent) then) =
-      _$UnAuthenticatedEventCopyWithImpl<$Res>;
+abstract class $VerifiedStateEventCopyWith<$Res> {
+  factory $VerifiedStateEventCopyWith(
+          VerifiedStateEvent value, $Res Function(VerifiedStateEvent) then) =
+      _$VerifiedStateEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnAuthenticatedEventCopyWithImpl<$Res>
+class _$VerifiedStateEventCopyWithImpl<$Res>
     extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements $UnAuthenticatedEventCopyWith<$Res> {
-  _$UnAuthenticatedEventCopyWithImpl(
-      UnAuthenticatedEvent _value, $Res Function(UnAuthenticatedEvent) _then)
-      : super(_value, (v) => _then(v as UnAuthenticatedEvent));
+    implements $VerifiedStateEventCopyWith<$Res> {
+  _$VerifiedStateEventCopyWithImpl(
+      VerifiedStateEvent _value, $Res Function(VerifiedStateEvent) _then)
+      : super(_value, (v) => _then(v as VerifiedStateEvent));
 
   @override
-  UnAuthenticatedEvent get _value => super._value as UnAuthenticatedEvent;
+  VerifiedStateEvent get _value => super._value as VerifiedStateEvent;
 }
 
 /// @nodoc
 
-class _$UnAuthenticatedEvent implements UnAuthenticatedEvent {
-  const _$UnAuthenticatedEvent();
+class _$VerifiedStateEvent implements VerifiedStateEvent {
+  const _$VerifiedStateEvent();
 
   @override
   String toString() {
-    return 'AuthenticationEvent.unAuthenticatedEvent()';
+    return 'AuthenticationEvent.verifiedState()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UnAuthenticatedEvent);
+    return identical(this, other) || (other is VerifiedStateEvent);
   }
 
   @override
@@ -115,21 +117,21 @@ class _$UnAuthenticatedEvent implements UnAuthenticatedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unAuthenticatedEvent,
-    required TResult Function() authenticatedEvent,
+    required TResult Function() verifiedState,
+    required TResult Function(AppState appState) switchAppState,
   }) {
-    return unAuthenticatedEvent();
+    return verifiedState();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unAuthenticatedEvent,
-    TResult Function()? authenticatedEvent,
+    TResult Function()? verifiedState,
+    TResult Function(AppState appState)? switchAppState,
     required TResult orElse(),
   }) {
-    if (unAuthenticatedEvent != null) {
-      return unAuthenticatedEvent();
+    if (verifiedState != null) {
+      return verifiedState();
     }
     return orElse();
   }
@@ -137,85 +139,111 @@ class _$UnAuthenticatedEvent implements UnAuthenticatedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnAuthenticatedEvent value) unAuthenticatedEvent,
-    required TResult Function(AuthenticatedEvent value) authenticatedEvent,
+    required TResult Function(VerifiedStateEvent value) verifiedState,
+    required TResult Function(SwitchAppState value) switchAppState,
   }) {
-    return unAuthenticatedEvent(this);
+    return verifiedState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnAuthenticatedEvent value)? unAuthenticatedEvent,
-    TResult Function(AuthenticatedEvent value)? authenticatedEvent,
+    TResult Function(VerifiedStateEvent value)? verifiedState,
+    TResult Function(SwitchAppState value)? switchAppState,
     required TResult orElse(),
   }) {
-    if (unAuthenticatedEvent != null) {
-      return unAuthenticatedEvent(this);
+    if (verifiedState != null) {
+      return verifiedState(this);
     }
     return orElse();
   }
 }
 
-abstract class UnAuthenticatedEvent implements AuthenticationEvent {
-  const factory UnAuthenticatedEvent() = _$UnAuthenticatedEvent;
+abstract class VerifiedStateEvent implements AuthenticationEvent {
+  const factory VerifiedStateEvent() = _$VerifiedStateEvent;
 }
 
 /// @nodoc
-abstract class $AuthenticatedEventCopyWith<$Res> {
-  factory $AuthenticatedEventCopyWith(
-          AuthenticatedEvent value, $Res Function(AuthenticatedEvent) then) =
-      _$AuthenticatedEventCopyWithImpl<$Res>;
+abstract class $SwitchAppStateCopyWith<$Res> {
+  factory $SwitchAppStateCopyWith(
+          SwitchAppState value, $Res Function(SwitchAppState) then) =
+      _$SwitchAppStateCopyWithImpl<$Res>;
+  $Res call({AppState appState});
 }
 
 /// @nodoc
-class _$AuthenticatedEventCopyWithImpl<$Res>
+class _$SwitchAppStateCopyWithImpl<$Res>
     extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements $AuthenticatedEventCopyWith<$Res> {
-  _$AuthenticatedEventCopyWithImpl(
-      AuthenticatedEvent _value, $Res Function(AuthenticatedEvent) _then)
-      : super(_value, (v) => _then(v as AuthenticatedEvent));
+    implements $SwitchAppStateCopyWith<$Res> {
+  _$SwitchAppStateCopyWithImpl(
+      SwitchAppState _value, $Res Function(SwitchAppState) _then)
+      : super(_value, (v) => _then(v as SwitchAppState));
 
   @override
-  AuthenticatedEvent get _value => super._value as AuthenticatedEvent;
+  SwitchAppState get _value => super._value as SwitchAppState;
+
+  @override
+  $Res call({
+    Object? appState = freezed,
+  }) {
+    return _then(SwitchAppState(
+      appState == freezed
+          ? _value.appState
+          : appState // ignore: cast_nullable_to_non_nullable
+              as AppState,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$AuthenticatedEvent implements AuthenticatedEvent {
-  const _$AuthenticatedEvent();
+class _$SwitchAppState implements SwitchAppState {
+  const _$SwitchAppState(this.appState);
+
+  @override
+  final AppState appState;
 
   @override
   String toString() {
-    return 'AuthenticationEvent.authenticatedEvent()';
+    return 'AuthenticationEvent.switchAppState(appState: $appState)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthenticatedEvent);
+    return identical(this, other) ||
+        (other is SwitchAppState &&
+            (identical(other.appState, appState) ||
+                const DeepCollectionEquality()
+                    .equals(other.appState, appState)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(appState);
+
+  @JsonKey(ignore: true)
+  @override
+  $SwitchAppStateCopyWith<SwitchAppState> get copyWith =>
+      _$SwitchAppStateCopyWithImpl<SwitchAppState>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() unAuthenticatedEvent,
-    required TResult Function() authenticatedEvent,
+    required TResult Function() verifiedState,
+    required TResult Function(AppState appState) switchAppState,
   }) {
-    return authenticatedEvent();
+    return switchAppState(appState);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unAuthenticatedEvent,
-    TResult Function()? authenticatedEvent,
+    TResult Function()? verifiedState,
+    TResult Function(AppState appState)? switchAppState,
     required TResult orElse(),
   }) {
-    if (authenticatedEvent != null) {
-      return authenticatedEvent();
+    if (switchAppState != null) {
+      return switchAppState(appState);
     }
     return orElse();
   }
@@ -223,28 +251,33 @@ class _$AuthenticatedEvent implements AuthenticatedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UnAuthenticatedEvent value) unAuthenticatedEvent,
-    required TResult Function(AuthenticatedEvent value) authenticatedEvent,
+    required TResult Function(VerifiedStateEvent value) verifiedState,
+    required TResult Function(SwitchAppState value) switchAppState,
   }) {
-    return authenticatedEvent(this);
+    return switchAppState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnAuthenticatedEvent value)? unAuthenticatedEvent,
-    TResult Function(AuthenticatedEvent value)? authenticatedEvent,
+    TResult Function(VerifiedStateEvent value)? verifiedState,
+    TResult Function(SwitchAppState value)? switchAppState,
     required TResult orElse(),
   }) {
-    if (authenticatedEvent != null) {
-      return authenticatedEvent(this);
+    if (switchAppState != null) {
+      return switchAppState(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthenticatedEvent implements AuthenticationEvent {
-  const factory AuthenticatedEvent() = _$AuthenticatedEvent;
+abstract class SwitchAppState implements AuthenticationEvent {
+  const factory SwitchAppState(AppState appState) = _$SwitchAppState;
+
+  AppState get appState => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SwitchAppStateCopyWith<SwitchAppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -262,6 +295,14 @@ class _$AuthenticationStateTearOff {
   UnAuthenticated unAuthenticated() {
     return const UnAuthenticated();
   }
+
+  PartialAuthentication partialAuthentication() {
+    return const PartialAuthentication();
+  }
+
+  FirstRun firstRun() {
+    return const FirstRun();
+  }
 }
 
 /// @nodoc
@@ -274,6 +315,8 @@ mixin _$AuthenticationState {
     required TResult Function() initial,
     required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -281,6 +324,8 @@ mixin _$AuthenticationState {
     TResult Function()? initial,
     TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -289,6 +334,9 @@ mixin _$AuthenticationState {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -296,6 +344,8 @@ mixin _$AuthenticationState {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -359,6 +409,8 @@ class _$Initial implements Initial {
     required TResult Function() initial,
     required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
   }) {
     return initial();
   }
@@ -369,6 +421,8 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -383,6 +437,9 @@ class _$Initial implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
   }) {
     return initial(this);
   }
@@ -393,6 +450,8 @@ class _$Initial implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -449,6 +508,8 @@ class _$Authenticated implements Authenticated {
     required TResult Function() initial,
     required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
   }) {
     return authenticated();
   }
@@ -459,6 +520,8 @@ class _$Authenticated implements Authenticated {
     TResult Function()? initial,
     TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -473,6 +536,9 @@ class _$Authenticated implements Authenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
   }) {
     return authenticated(this);
   }
@@ -483,6 +549,8 @@ class _$Authenticated implements Authenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -539,6 +607,8 @@ class _$UnAuthenticated implements UnAuthenticated {
     required TResult Function() initial,
     required TResult Function() authenticated,
     required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
   }) {
     return unAuthenticated();
   }
@@ -549,6 +619,8 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function()? initial,
     TResult Function()? authenticated,
     TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -563,6 +635,9 @@ class _$UnAuthenticated implements UnAuthenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
   }) {
     return unAuthenticated(this);
   }
@@ -573,6 +648,8 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
     required TResult orElse(),
   }) {
     if (unAuthenticated != null) {
@@ -584,4 +661,200 @@ class _$UnAuthenticated implements UnAuthenticated {
 
 abstract class UnAuthenticated implements AuthenticationState {
   const factory UnAuthenticated() = _$UnAuthenticated;
+}
+
+/// @nodoc
+abstract class $PartialAuthenticationCopyWith<$Res> {
+  factory $PartialAuthenticationCopyWith(PartialAuthentication value,
+          $Res Function(PartialAuthentication) then) =
+      _$PartialAuthenticationCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$PartialAuthenticationCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res>
+    implements $PartialAuthenticationCopyWith<$Res> {
+  _$PartialAuthenticationCopyWithImpl(
+      PartialAuthentication _value, $Res Function(PartialAuthentication) _then)
+      : super(_value, (v) => _then(v as PartialAuthentication));
+
+  @override
+  PartialAuthentication get _value => super._value as PartialAuthentication;
+}
+
+/// @nodoc
+
+class _$PartialAuthentication implements PartialAuthentication {
+  const _$PartialAuthentication();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.partialAuthentication()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is PartialAuthentication);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() authenticated,
+    required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
+  }) {
+    return partialAuthentication();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? authenticated,
+    TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
+    required TResult orElse(),
+  }) {
+    if (partialAuthentication != null) {
+      return partialAuthentication();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
+  }) {
+    return partialAuthentication(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
+    required TResult orElse(),
+  }) {
+    if (partialAuthentication != null) {
+      return partialAuthentication(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PartialAuthentication implements AuthenticationState {
+  const factory PartialAuthentication() = _$PartialAuthentication;
+}
+
+/// @nodoc
+abstract class $FirstRunCopyWith<$Res> {
+  factory $FirstRunCopyWith(FirstRun value, $Res Function(FirstRun) then) =
+      _$FirstRunCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FirstRunCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res>
+    implements $FirstRunCopyWith<$Res> {
+  _$FirstRunCopyWithImpl(FirstRun _value, $Res Function(FirstRun) _then)
+      : super(_value, (v) => _then(v as FirstRun));
+
+  @override
+  FirstRun get _value => super._value as FirstRun;
+}
+
+/// @nodoc
+
+class _$FirstRun implements FirstRun {
+  const _$FirstRun();
+
+  @override
+  String toString() {
+    return 'AuthenticationState.firstRun()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is FirstRun);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() authenticated,
+    required TResult Function() unAuthenticated,
+    required TResult Function() partialAuthentication,
+    required TResult Function() firstRun,
+  }) {
+    return firstRun();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? authenticated,
+    TResult Function()? unAuthenticated,
+    TResult Function()? partialAuthentication,
+    TResult Function()? firstRun,
+    required TResult orElse(),
+  }) {
+    if (firstRun != null) {
+      return firstRun();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(UnAuthenticated value) unAuthenticated,
+    required TResult Function(PartialAuthentication value)
+        partialAuthentication,
+    required TResult Function(FirstRun value) firstRun,
+  }) {
+    return firstRun(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(UnAuthenticated value)? unAuthenticated,
+    TResult Function(PartialAuthentication value)? partialAuthentication,
+    TResult Function(FirstRun value)? firstRun,
+    required TResult orElse(),
+  }) {
+    if (firstRun != null) {
+      return firstRun(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FirstRun implements AuthenticationState {
+  const factory FirstRun() = _$FirstRun;
 }

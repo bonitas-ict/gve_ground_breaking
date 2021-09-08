@@ -8,8 +8,9 @@ import '../presentation.dart';
 ///see AUTOROUTE DOCUMENTATION @https://autoroute.vercel.app/
 
 @MaterialAutoRouter(replaceInRouteName: 'Page,Route', routes: const <AutoRoute>[
-  const AutoRoute(page: VerificationPage, initial: true),
-  const AutoRoute(page: AuthorizationPage),
-  const AutoRoute(page: HomePage),
+  AutoRoute(page: OnboardingPage),
+  AutoRoute(page: VerificationPage, initial: true),
+  AutoRoute(page: AuthorizationPage),
+  AutoRoute(page: HomePage),
 ])
 class $AppRouter {}

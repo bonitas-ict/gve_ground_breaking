@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import '../../../presentation.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();
 
@@ -61,7 +62,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
                       (result != null)
                       ? Text(
                           'Barcode Type:   Data: ${result?.code}')
-                      : Text('Scan a code'),
+                      : Text('Scan a code '+ 'NGN'.formatCurrency(context,3000)),
                         
                     ]
                 ),

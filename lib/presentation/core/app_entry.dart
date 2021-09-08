@@ -27,7 +27,9 @@ class AppEntry extends StatelessWidget {
             state.map(
               initial: (_){},
               authenticated: (_)=>_appRouter.replaceAll([const HomeRoute()]),
-              unAuthenticated: (_) => _appRouter.replaceAll([const AuthorizationRoute()]),
+              unAuthenticated: (_)=> _appRouter.replaceAll([const AuthorizationRoute()]), 
+              partialAuthentication: (_)=> _appRouter.replaceAll([const HomeRoute()]),
+              firstRun: (_)=> _appRouter.replaceAll([const OnboardingRoute()]),
             );
           },
           child:child,
