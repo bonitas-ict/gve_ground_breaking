@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Onboarding_Screen_B_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Onboarding_Screen_B_1" data-name="Onboarding Screen (B) – 1" clip-path="url(#clip-Onboarding_Screen_B_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <path id="Polygon_1" data-name="Polygon 1" d="M99.75,0,133,57.5,99.75,115H33.25L0,57.5,33.25,0Z" transform="translate(444 -14) rotate(90)" fill="#97c670"/>
+    <path id="Polygon_10" data-name="Polygon 10" d="M45.75,0,61,26.5,45.75,53H15.25L0,26.5,15.25,0Z" transform="translate(302 69) rotate(90)" fill="#97c670" opacity="0.46"/>
+    <path id="Polygon_11" data-name="Polygon 11" d="M60.75,0,81,35.5,60.75,71H20.25L0,35.5,20.25,0Z" transform="translate(373 114) rotate(90)" fill="#97c670" opacity="0.69"/>
+    <path id="Polygon_2" data-name="Polygon 2" d="M133.5,0,178,77l-44.5,77h-89L0,77,44.5,0Z" transform="translate(120 645) rotate(90)" fill="#e8e7e7"/>
+    <path id="Polygon_12" data-name="Polygon 12" d="M60,0,80,34.5,60,69H20L0,34.5,20,0Z" transform="translate(153 565) rotate(90)" fill="#e8e7e7" opacity="0.72"/>
+    <path id="Polygon_13" data-name="Polygon 13" d="M36,0,48,21.5,36,43H12L0,21.5,12,0Z" transform="translate(211 637) rotate(90)" fill="#e8e7e7" opacity="0.47"/>
+  </g>
+</svg>

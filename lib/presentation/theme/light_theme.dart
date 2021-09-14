@@ -9,6 +9,7 @@ class LightTheme{
   static ThemeData day() {
     final base = ThemeData.light();
     return base.copyWith(
+      buttonTheme: ButtonThemeData().copyWith(buttonColor: Colors.pink),
       textTheme: _buildAppLightTextTheme(base.textTheme)
     );
   }
@@ -39,7 +40,7 @@ TextTheme _buildAppLightTextTheme(TextTheme base){
       letterSpacing: 0.25
     ),
     headline5: GoogleFonts.roboto(
-      color: GVEColors.black900,
+      color: const Color(0xFF598E48),
       fontSize: 24,
       fontWeight: FontWeight.w400
     ),
@@ -49,8 +50,8 @@ TextTheme _buildAppLightTextTheme(TextTheme base){
       fontWeight: FontWeight.w500,
       letterSpacing: 0.15
     ),
-    subtitle1: GoogleFonts.roboto(
-      color: GVEColors.black900,
+    subtitle1: GoogleFonts.gothicA1(
+      color: const Color(0xFF598E48),
       fontSize: 16,
       fontWeight: FontWeight.w400,
       letterSpacing: 0.15
@@ -77,7 +78,7 @@ TextTheme _buildAppLightTextTheme(TextTheme base){
       color: GVEColors.black900,
       fontSize: 14,
       fontWeight: FontWeight.w500,
-      letterSpacing: 1.25
+      letterSpacing: 1.25,
     ),
     caption: GoogleFonts.openSans(
       color: GVEColors.black900,
@@ -86,7 +87,7 @@ TextTheme _buildAppLightTextTheme(TextTheme base){
       letterSpacing: 0.4
     ),
     overline: GoogleFonts.openSans(
-      color: GVEColors.black900,
+      color: const Color(0xFFCFCFCF),
       fontSize: 10,
       fontWeight: FontWeight.w400,
       letterSpacing: 1.5

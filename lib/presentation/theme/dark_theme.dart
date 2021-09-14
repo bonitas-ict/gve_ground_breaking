@@ -76,7 +76,8 @@ TextTheme _buildAppDarkTextTheme(TextTheme base){
       color: GVEColors.black900,
       fontSize: 14,
       fontWeight: FontWeight.w500,
-      letterSpacing: 1.25
+      letterSpacing: 1.25,
+      
     ),
     caption: GoogleFonts.openSans(
       color: GVEColors.black900,

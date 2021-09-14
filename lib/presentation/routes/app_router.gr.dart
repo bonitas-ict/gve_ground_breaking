@@ -25,6 +25,11 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i3.VerificationPage();
         }),
+    ScannerRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.ScannerPage();
+        }),
     AuthorizationRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -41,6 +46,7 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(OnboardingRoute.name, path: '/onboarding-page'),
         _i1.RouteConfig(VerificationRoute.name, path: '/'),
+        _i1.RouteConfig(ScannerRoute.name, path: '/scanner-page'),
         _i1.RouteConfig(AuthorizationRoute.name, path: '/authorization-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page')
       ];
@@ -56,6 +62,12 @@ class VerificationRoute extends _i1.PageRouteInfo {
   const VerificationRoute() : super(name, path: '/');
 
   static const String name = 'VerificationRoute';
+}
+
+class ScannerRoute extends _i1.PageRouteInfo {
+  const ScannerRoute() : super(name, path: '/scanner-page');
+
+  static const String name = 'ScannerRoute';
 }
 
 class AuthorizationRoute extends _i1.PageRouteInfo {

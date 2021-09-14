@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Onboarding_Screen_C_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Onboarding_Screen_C_1" data-name="Onboarding Screen (C) – 1" clip-path="url(#clip-Onboarding_Screen_C_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <path id="Polygon_4" data-name="Polygon 4" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(452 585) rotate(90)" fill="#deedd2" opacity="0.46"/>
+    <path id="Polygon_14" data-name="Polygon 14" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(322 719) rotate(90)" fill="#b7d79c" opacity="0.96"/>
+    <path id="Polygon_15" data-name="Polygon 15" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(364 751) rotate(90)" fill="#b7d79c" opacity="0.45"/>
+    <circle id="Ellipse_24" data-name="Ellipse 24" cx="97" cy="97" r="97" transform="translate(-39 -74)" fill="#e8e7e7" opacity="0.8"/>
+    <circle id="Ellipse_26" data-name="Ellipse 26" cx="28.5" cy="28.5" r="28.5" transform="translate(160 51)" fill="#9a9a9a" opacity="0.2"/>
+    <circle id="Ellipse_25" data-name="Ellipse 25" cx="16.5" cy="16.5" r="16.5" transform="translate(122 108)" fill="#656565" opacity="0.6"/>
+  </g>
+</svg>
