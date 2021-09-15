@@ -13,5 +13,7 @@ import '../presentation.dart';
   AutoRoute(page: ScannerPage),
   AutoRoute(page: AuthorizationPage),
   AutoRoute(page: HomePage),
+  AutoRoute(page: CreateAccountPage),
+  AutoRoute(page: OtpPage)
 ])
 class $AppRouter {}

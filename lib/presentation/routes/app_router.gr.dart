@@ -39,6 +39,16 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i3.HomePage();
+        }),
+    CreateAccountRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.CreateAccountPage();
+        }),
+    OtpRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.OtpPage();
         })
   };
 
@@ -48,7 +58,9 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(VerificationRoute.name, path: '/'),
         _i1.RouteConfig(ScannerRoute.name, path: '/scanner-page'),
         _i1.RouteConfig(AuthorizationRoute.name, path: '/authorization-page'),
-        _i1.RouteConfig(HomeRoute.name, path: '/home-page')
+        _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
+        _i1.RouteConfig(CreateAccountRoute.name, path: '/create-account-page'),
+        _i1.RouteConfig(OtpRoute.name, path: '/otp-page')
       ];
 }
 
@@ -80,4 +92,16 @@ class HomeRoute extends _i1.PageRouteInfo {
   const HomeRoute() : super(name, path: '/home-page');
 
   static const String name = 'HomeRoute';
+}
+
+class CreateAccountRoute extends _i1.PageRouteInfo {
+  const CreateAccountRoute() : super(name, path: '/create-account-page');
+
+  static const String name = 'CreateAccountRoute';
+}
+
+class OtpRoute extends _i1.PageRouteInfo {
+  const OtpRoute() : super(name, path: '/otp-page');
+
+  static const String name = 'OtpRoute';
 }

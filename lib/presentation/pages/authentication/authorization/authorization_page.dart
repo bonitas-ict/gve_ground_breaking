@@ -27,7 +27,7 @@ class AuthorizationPage extends StatelessWidget {
                 children: [
                   Image.asset('assets/images/user.png', height: 100,),
                   const SizedBox(height: 8,),
-                  Text(appLoc!.welcome+" user !", style: Theme.of(context).textTheme.headline5),
+                  Text(appLoc!.welcome, style: Theme.of(context).textTheme.headline5),
                   const SizedBox(height: 8,),
                   Text(appLoc.verify_invite),
                   const SizedBox(height: 16,),
@@ -46,7 +46,7 @@ class AuthorizationPage extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(horizontal: 60),
-                    child: RectangleButton(label: appLoc.verify, onPressed: (){},)
+                    child: RectangleButton(label: appLoc.verify, onPressed: ()=> context.router.navigate(const VerificationRoute()) ,)
                   ),
                   const SizedBox(height: 16,),
                   Text(appLoc.need_to_scan, style: Theme.of(context).textTheme.overline!.copyWith(fontSize: 14, color: const Color(0xFF598E48)), ),
@@ -56,7 +56,13 @@ class AuthorizationPage extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(horizontal: 60),
-                    child: RectangleButton(label: appLoc.start_scanning, onPressed: ()=> context.router.navigate(const ScannerRoute()))
+                    child: RoundedButton(onPressed: ()=> context.router.navigate(const ScannerRoute()), label: appLoc.start_scanning ) 
+                    //child: RectangleButton(label: appLoc.start_scanning, onPressed: ()=> context.router.navigate(const ScannerRoute()))
+                  ),
+                  const SizedBox(height: 26,),
+                  GestureDetector(
+                    onTap: ()=> context.router.navigate(const CreateAccountRoute()),
+                    child: Text(appLoc.no_pin, style: Theme.of(context).textTheme.overline!.copyWith(fontSize: 12, color: const Color(0xFF598E48)), )
                   ),
                 ],
               ),

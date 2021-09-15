@@ -44,3 +44,23 @@ class RectangleButton extends StatelessWidget {
     );
   }
 }
+
+class OutlinedButt extends StatelessWidget {
+  const OutlinedButt({Key? key, required this.onPressed, required this.label, this.color = const Color(0xFF598E48)  }) : super(key: key);
+  final VoidCallback onPressed;
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        primary: Colors.white,
+        side: BorderSide( color: color,),
+        shape: StadiumBorder()
+      ),
+      onPressed: onPressed, 
+      child: Text(label)
+    );
+  }
+}
