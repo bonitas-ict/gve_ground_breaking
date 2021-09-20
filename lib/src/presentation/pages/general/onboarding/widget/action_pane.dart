@@ -23,7 +23,7 @@ class ActionPane extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16.0),
           child: activeIndex == pageSize-1 ? 
-            RoundedButton(color: const Color(0xFF06070A),onPressed: ()=>context.read<AuthenticationBloc>().add(const AuthenticationEvent.switchAppState(AppState.UNAUTHENTICATED)), label: appLoc!.finish ) 
+            RoundedButton(color: const Color(0xFF06070A), onPressed: ()=>context.read<AuthenticationBloc>().add(const AuthenticationEvent.switchAppState(AppState.UNAUTHENTICATED)), label: appLoc!.finish ) 
           : 
             TextButton(onPressed: ()=>pagerController?.nextPage(), child: Text(appLoc!.next), style: TextButton.styleFrom( primary: const Color(0xFF598E48),),),
         ),

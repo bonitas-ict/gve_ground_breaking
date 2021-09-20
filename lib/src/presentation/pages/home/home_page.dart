@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             width: double.infinity,
-            height: 80,
+            height: 100,
             child: Stack(
               children: [
 
@@ -29,12 +29,13 @@ class HomePage extends StatelessWidget {
             child: SizedBox(
               height: double.infinity,
               width: double.infinity,
-              child: SingleChildScrollView(
-                child: Stack(
-                  children: [
-                    SvgPicture.asset('assets/images/home_bg.svg')
-                  ],
-                ),
+              child: Stack(
+                children: [
+                  SvgPicture.asset('assets/images/home_bg.svg', fit: BoxFit.cover),
+                  SingleChildScrollView(
+                    child: Container(),
+                  )
+                ],
               ),
             ),
           )
