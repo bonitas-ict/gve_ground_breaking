@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bonitasict.gve.gve_launch">
+    package="com.bonitasict.gve_opening">
    <application
-        android:label="gve_launch"
+        android:label="gve_opening"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

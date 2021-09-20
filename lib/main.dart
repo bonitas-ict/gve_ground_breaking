@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
-import 'application/application.dart';
-import 'presentation/core/core.dart';
-import 'presentation/injection.dart';
+
+import 'injection.dart';
+import 'src/application/application.dart';
+import 'src/presentation/presentation.dart';
 
 /// APP MAIN ENTRY POINT FILE
 /// ENSURE FLUTTER WIDGETS ARE PROPERLY INITIALIZED
