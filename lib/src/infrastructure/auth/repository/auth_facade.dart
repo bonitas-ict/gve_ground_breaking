@@ -16,7 +16,7 @@ class AuthFacade implements IAuthFacade{
   const AuthFacade({required this.pref, required this.networkHelper});
 
   final SharedPreferences pref;
-  final NetorkHelper networkHelper;
+  final NetworkHelper networkHelper;
 
   @override
   Future<AppState> getAppState() async{
@@ -31,7 +31,6 @@ class AuthFacade implements IAuthFacade{
 
   @override
   Future<Either<NetworkFailure, BaseResponse>> verifyAuthCode(String verifyToken, String pin) async{
-    // TODO: implement verifyAuthCode
     throw UnimplementedError();
   }
 

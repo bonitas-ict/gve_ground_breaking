@@ -1,9 +1,12 @@
 import 'dart:convert';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:gve_opening/src/application/auth/authentication/authentication_bloc.dart';
+import 'package:gve_opening/src/domain/auth/auth.dart';
+import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../presentation.dart';
@@ -22,9 +25,10 @@ class _OtpPageState extends State<OtpPage> {
   void doesOTPmatch() {
     final utfValue = utf8.encode(otp);
     final sha256Value = sha256.convert(utfValue).toString();
-    print("${sha256Value.toLowerCase()} ------ ${widget.hashedOtp.toLowerCase()}");
+    printLn("${sha256Value.toLowerCase()} ------ ${widget.hashedOtp.toLowerCase()}");
     if (sha256Value.toLowerCase() == widget.hashedOtp.toLowerCase()) {
-      context.router.navigate(const HomeRoute());
+      //context.router.navigate(const HomeRoute());
+      context.read<AuthenticationBloc>().add(const AuthenticationEvent.switchAppState(AppState.AUTHENTICATED));
     } else {
       SnackUtil.showErrorSnack(context: context, message: 'Incorrect OTP Code');
     }

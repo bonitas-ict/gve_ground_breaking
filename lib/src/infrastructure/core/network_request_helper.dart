@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:gve_opening/src/misc/debug_util.dart';
+
 import '../../domain/domain.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -11,8 +13,8 @@ import 'package:http/http.dart' as http;
 /// 
 
 @lazySingleton
-class NetorkHelper {
-  NetorkHelper({required http.Client conn}) : _http = conn;
+class NetworkHelper {
+  NetworkHelper({required http.Client conn}) : _http = conn;
 
   static String baseUrl = dotenv.env['BASE_URL']!;
   final http.Client _http;
@@ -20,9 +22,9 @@ class NetorkHelper {
   Future<dynamic> getRequest(String url, [Map<String, String>? header]) async {
     dynamic responseJson;
     try{
-      print(Uri.parse(baseUrl + url));
+      printLn(Uri.parse(baseUrl + url));
       final response = await _http.get(Uri.parse(baseUrl + url), headers:{'Content-type': 'application/json',...?header});
-      print('status code: '+response.statusCode.toString());
+      printLn('status code: '+response.statusCode.toString());
       responseJson = _returnResponse(response);
     }on SocketException{
       throw const NoNetworkException("No Internet connectivity");
@@ -33,10 +35,10 @@ class NetorkHelper {
    Future<dynamic> putRequest(String url, Map<String, dynamic> body,[Map<String, String>? header]) async {
     dynamic responseJson;
     try{
-      print(Uri.parse(baseUrl + url));
+      printLn(Uri.parse(baseUrl + url));
       final response = await _http.put(Uri.parse(baseUrl + url), body: jsonEncode(body), headers: {'Content-type': 'application/json', ...?header});
-      print(response.body.toString());
-      print('status code: '+response.statusCode.toString());
+      printLn(response.body.toString());
+      printLn('status code: '+response.statusCode.toString());
       responseJson = _returnResponse(response);
     }on SocketException {
       throw const NoNetworkException("No Internet connectivity");
@@ -47,10 +49,10 @@ class NetorkHelper {
   Future<dynamic> postRequest(String url, Map<String, dynamic> body,[Map<String, String>? header]) async {
     dynamic responseJson;
     try{
-      print(Uri.parse(baseUrl + url));
+      printLn(Uri.parse(baseUrl + url));
       final response = await _http.post(Uri.parse(baseUrl + url), body: jsonEncode(body), headers: {'Content-type': 'application/json', ...?header});
-      print(response.body.toString());
-      print('status code: '+response.statusCode.toString());
+      printLn(response.body.toString());
+      printLn('status code: '+response.statusCode.toString());
       responseJson = _returnResponse(response);
     }on SocketException {
       throw const NoNetworkException("No Internet connectivity");
@@ -62,8 +64,8 @@ class NetorkHelper {
     dynamic responseJson;
     try{
       final response = await _http.delete(Uri.parse(baseUrl + url), body: jsonEncode(body), headers: {'Content-type': 'application/json', ...?header});
-      print(response.body.toString());
-      print('status code: '+response.statusCode.toString());
+      printLn(response.body.toString());
+      printLn('status code: '+response.statusCode.toString());
       responseJson = _returnResponse(response);
     }on SocketException {
       throw const NoNetworkException("No Internet connectivity");
@@ -77,7 +79,7 @@ class NetorkHelper {
       case 200:
       case 201:
         dynamic responseJson = json.decode( response.body.toString());
-        print(responseJson);
+        printLn(responseJson);
         return responseJson;
       case 400: 
         dynamic responseJson = json.decode( response.body.toString());

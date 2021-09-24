@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,7 +17,7 @@ class AccountContainer extends StatelessWidget {
   void formSubmitHandler(BuildContext context){
     _fmKey.currentState?.save();
     if (_fmKey.currentState?.validate() == true) {
-      print(_fmKey.currentState?.value);
+      printLn(_fmKey.currentState?.value);
       final name = _fmKey.currentState?.value['name'];
       final email = _fmKey.currentState?.value['email'];
       final phone = _fmKey.currentState?.value['phoneNumber'];

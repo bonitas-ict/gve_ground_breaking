@@ -26,13 +26,6 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i3.VerificationPage();
         }),
-    ScannerRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<ScannerRouteArgs>();
-          return _i3.ScannerPage(
-              key: args.key, submitCodeReference: args.submitCodeReference);
-        }),
     AuthorizationRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -60,7 +53,6 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(OnboardingRoute.name, path: '/onboarding-page'),
         _i1.RouteConfig(VerificationRoute.name, path: '/'),
-        _i1.RouteConfig(ScannerRoute.name, path: '/scanner-page'),
         _i1.RouteConfig(AuthorizationRoute.name, path: '/authorization-page'),
         _i1.RouteConfig(HomeRoute.name, path: '/home-page'),
         _i1.RouteConfig(CreateAccountRoute.name, path: '/create-account-page'),
@@ -78,25 +70,6 @@ class VerificationRoute extends _i1.PageRouteInfo {
   const VerificationRoute() : super(name, path: '/');
 
   static const String name = 'VerificationRoute';
-}
-
-class ScannerRoute extends _i1.PageRouteInfo<ScannerRouteArgs> {
-  ScannerRoute(
-      {_i4.Key? key, required void Function(String?) submitCodeReference})
-      : super(name,
-            path: '/scanner-page',
-            args: ScannerRouteArgs(
-                key: key, submitCodeReference: submitCodeReference));
-
-  static const String name = 'ScannerRoute';
-}
-
-class ScannerRouteArgs {
-  const ScannerRouteArgs({this.key, required this.submitCodeReference});
-
-  final _i4.Key? key;
-
-  final void Function(String?) submitCodeReference;
 }
 
 class AuthorizationRoute extends _i1.PageRouteInfo {

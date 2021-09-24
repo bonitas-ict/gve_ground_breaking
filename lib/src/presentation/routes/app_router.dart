@@ -10,7 +10,6 @@ import '../presentation.dart';
 @MaterialAutoRouter(replaceInRouteName: 'Page,Route', routes:  <AutoRoute>[
   AutoRoute(page: OnboardingPage),
   AutoRoute(page: VerificationPage, initial: true),
-  AutoRoute(page: ScannerPage),
   AutoRoute(page: AuthorizationPage),
   AutoRoute(page: HomePage),
   AutoRoute(page: CreateAccountPage),

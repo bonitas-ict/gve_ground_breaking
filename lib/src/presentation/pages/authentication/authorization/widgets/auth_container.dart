@@ -4,6 +4,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -18,7 +19,7 @@ class AuthContainer extends StatelessWidget {
   void formSubmitHandler(BuildContext context){
     _formKey.currentState?.save();
     if (_formKey.currentState?.validate() == true) {
-      print(_formKey.currentState?.value);
+      printLn(_formKey.currentState?.value);
       final pin = _formKey.currentState?.value['pin'] ?? '';
       context.read<AuthorizationBloc>().add(AuthorizationEvent.pinChanged(pin));
       context.read<AuthorizationBloc>().add(const AuthorizationEvent.verifyPin());

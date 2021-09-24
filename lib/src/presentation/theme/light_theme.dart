@@ -9,7 +9,7 @@ class LightTheme{
   static ThemeData day() {
     final base = ThemeData.light();
     return base.copyWith(
-      buttonTheme: ButtonThemeData().copyWith(buttonColor: Colors.pink),
+      buttonTheme: const ButtonThemeData().copyWith(buttonColor: Colors.pink),
       textTheme: _buildAppLightTextTheme(base.textTheme)
     );
   }

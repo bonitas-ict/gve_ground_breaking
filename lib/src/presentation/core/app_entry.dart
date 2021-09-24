@@ -27,7 +27,7 @@ class AppEntry extends StatelessWidget {
         Locale('en', ''), // English, no country code
       ],
       onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: LightTheme.day(),
       darkTheme: DarkTheme.night(),
       builder: (BuildContext ctx, Widget? child) {
