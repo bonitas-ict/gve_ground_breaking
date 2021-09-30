@@ -15,7 +15,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Assets
 
 The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
+include with your application folder.
 
 The `assets/images` directory contains [resolution-aware
 images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
