@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Seat_Allocation_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Seat_Allocation_1" data-name="Seat Allocation – 1" clip-path="url(#clip-Seat_Allocation_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <circle id="Ellipse_55" data-name="Ellipse 55" cx="11.5" cy="11.5" r="11.5" transform="translate(325 847)" fill="#b9d89f" opacity="0.8"/>
+    <circle id="Ellipse_54" data-name="Ellipse 54" cx="22" cy="22" r="22" transform="translate(275 803)" fill="#b9d89f" opacity="0.52"/>
+    <circle id="Ellipse_56" data-name="Ellipse 56" cx="66" cy="66" r="66" transform="translate(320 715)" fill="#f0f7ea" opacity="0.8"/>
+  </g>
+</svg>

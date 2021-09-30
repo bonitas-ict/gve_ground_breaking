@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gve_opening/injection.dart';
 import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/presentation/pages/dashboard/dashboad.dart';
 import 'package:gve_opening/src/presentation/pages/home/widgets/widgets.dart';
-
-GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 class HomePage extends StatelessWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -13,11 +12,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      drawer: const Drawer(),
       body: BlocProvider(
         create: (context) => getIt<HomeBloc>()..add(const HomeEvent.getDashboardInfo()),
-        child: Stack(
+        child: Stack( 
               children: [
                 Container(
                   decoration: const BoxDecoration(

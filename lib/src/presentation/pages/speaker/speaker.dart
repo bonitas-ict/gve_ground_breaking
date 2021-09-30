@@ -1,0 +1,1 @@
+export 'speaker_detail/speaker_detail.dart';

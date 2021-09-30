@@ -13,7 +13,7 @@ class AppEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      restorationScopeId: 'app',
+      restorationScopeId: 'app_opening',
       routeInformationParser: _appRouter.defaultRouteParser(),
       routerDelegate: _appRouter.delegate(),
       debugShowCheckedModeBanner: false,
@@ -35,9 +35,9 @@ class AppEntry extends StatelessWidget {
           listener: (context, state) {
             state.map(
               initial: (_){},
-              authenticated: (_)=>_appRouter.replaceAll([const HomeRoute()]),
+              authenticated: (_)=>_appRouter.replaceAll([const DashboardRoute()]),
               unAuthenticated: (_)=> _appRouter.replaceAll([const AuthorizationRoute()]), 
-              partialAuthentication: (_)=> _appRouter.replaceAll([const HomeRoute()]),
+              partialAuthentication: (_)=> _appRouter.replaceAll([const DashboardRoute()]),
               firstRun: (_)=> _appRouter.replaceAll([const OnboardingRoute()]),
             );
           },

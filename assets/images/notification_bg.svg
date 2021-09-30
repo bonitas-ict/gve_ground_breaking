@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Notification_Screen_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Notification_Screen_1" data-name="Notification Screen – 1" clip-path="url(#clip-Notification_Screen_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <path id="Polygon_29" data-name="Polygon 29" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(435 639) rotate(90)" fill="#deedd2" opacity="0.42"/>
+    <path id="Polygon_31" data-name="Polygon 31" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(305 773) rotate(90)" fill="#b7d79c" opacity="0.47"/>
+    <path id="Polygon_30" data-name="Polygon 30" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(347 805) rotate(90)" fill="#b7d79c" opacity="0.28"/>
+  </g>
+</svg>

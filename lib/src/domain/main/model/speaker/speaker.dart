@@ -8,7 +8,10 @@ part 'speaker.g.dart';
 class Speaker with _$Speaker{
   const factory Speaker({
     required String name,
-    required String? thumbnailUrl,
+    String? thumbnailUrl,
+    String? titles,
+    String? bio,
+    @Default(-1) int id,
   }) = _Speaker;
 
   factory Speaker.fromJson(Map<String, dynamic> json) => _$SpeakerFromJson(json);

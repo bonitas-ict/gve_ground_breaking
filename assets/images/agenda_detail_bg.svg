@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Agenda_Details_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Agenda_Details_1" data-name="Agenda Details – 1" clip-path="url(#clip-Agenda_Details_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <circle id="Ellipse_55" data-name="Ellipse 55" cx="11.5" cy="11.5" r="11.5" transform="translate(89 838)" fill="#3f3f3f" opacity="0.8"/>
+    <circle id="Ellipse_54" data-name="Ellipse 54" cx="22" cy="22" r="22" transform="translate(111 794)" fill="#3f3f3f" opacity="0.52"/>
+    <circle id="Ellipse_56" data-name="Ellipse 56" cx="66" cy="66" r="66" transform="translate(-32 718)" fill="#e3e1e1" opacity="0.8"/>
+    <path id="Polygon_32" data-name="Polygon 32" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(455 -51) rotate(90)" fill="#deedd2" opacity="0.46"/>
+    <path id="Polygon_34" data-name="Polygon 34" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(325 83) rotate(90)" fill="#b7d79c" opacity="0.96"/>
+    <path id="Polygon_33" data-name="Polygon 33" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(367 115) rotate(90)" fill="#b7d79c" opacity="0.45"/>
+  </g>
+</svg>

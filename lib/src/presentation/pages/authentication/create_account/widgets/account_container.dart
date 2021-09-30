@@ -61,7 +61,9 @@ class AccountContainer extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 60),
                     Text(appLoc!.hello, style: Theme.of(context).textTheme.headline6),
                     const SizedBox(height: 40),
                     Text(appLoc.sign_up_to_get_started, style: Theme.of(context).textTheme.bodyText1),

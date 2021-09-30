@@ -10,7 +10,17 @@ class LightTheme{
     final base = ThemeData.light();
     return base.copyWith(
       buttonTheme: const ButtonThemeData().copyWith(buttonColor: Colors.pink),
-      textTheme: _buildAppLightTextTheme(base.textTheme)
+      textTheme: _buildAppLightTextTheme(base.textTheme),
+      bottomNavigationBarTheme:const  BottomNavigationBarThemeData(
+        selectedItemColor: Color(0xFF707070),
+        unselectedItemColor: Color(0xFFCCCCCC),
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        selectedLabelStyle: TextStyle(color: Colors.green),
+        unselectedLabelStyle: TextStyle(color: Colors.greenAccent),
+        type: BottomNavigationBarType.fixed,
+        //backgroundColor: Colors.white70,
+      ),
     );
   }
 }

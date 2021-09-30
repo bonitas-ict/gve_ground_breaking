@@ -1,5 +1,7 @@
 
 import 'package:auto_route/auto_route.dart';
+import 'package:gve_opening/src/domain/domain.dart';
+import 'package:gve_opening/src/presentation/pages/dashboard/dashboad.dart';
 import '../presentation.dart';
 
 ///STATIC GENERATOR FOR APP ROUTES
@@ -11,8 +13,19 @@ import '../presentation.dart';
   AutoRoute(page: OnboardingPage),
   AutoRoute(page: VerificationPage, initial: true),
   AutoRoute(page: AuthorizationPage),
-  AutoRoute(page: HomePage),
   AutoRoute(page: CreateAccountPage),
-  AutoRoute(page: OtpPage)
+  AutoRoute(page: OtpPage),
+  AutoRoute(
+    page: DashboardPage,
+    children: [
+      AutoRoute(path: '', page: HomePage),
+      AutoRoute(page: AgendaListPage),
+      AutoRoute(page: SeatPage),
+      AutoRoute(page: LandListingPage),
+      AutoRoute(page: NotificationPage)
+    ]
+  ),
+  AutoRoute(page: AgendaDetailPage),
+  AutoRoute(page: SpeakerDetailPage)
 ])
 class $AppRouter {}

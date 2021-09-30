@@ -12,7 +12,9 @@ class Agenda with _$Agenda{
     required String title,
     required num startTimestamp,
     required num endTimestamp,
-    required Speaker? speaker
+    required Speaker? speaker,
+    String? description,
+    String? youtubeLink
   }) = _Agenda;
 
   factory Agenda.fromJson(Map<String, dynamic> json) => _$AgendaFromJson(json);

@@ -1,0 +1,1 @@
+export 'seat_page.dart';

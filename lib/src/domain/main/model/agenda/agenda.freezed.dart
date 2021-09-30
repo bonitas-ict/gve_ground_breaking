@@ -25,13 +25,17 @@ class _$AgendaTearOff {
       required String title,
       required num startTimestamp,
       required num endTimestamp,
-      required Speaker? speaker}) {
+      required Speaker? speaker,
+      String? description,
+      String? youtubeLink}) {
     return _Agenda(
       id: id,
       title: title,
       startTimestamp: startTimestamp,
       endTimestamp: endTimestamp,
       speaker: speaker,
+      description: description,
+      youtubeLink: youtubeLink,
     );
   }
 
@@ -50,6 +54,8 @@ mixin _$Agenda {
   num get startTimestamp => throw _privateConstructorUsedError;
   num get endTimestamp => throw _privateConstructorUsedError;
   Speaker? get speaker => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get youtubeLink => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,7 +71,9 @@ abstract class $AgendaCopyWith<$Res> {
       String title,
       num startTimestamp,
       num endTimestamp,
-      Speaker? speaker});
+      Speaker? speaker,
+      String? description,
+      String? youtubeLink});
 
   $SpeakerCopyWith<$Res>? get speaker;
 }
@@ -85,6 +93,8 @@ class _$AgendaCopyWithImpl<$Res> implements $AgendaCopyWith<$Res> {
     Object? startTimestamp = freezed,
     Object? endTimestamp = freezed,
     Object? speaker = freezed,
+    Object? description = freezed,
+    Object? youtubeLink = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -107,6 +117,14 @@ class _$AgendaCopyWithImpl<$Res> implements $AgendaCopyWith<$Res> {
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as Speaker?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      youtubeLink: youtubeLink == freezed
+          ? _value.youtubeLink
+          : youtubeLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -132,7 +150,9 @@ abstract class _$AgendaCopyWith<$Res> implements $AgendaCopyWith<$Res> {
       String title,
       num startTimestamp,
       num endTimestamp,
-      Speaker? speaker});
+      Speaker? speaker,
+      String? description,
+      String? youtubeLink});
 
   @override
   $SpeakerCopyWith<$Res>? get speaker;
@@ -154,6 +174,8 @@ class __$AgendaCopyWithImpl<$Res> extends _$AgendaCopyWithImpl<$Res>
     Object? startTimestamp = freezed,
     Object? endTimestamp = freezed,
     Object? speaker = freezed,
+    Object? description = freezed,
+    Object? youtubeLink = freezed,
   }) {
     return _then(_Agenda(
       id: id == freezed
@@ -176,6 +198,14 @@ class __$AgendaCopyWithImpl<$Res> extends _$AgendaCopyWithImpl<$Res>
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
               as Speaker?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      youtubeLink: youtubeLink == freezed
+          ? _value.youtubeLink
+          : youtubeLink // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -188,7 +218,9 @@ class _$_Agenda with DiagnosticableTreeMixin implements _Agenda {
       required this.title,
       required this.startTimestamp,
       required this.endTimestamp,
-      required this.speaker});
+      required this.speaker,
+      this.description,
+      this.youtubeLink});
 
   factory _$_Agenda.fromJson(Map<String, dynamic> json) =>
       _$_$_AgendaFromJson(json);
@@ -203,10 +235,14 @@ class _$_Agenda with DiagnosticableTreeMixin implements _Agenda {
   final num endTimestamp;
   @override
   final Speaker? speaker;
+  @override
+  final String? description;
+  @override
+  final String? youtubeLink;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Agenda(id: $id, title: $title, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, speaker: $speaker)';
+    return 'Agenda(id: $id, title: $title, startTimestamp: $startTimestamp, endTimestamp: $endTimestamp, speaker: $speaker, description: $description, youtubeLink: $youtubeLink)';
   }
 
   @override
@@ -218,7 +254,9 @@ class _$_Agenda with DiagnosticableTreeMixin implements _Agenda {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('startTimestamp', startTimestamp))
       ..add(DiagnosticsProperty('endTimestamp', endTimestamp))
-      ..add(DiagnosticsProperty('speaker', speaker));
+      ..add(DiagnosticsProperty('speaker', speaker))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('youtubeLink', youtubeLink));
   }
 
   @override
@@ -236,7 +274,14 @@ class _$_Agenda with DiagnosticableTreeMixin implements _Agenda {
                 const DeepCollectionEquality()
                     .equals(other.endTimestamp, endTimestamp)) &&
             (identical(other.speaker, speaker) ||
-                const DeepCollectionEquality().equals(other.speaker, speaker)));
+                const DeepCollectionEquality()
+                    .equals(other.speaker, speaker)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
+            (identical(other.youtubeLink, youtubeLink) ||
+                const DeepCollectionEquality()
+                    .equals(other.youtubeLink, youtubeLink)));
   }
 
   @override
@@ -246,7 +291,9 @@ class _$_Agenda with DiagnosticableTreeMixin implements _Agenda {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(startTimestamp) ^
       const DeepCollectionEquality().hash(endTimestamp) ^
-      const DeepCollectionEquality().hash(speaker);
+      const DeepCollectionEquality().hash(speaker) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(youtubeLink);
 
   @JsonKey(ignore: true)
   @override
@@ -265,7 +312,9 @@ abstract class _Agenda implements Agenda {
       required String title,
       required num startTimestamp,
       required num endTimestamp,
-      required Speaker? speaker}) = _$_Agenda;
+      required Speaker? speaker,
+      String? description,
+      String? youtubeLink}) = _$_Agenda;
 
   factory _Agenda.fromJson(Map<String, dynamic> json) = _$_Agenda.fromJson;
 
@@ -279,6 +328,10 @@ abstract class _Agenda implements Agenda {
   num get endTimestamp => throw _privateConstructorUsedError;
   @override
   Speaker? get speaker => throw _privateConstructorUsedError;
+  @override
+  String? get description => throw _privateConstructorUsedError;
+  @override
+  String? get youtubeLink => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AgendaCopyWith<_Agenda> get copyWith => throw _privateConstructorUsedError;

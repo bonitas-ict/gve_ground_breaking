@@ -8,4 +8,6 @@ class ApiRoutes {
   ///GET ENDPOINTS
   static const notificationRoute = 'api/notification';
   static const dashboardRoute = 'api/dashboard';
+  static const agendaRoute = 'api/agenda/';
+  static const speakerRoute = 'api/speaker/';
 }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Agenda_Screen_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Agenda_Screen_1" data-name="Agenda Screen – 1" clip-path="url(#clip-Agenda_Screen_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <circle id="Ellipse_24" data-name="Ellipse 24" cx="87.5" cy="87.5" r="87.5" transform="translate(301 -81)" fill="#e8e7e7" opacity="0.62"/>
+    <path id="Polygon_4" data-name="Polygon 4" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(464 683) rotate(90)" fill="#deedd2" opacity="0.23"/>
+    <path id="Polygon_14" data-name="Polygon 14" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(334 817) rotate(90)" fill="#b7d79c" opacity="0.47"/>
+    <path id="Polygon_15" data-name="Polygon 15" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(376 849) rotate(90)" fill="#b7d79c" opacity="0.28"/>
+    <circle id="Ellipse_26" data-name="Ellipse 26" cx="22.5" cy="22.5" r="22.5" transform="translate(259 42)" fill="#9a9a9a" opacity="0.28"/>
+    <circle id="Ellipse_25" data-name="Ellipse 25" cx="16.5" cy="16.5" r="16.5" transform="translate(310 79)" fill="#656565" opacity="0.05"/>
+  </g>
+</svg>
