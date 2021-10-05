@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       body: BlocProvider(
         create: (context) => getIt<HomeBloc>()..add(const HomeEvent.getDashboardInfo()),
         child: Stack( 
