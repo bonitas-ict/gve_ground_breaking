@@ -35,8 +35,6 @@ class HomeTimer extends StatelessWidget {
           }
         ),
         const SizedBox(height: 20),
-        Text('Event Agenda', style: Theme.of(context).textTheme.bodyText2!.copyWith(color: const Color(0xFF598E48))),
-        const SizedBox(height: 20),
       ],
     );
   }
