@@ -27,6 +27,8 @@ import '../presentation.dart';
   AutoRoute(page: AgendaDetailPage),
   AutoRoute(page: SpeakerDetailPage),
   AutoRoute(page: PaymentMathodPage),
+  AutoRoute(page: OfflinePaymentPage),
+  AutoRoute(page: OnlinePaymentPage),
 
 ])
 class $AppRouter {}

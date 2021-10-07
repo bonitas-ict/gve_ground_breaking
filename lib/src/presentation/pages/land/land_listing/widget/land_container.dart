@@ -1,9 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:gve_opening/src/domain/land/land.dart';
 import 'package:gve_opening/src/presentation/presentation.dart';
 
 class MainItem extends StatelessWidget {
-  const MainItem({ Key? key }) : super(key: key);
+  const MainItem({ Key? key, required this.plotCategory }) : super(key: key);
+  final PlotCategory plotCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +16,10 @@ class MainItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Detached Plots", style: Theme.of(context).textTheme.subtitle1,),
+          Text(plotCategory.categoryName, style: Theme.of(context).textTheme.subtitle1,),
           const SizedBox(height:4),
           Text(
-            'The build type approved by the Anambra State Housing Development Corporation (ASHDC) for these plots are detached.',
+            plotCategory.description,
             style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 13),
           ),
           const SizedBox(height:4),
@@ -23,9 +27,9 @@ class MainItem extends StatelessWidget {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: plotCategory.plots.length,
               itemBuilder: (_, int position){
-                return const _LandCard();
+                return _LandCard(plot: plotCategory.plots[position]);
               }
             ),
           )
@@ -36,7 +40,8 @@ class MainItem extends StatelessWidget {
 }
 
 class _LandCard extends StatelessWidget {
-  const _LandCard({ Key? key }) : super(key: key);
+  const _LandCard({ Key? key, required this.plot }) : super(key: key);
+  final Plot plot;
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +53,17 @@ class _LandCard extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: [
-              Image.network(
-                'https://www.norman-network.net/sites/default/files/images/122715793%20network.jpg',
-                width:double.infinity,
-                height: 120,
+              CachedNetworkImage(
+                imageUrl: dotenv.env['BASE_URL']!+plot.thumbnailUrl,
+                placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 fit: BoxFit.cover,
+                height: 120,
               ),
               ListTile(
-                  title: const Text('Property Title'),
+                  title:  Text(plot.size.toString()+'sqm'),
                   subtitle: Text(
-                    'Plot ID',
+                    plot.plotId,
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
                   ),
               ),

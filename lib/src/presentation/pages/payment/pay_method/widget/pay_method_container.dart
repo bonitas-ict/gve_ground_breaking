@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gve_opening/src/presentation/presentation.dart';
 
 class PayMethodContainer extends StatefulWidget {
   const PayMethodContainer({ Key? key }) : super(key: key);
@@ -92,9 +94,9 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
               style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
               onPressed: () {
                 if(_value == 0){
-                  
+                  context.router.navigate(const OnlinePaymentRoute());
                 }else{
-
+                  context.router.navigate(const OfflinePaymentRoute());
                 }
               },
               child: const Text('Continue'),

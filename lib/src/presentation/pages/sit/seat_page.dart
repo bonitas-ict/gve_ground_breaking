@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gve_opening/src/presentation/pages/dashboard/dashboad.dart';
@@ -52,8 +53,10 @@ class SeatPage extends StatelessWidget {
                             boundaryMargin: const EdgeInsets.all(100),
                             minScale: 0.5,
                             maxScale: 1,
-                            child: Image.network(
-                              'https://www.norman-network.net/sites/default/files/images/122715793%20network.jpg',
+                            child:    CachedNetworkImage(
+                              imageUrl:  'https://www.norman-network.net/sites/default/files/images/122715793%20network.jpg',
+                              placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
+                              errorWidget: (context, url, error) => const Icon(Icons.error),
                               width:double.infinity,
                               height: 200,
                               fit: BoxFit.cover,

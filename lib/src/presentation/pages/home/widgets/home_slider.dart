@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -78,8 +79,10 @@ class _SlideItem extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          Image.network(
-            imagePath,
+          CachedNetworkImage(
+            imageUrl: imagePath,
+            placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
             width:double.infinity,
             height: 180,
             fit: BoxFit.fill,
