@@ -10,4 +10,5 @@ class ApiRoutes {
   static const dashboardRoute = 'api/dashboard';
   static const agendaRoute = 'api/agenda/';
   static const speakerRoute = 'api/speaker/';
+  static const landRoute = 'api/property';
 }

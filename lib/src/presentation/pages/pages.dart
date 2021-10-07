@@ -6,3 +6,4 @@ export 'notification/notification.dart';
 export 'speaker/speaker.dart';
 export 'sit/sit.dart';
 export 'land/land.dart';
+export 'payment/payment.dart';

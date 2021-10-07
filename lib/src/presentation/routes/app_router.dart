@@ -1,6 +1,5 @@
 
 import 'package:auto_route/auto_route.dart';
-import 'package:gve_opening/src/domain/domain.dart';
 import 'package:gve_opening/src/presentation/pages/dashboard/dashboad.dart';
 import '../presentation.dart';
 
@@ -26,6 +25,10 @@ import '../presentation.dart';
     ]
   ),
   AutoRoute(page: AgendaDetailPage),
-  AutoRoute(page: SpeakerDetailPage)
+  AutoRoute(page: SpeakerDetailPage),
+  AutoRoute(page: PaymentMathodPage),
+  AutoRoute(page: OfflinePaymentPage),
+  AutoRoute(page: OnlinePaymentPage),
+
 ])
 class $AppRouter {}

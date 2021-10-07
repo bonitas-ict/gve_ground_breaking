@@ -60,6 +60,25 @@ class AppRouter extends _i1.RootStackRouter {
           return _i3.SpeakerDetailPage(
               key: args.key, speakerId: args.speakerId);
         }),
+    PaymentMathodRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final args = data.argsAs<PaymentMathodRouteArgs>();
+          return _i3.PaymentMathodPage(
+              key: args.key,
+              propertyId: args.propertyId,
+              propertyPrice: args.propertyPrice);
+        }),
+    OfflinePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.OfflinePaymentPage();
+        }),
+    OnlinePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.OnlinePaymentPage();
+        }),
     HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -104,7 +123,11 @@ class AppRouter extends _i1.RootStackRouter {
               _i1.RouteConfig(NotificationRoute.name, path: 'notification-page')
             ]),
         _i1.RouteConfig(AgendaDetailRoute.name, path: '/agenda-detail-page'),
-        _i1.RouteConfig(SpeakerDetailRoute.name, path: '/speaker-detail-page')
+        _i1.RouteConfig(SpeakerDetailRoute.name, path: '/speaker-detail-page'),
+        _i1.RouteConfig(PaymentMathodRoute.name, path: '/payment-mathod-page'),
+        _i1.RouteConfig(OfflinePaymentRoute.name,
+            path: '/offline-payment-page'),
+        _i1.RouteConfig(OnlinePaymentRoute.name, path: '/online-payment-page')
       ];
 }
 
@@ -188,6 +211,42 @@ class SpeakerDetailRouteArgs {
   final _i2.Key? key;
 
   final int speakerId;
+}
+
+class PaymentMathodRoute extends _i1.PageRouteInfo<PaymentMathodRouteArgs> {
+  PaymentMathodRoute(
+      {_i2.Key? key, required int propertyId, required num propertyPrice})
+      : super(name,
+            path: '/payment-mathod-page',
+            args: PaymentMathodRouteArgs(
+                key: key,
+                propertyId: propertyId,
+                propertyPrice: propertyPrice));
+
+  static const String name = 'PaymentMathodRoute';
+}
+
+class PaymentMathodRouteArgs {
+  const PaymentMathodRouteArgs(
+      {this.key, required this.propertyId, required this.propertyPrice});
+
+  final _i2.Key? key;
+
+  final int propertyId;
+
+  final num propertyPrice;
+}
+
+class OfflinePaymentRoute extends _i1.PageRouteInfo {
+  const OfflinePaymentRoute() : super(name, path: '/offline-payment-page');
+
+  static const String name = 'OfflinePaymentRoute';
+}
+
+class OnlinePaymentRoute extends _i1.PageRouteInfo {
+  const OnlinePaymentRoute() : super(name, path: '/online-payment-page');
+
+  static const String name = 'OnlinePaymentRoute';
 }
 
 class HomeRoute extends _i1.PageRouteInfo {

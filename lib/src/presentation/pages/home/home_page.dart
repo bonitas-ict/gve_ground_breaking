@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       body: BlocProvider(
         create: (context) => getIt<HomeBloc>()..add(const HomeEvent.getDashboardInfo()),
         child: Stack( 
@@ -52,8 +52,8 @@ class HomePage extends StatelessWidget {
                       BlocBuilder<HomeBloc, HomeState>(
                         builder: (context, state) {
                           return state.map(
-                            initial: (_)=> const HomeLoader(), 
-                            loadInProgress:(_)=> const HomeLoader(), 
+                            initial: (_)=> const Center(child: CircularProgressIndicator(),),//const HomeLoader(), 
+                            loadInProgress:(_)=> const Center(child: CircularProgressIndicator(),), //const HomeLoader(), 
                             loadSuccess:(s) => HomeMain(agendas: s.agendas, timestamp: s.timestamp), 
                             loadFailure:(f) => ErrorHandler(handler:()=> context.read<HomeBloc>().add(const HomeEvent.getDashboardInfo()),)
                           );
