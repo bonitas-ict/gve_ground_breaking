@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="414" height="896" viewBox="0 0 414 896">
+  <defs>
+    <clipPath id="clip-Transaction_History_1">
+      <rect width="414" height="896"/>
+    </clipPath>
+  </defs>
+  <g id="Transaction_History_1" data-name="Transaction History – 1" clip-path="url(#clip-Transaction_History_1)">
+    <rect width="414" height="896" fill="#fff"/>
+    <circle id="Ellipse_55" data-name="Ellipse 55" cx="11.5" cy="11.5" r="11.5" transform="translate(325 121)" fill="#b9d89f" opacity="0.8"/>
+    <circle id="Ellipse_54" data-name="Ellipse 54" cx="22" cy="22" r="22" transform="translate(277 77)" fill="#b9d89f" opacity="0.52"/>
+    <circle id="Ellipse_56" data-name="Ellipse 56" cx="66" cy="66" r="66" transform="translate(322 -11)" fill="#f0f7ea" opacity="0.8"/>
+    <path id="Polygon_58" data-name="Polygon 58" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(133 660) rotate(90)" fill="#f9fbf6" opacity="0.46"/>
+    <path id="Polygon_56" data-name="Polygon 56" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(191 676) rotate(90)" fill="#f5f5f5" opacity="0.96"/>
+    <path id="Polygon_57" data-name="Polygon 57" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(137 640) rotate(90)" fill="#9d9d9d" opacity="0.45"/>
+  </g>
+</svg>

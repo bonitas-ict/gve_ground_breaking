@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_paystack_client/flutter_paystack_client.dart';
 import 'package:injectable/injectable.dart';
 
 import 'injection.dart';
@@ -20,5 +21,6 @@ void main() async {
   configureInjection(Environment.prod);
   Bloc.observer = AppBlocObserver();
   await dotenv.load(fileName: ".env");
+  await PaystackClient.initialize(dotenv.env['PAYSTACK_KEY']!);
   runApp(const AppWidget());
 }

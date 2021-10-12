@@ -79,6 +79,21 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i3.OnlinePaymentPage();
         }),
+    AboutAppRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.AboutAppPage();
+        }),
+    AboutUsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.AboutUsPage();
+        }),
+    SettingsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.SettingsPage();
+        }),
     HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -127,7 +142,10 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(PaymentMathodRoute.name, path: '/payment-mathod-page'),
         _i1.RouteConfig(OfflinePaymentRoute.name,
             path: '/offline-payment-page'),
-        _i1.RouteConfig(OnlinePaymentRoute.name, path: '/online-payment-page')
+        _i1.RouteConfig(OnlinePaymentRoute.name, path: '/online-payment-page'),
+        _i1.RouteConfig(AboutAppRoute.name, path: '/about-app-page'),
+        _i1.RouteConfig(AboutUsRoute.name, path: '/about-us-page'),
+        _i1.RouteConfig(SettingsRoute.name, path: '/settings-page')
       ];
 }
 
@@ -247,6 +265,24 @@ class OnlinePaymentRoute extends _i1.PageRouteInfo {
   const OnlinePaymentRoute() : super(name, path: '/online-payment-page');
 
   static const String name = 'OnlinePaymentRoute';
+}
+
+class AboutAppRoute extends _i1.PageRouteInfo {
+  const AboutAppRoute() : super(name, path: '/about-app-page');
+
+  static const String name = 'AboutAppRoute';
+}
+
+class AboutUsRoute extends _i1.PageRouteInfo {
+  const AboutUsRoute() : super(name, path: '/about-us-page');
+
+  static const String name = 'AboutUsRoute';
+}
+
+class SettingsRoute extends _i1.PageRouteInfo {
+  const SettingsRoute() : super(name, path: '/settings-page');
+
+  static const String name = 'SettingsRoute';
 }
 
 class HomeRoute extends _i1.PageRouteInfo {

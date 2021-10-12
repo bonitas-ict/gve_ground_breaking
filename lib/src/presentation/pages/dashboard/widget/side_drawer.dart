@@ -97,11 +97,27 @@ class SideDrawer extends StatelessWidget {
                       ),
                        _DrawerItems(
                         () {
-                         // context.router.navigate(const MyProfileRoute());
+                          context.router.navigate(const SettingsRoute());
                         },
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,
                         drawerItemTitle: "App Settings",
+                      ),
+                      _DrawerItems(
+                        () {
+                          context.router.navigate(const AboutAppRoute());
+                        },
+                        iconBackground: "assets/images/cog.svg",
+                        drawerIcon: Icons.person,
+                        drawerItemTitle: "About GVE",
+                      ),
+                      _DrawerItems(
+                        () {
+                         context.router.navigate(const AboutUsRoute());
+                        },
+                        iconBackground: "assets/images/cog.svg",
+                        drawerIcon: Icons.person,
+                        drawerItemTitle: "About Us",
                       )
                     ],
                   ),
