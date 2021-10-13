@@ -46,7 +46,7 @@ class AboutUsPage extends StatelessWidget {
                         const SizedBox(height: 20),
                         const Text('We are principally driven by the excitement of building technologies and solutions that help transform and improve the way businesses operate. Our actions, goals, projects, and mission are tailored around our end customers, ensuring that we turn out only the very best of solutions.'),
                         const SizedBox(height: 20),
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,

@@ -27,9 +27,9 @@ class MainItem extends StatelessWidget {
             height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: plotCategory.plots.length,
+              itemCount: plotCategory.Properties.length,
               itemBuilder: (_, int position){
-                return _LandCard(plot: plotCategory.plots[position]);
+                return _LandCard(plot: plotCategory.Properties[position]);
               }
             ),
           )
@@ -48,7 +48,7 @@ class _LandCard extends StatelessWidget {
     return SizedBox(
       width: 180,
       child: GestureDetector(
-        onTap: ()=> context.router.navigate(PaymentMathodRoute(propertyId: 3425, propertyPrice: 25000000)),
+        onTap: ()=> context.router.navigate(PaymentMathodRoute(propertyId: plot.plotId, propertyPrice: plot.price)),
         child: Card(
           clipBehavior: Clip.antiAlias,
           child: Column(
@@ -61,11 +61,11 @@ class _LandCard extends StatelessWidget {
                 height: 120,
               ),
               ListTile(
-                  title:  Text(plot.size.toString()+'sqm'),
-                  subtitle: Text(
-                    plot.plotId,
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
+                title:  Text(plot.size.toString()+'sqm'),
+                subtitle: Text(
+                  plot.plotId,
+                  style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                ),
               ),
             ],
           )

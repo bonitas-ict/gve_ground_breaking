@@ -67,10 +67,10 @@ class HomeMain extends StatelessWidget {
 }
 
 class _TapItem extends StatelessWidget {
-  _TapItem({ Key? key, required this.filePath, required this.label, required this.onTap}) : super(key: key);
+  const _TapItem({ Key? key, required this.filePath, required this.label, required this.onTap}) : super(key: key);
   final String filePath;
   final String label;
-  VoidCallback onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

@@ -233,7 +233,7 @@ class SpeakerDetailRouteArgs {
 
 class PaymentMathodRoute extends _i1.PageRouteInfo<PaymentMathodRouteArgs> {
   PaymentMathodRoute(
-      {_i2.Key? key, required int propertyId, required num propertyPrice})
+      {_i2.Key? key, required String propertyId, required num propertyPrice})
       : super(name,
             path: '/payment-mathod-page',
             args: PaymentMathodRouteArgs(
@@ -250,7 +250,7 @@ class PaymentMathodRouteArgs {
 
   final _i2.Key? key;
 
-  final int propertyId;
+  final String propertyId;
 
   final num propertyPrice;
 }

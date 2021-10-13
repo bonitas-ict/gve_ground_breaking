@@ -1,12 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paystack_client/flutter_paystack_client.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gve_opening/src/application/application.dart';
 import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:gve_opening/src/presentation/presentation.dart';
 
 class PayMethodContainer extends StatefulWidget {
-  const PayMethodContainer({Key? key}) : super(key: key);
+  const PayMethodContainer({Key? key, required this.paymentRef, required this.amount, required this.plotId, required this.isTaken}) : super(key: key);
+  final String? paymentRef;
+  final num amount;
+  final String plotId;
+  final bool isTaken;
 
   @override
   State<PayMethodContainer> createState() => _PayMethodContainerState();
@@ -18,13 +24,14 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
   Future<void> makePayment() async {
     final Charge charge = Charge()
       ..email = "etokakingsley@gmail.com"
-      ..amount = 2000000 * 100
-      ..reference = 'ref_${DateTime.now().millisecondsSinceEpoch}'
-      ..putCustomField('Payment for plot', 'Plot 123');
+      ..amount = widget.amount.toInt() * 100
+      ..reference = widget.paymentRef //'ref_${DateTime.now().millisecondsSinceEpoch}'
+      ..putCustomField('Payment for plot', widget.plotId);
     final res = await PaystackClient.checkout(context, charge: charge);
     print(res);
     if (res.status) {
       printLn('Payment received');
+      context.read<OnlinePayBloc>().add(OnlinePayEvent.verifyPayment(res.reference!));
     } else {
       printLn(res);
     }
@@ -112,20 +119,41 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
           const SizedBox(
             height: 40,
           ),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
-              onPressed: () async {
-                if (_value == 0) {
-                  //context.router.navigate(const OnlinePaymentRoute());
-                  await makePayment();
-                } else {
-                  context.router.navigate(const OfflinePaymentRoute());
+          BlocConsumer<OnlinePayBloc, OnlinePayState>(
+            listener: ( _, OnlinePayState st){
+              st.map(
+                initial: (_){}, 
+                loadInProgress: (_){}, 
+                loadSuccess: (_){
+                  SnackUtil.showSuccessSnack(context: context, message: 'Payment was successful');
+                  Navigator.of(context).pop();
+                }, 
+                loadFailure: (e){
+                  SnackUtil.showErrorSnack(context: context, message: e.networkFailure.message ?? 'An Error occurred');
                 }
-              },
-              child: const Text('Continue'),
-            ),
+              );
+            },
+            builder: (context, state) {
+              if(state is LoadInProgressX){
+                return const Center(child: CircularProgressIndicator());
+              }else{
+                return SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
+                    onPressed: () async {
+                      if (_value == 0) {
+                        //context.router.navigate(const OnlinePaymentRoute());
+                        await makePayment();
+                      } else {
+                        context.router.navigate(const OfflinePaymentRoute());
+                      }
+                    },
+                    child: const Text('Continue'),
+                  ),
+                );
+              }
+            },
           )
         ],
       ),

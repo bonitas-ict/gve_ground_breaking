@@ -23,11 +23,11 @@ class _$PlotCategoryTearOff {
   _PlotCategory call(
       {required String categoryName,
       required String description,
-      required List<Plot> plots}) {
+      required List<Plot> Properties}) {
     return _PlotCategory(
       categoryName: categoryName,
       description: description,
-      plots: plots,
+      Properties: Properties,
     );
   }
 
@@ -41,10 +41,9 @@ const $PlotCategory = _$PlotCategoryTearOff();
 
 /// @nodoc
 mixin _$PlotCategory {
-//@Default(-1) int id,
   String get categoryName => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  List<Plot> get plots => throw _privateConstructorUsedError;
+  List<Plot> get Properties => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +56,7 @@ abstract class $PlotCategoryCopyWith<$Res> {
   factory $PlotCategoryCopyWith(
           PlotCategory value, $Res Function(PlotCategory) then) =
       _$PlotCategoryCopyWithImpl<$Res>;
-  $Res call({String categoryName, String description, List<Plot> plots});
+  $Res call({String categoryName, String description, List<Plot> Properties});
 }
 
 /// @nodoc
@@ -72,7 +71,7 @@ class _$PlotCategoryCopyWithImpl<$Res> implements $PlotCategoryCopyWith<$Res> {
   $Res call({
     Object? categoryName = freezed,
     Object? description = freezed,
-    Object? plots = freezed,
+    Object? Properties = freezed,
   }) {
     return _then(_value.copyWith(
       categoryName: categoryName == freezed
@@ -83,9 +82,9 @@ class _$PlotCategoryCopyWithImpl<$Res> implements $PlotCategoryCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      plots: plots == freezed
-          ? _value.plots
-          : plots // ignore: cast_nullable_to_non_nullable
+      Properties: Properties == freezed
+          ? _value.Properties
+          : Properties // ignore: cast_nullable_to_non_nullable
               as List<Plot>,
     ));
   }
@@ -98,7 +97,7 @@ abstract class _$PlotCategoryCopyWith<$Res>
           _PlotCategory value, $Res Function(_PlotCategory) then) =
       __$PlotCategoryCopyWithImpl<$Res>;
   @override
-  $Res call({String categoryName, String description, List<Plot> plots});
+  $Res call({String categoryName, String description, List<Plot> Properties});
 }
 
 /// @nodoc
@@ -115,7 +114,7 @@ class __$PlotCategoryCopyWithImpl<$Res> extends _$PlotCategoryCopyWithImpl<$Res>
   $Res call({
     Object? categoryName = freezed,
     Object? description = freezed,
-    Object? plots = freezed,
+    Object? Properties = freezed,
   }) {
     return _then(_PlotCategory(
       categoryName: categoryName == freezed
@@ -126,9 +125,9 @@ class __$PlotCategoryCopyWithImpl<$Res> extends _$PlotCategoryCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      plots: plots == freezed
-          ? _value.plots
-          : plots // ignore: cast_nullable_to_non_nullable
+      Properties: Properties == freezed
+          ? _value.Properties
+          : Properties // ignore: cast_nullable_to_non_nullable
               as List<Plot>,
     ));
   }
@@ -140,21 +139,21 @@ class _$_PlotCategory with DiagnosticableTreeMixin implements _PlotCategory {
   const _$_PlotCategory(
       {required this.categoryName,
       required this.description,
-      required this.plots});
+      required this.Properties});
 
   factory _$_PlotCategory.fromJson(Map<String, dynamic> json) =>
       _$_$_PlotCategoryFromJson(json);
 
-  @override //@Default(-1) int id,
+  @override
   final String categoryName;
   @override
   final String description;
   @override
-  final List<Plot> plots;
+  final List<Plot> Properties;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlotCategory(categoryName: $categoryName, description: $description, plots: $plots)';
+    return 'PlotCategory(categoryName: $categoryName, description: $description, Properties: $Properties)';
   }
 
   @override
@@ -164,7 +163,7 @@ class _$_PlotCategory with DiagnosticableTreeMixin implements _PlotCategory {
       ..add(DiagnosticsProperty('type', 'PlotCategory'))
       ..add(DiagnosticsProperty('categoryName', categoryName))
       ..add(DiagnosticsProperty('description', description))
-      ..add(DiagnosticsProperty('plots', plots));
+      ..add(DiagnosticsProperty('Properties', Properties));
   }
 
   @override
@@ -177,8 +176,9 @@ class _$_PlotCategory with DiagnosticableTreeMixin implements _PlotCategory {
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)) &&
-            (identical(other.plots, plots) ||
-                const DeepCollectionEquality().equals(other.plots, plots)));
+            (identical(other.Properties, Properties) ||
+                const DeepCollectionEquality()
+                    .equals(other.Properties, Properties)));
   }
 
   @override
@@ -186,7 +186,7 @@ class _$_PlotCategory with DiagnosticableTreeMixin implements _PlotCategory {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(categoryName) ^
       const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(plots);
+      const DeepCollectionEquality().hash(Properties);
 
   @JsonKey(ignore: true)
   @override
@@ -203,17 +203,17 @@ abstract class _PlotCategory implements PlotCategory {
   const factory _PlotCategory(
       {required String categoryName,
       required String description,
-      required List<Plot> plots}) = _$_PlotCategory;
+      required List<Plot> Properties}) = _$_PlotCategory;
 
   factory _PlotCategory.fromJson(Map<String, dynamic> json) =
       _$_PlotCategory.fromJson;
 
-  @override //@Default(-1) int id,
+  @override
   String get categoryName => throw _privateConstructorUsedError;
   @override
   String get description => throw _privateConstructorUsedError;
   @override
-  List<Plot> get plots => throw _privateConstructorUsedError;
+  List<Plot> get Properties => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PlotCategoryCopyWith<_PlotCategory> get copyWith =>

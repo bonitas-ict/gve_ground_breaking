@@ -32,7 +32,7 @@ class PaymentFacade implements IPaymentFacade{
   Future<Either<NetworkFailure, BaseResponse>> verifyPayment(String referenceId) async{
     try{
       final header = {'Authorization': pref.getUserToken() ?? ''};
-      final request = await networkHelper.postRequest(ApiRoutes.landRoute, {"referenceId": referenceId}, header);
+      final request = await networkHelper.postRequest(ApiRoutes.paymentVerificationRoute, {"referenceId": referenceId}, header);
       final baseResponse = BaseResponse.fromJson(request);  
       return right(baseResponse);
     }on NetworkFailure catch (e) {

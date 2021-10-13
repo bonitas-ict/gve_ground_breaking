@@ -11,4 +11,5 @@ class ApiRoutes {
   static const agendaRoute = 'api/agenda/';
   static const speakerRoute = 'api/speaker/';
   static const landRoute = 'api/property';
+  static const paymentVerificationRoute = 'api/property/verify-payment';
 }

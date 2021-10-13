@@ -9,10 +9,9 @@ part 'plot_category.g.dart';
 @freezed
 class PlotCategory with _$PlotCategory{
   const factory PlotCategory({
-    //@Default(-1) int id,
     required String categoryName,
     required String description,
-    required List<Plot> plots,
+    required List<Plot> Properties,
   }) = _PlotCategory;
 
   factory PlotCategory.fromJson(Map<String, dynamic> json) => _$PlotCategoryFromJson(json);
