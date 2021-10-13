@@ -18,8 +18,8 @@ class LandInfoBloc extends Bloc<LandInfoEvent, LandInfoState> {
       emit(const LandInfoState.loadInProgress());
       final data = await _landFacade.fetchAllPlots();
       emit(data.fold((f) => LandInfoState.loadFailure(f), (r) {
-      return LandInfoState.loadSuccess(r.plotCategories);
-    }));
+        return LandInfoState.loadSuccess(r.plotCategories);
+      }));
     });
   }
 }

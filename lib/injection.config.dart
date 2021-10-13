@@ -11,21 +11,24 @@ import 'package:shared_preferences/shared_preferences.dart' as _i12;
 
 import 'src/application/agenda/agenda_detail/agenda_detail_bloc.dart' as _i13;
 import 'src/application/agenda/agenda_speaker/agenda_speaker_bloc.dart' as _i14;
-import 'src/application/auth/authentication/authentication_bloc.dart' as _i18;
-import 'src/application/auth/authorization/authorization_bloc.dart' as _i19;
-import 'src/application/auth/verification/verification_bloc.dart' as _i17;
+import 'src/application/auth/authentication/authentication_bloc.dart' as _i21;
+import 'src/application/auth/authorization/authorization_bloc.dart' as _i22;
+import 'src/application/auth/verification/verification_bloc.dart' as _i20;
 import 'src/application/land/land_info/land_info_bloc.dart' as _i10;
 import 'src/application/main/home/home_bloc.dart' as _i15;
+import 'src/application/payment/online_pay/online_pay_bloc.dart' as _i18;
+import 'src/application/payment/payment_init/payment_init_bloc.dart' as _i19;
 import 'src/domain/domain.dart' as _i4;
 import 'src/domain/main/i_main_facade.dart' as _i8;
 import 'src/infrastructure/agenda/repository/agenda_facade.dart' as _i5;
 import 'src/infrastructure/auth/repository/auth_facade.dart' as _i16;
-import 'src/infrastructure/core/infrastructure_injectable.dart' as _i20;
+import 'src/infrastructure/core/infrastructure_injectable.dart' as _i23;
 import 'src/infrastructure/core/network_request_helper.dart' as _i11;
 import 'src/infrastructure/infrastructure.dart' as _i6;
 import 'src/infrastructure/land/repository/land_facade.dart' as _i7;
-import 'src/infrastructure/main/repository/main_facade.dart'
-    as _i9; // ignore_for_file: unnecessary_lambdas
+import 'src/infrastructure/main/repository/main_facade.dart' as _i9;
+import 'src/infrastructure/payment/repository/payment_facade.dart'
+    as _i17; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -56,13 +59,20 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i4.IAuthFacade>(() => _i16.AuthFacade(
       pref: get<_i12.SharedPreferences>(),
       networkHelper: get<_i6.NetworkHelper>()));
-  gh.factory<_i17.VerificationBloc>(
-      () => _i17.VerificationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
-  gh.factory<_i18.AuthenticationBloc>(
-      () => _i18.AuthenticationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
-  gh.factory<_i19.AuthorizationBloc>(
-      () => _i19.AuthorizationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.lazySingleton<_i4.IPaymentFacade>(() => _i17.PaymentFacade(
+      pref: get<_i12.SharedPreferences>(),
+      networkHelper: get<_i6.NetworkHelper>()));
+  gh.factory<_i18.OnlinePayBloc>(
+      () => _i18.OnlinePayBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i19.PaymentInitBloc>(
+      () => _i19.PaymentInitBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i20.VerificationBloc>(
+      () => _i20.VerificationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.factory<_i21.AuthenticationBloc>(
+      () => _i21.AuthenticationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.factory<_i22.AuthorizationBloc>(
+      () => _i22.AuthorizationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
   return get;
 }
 
-class _$InfrastructureModule extends _i20.InfrastructureModule {}
+class _$InfrastructureModule extends _i23.InfrastructureModule {}
