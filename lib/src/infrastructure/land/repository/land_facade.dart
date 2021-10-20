@@ -17,7 +17,7 @@ class LandFacade implements ILandFacade{
     try{
       final request = await networkHelper.getRequest(ApiRoutes.landRoute);
       final baseResponse = BaseResponse.fromJson(request); 
-       final pp = (baseResponse.data as List<dynamic>).map((e) => PlotCategory.fromJson(e as Map<String,dynamic>)).toList();
+      final pp = (baseResponse.data as List<dynamic>).map((e) => PlotCategory.fromJson(e as Map<String,dynamic>)).toList();
       return right(LandDTO(plotCategories: pp));
     }on NetworkFailure catch (e) {
       return left(e);

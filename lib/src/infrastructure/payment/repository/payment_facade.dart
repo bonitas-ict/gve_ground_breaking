@@ -42,4 +42,32 @@ class PaymentFacade implements IPaymentFacade{
     }
   }
 
+  @override
+  Future<Either<NetworkFailure, BaseResponse>> submitOfflinePaymentInfo(Map<String, dynamic> paymentInfo) async{
+    try{
+      final header = {'Authorization': pref.getUserToken() ?? ''};
+      final request = await networkHelper.postRequest(ApiRoutes.offlineSubmitRoute, paymentInfo, header);
+      final baseResponse = BaseResponse.fromJson(request);  
+      return right(baseResponse);
+    }on NetworkFailure catch (e) { 
+      return left(e);
+    } on Exception catch (e) {
+      return left(GeneralException(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<NetworkFailure, BaseResponse>> retrievePaymentLogs() async{
+   try{
+      final header = {'Authorization': pref.getUserToken() ?? ''};
+      final request = await networkHelper.getRequest(ApiRoutes.paymentHistoryRoute, header);
+      final baseResponse = BaseResponse.fromJson(request);
+      return right(baseResponse);
+    }on NetworkFailure catch (e) { 
+      return left(e);
+    } on Exception catch (e) {
+      return left(GeneralException(e.toString()));
+    }
+  }
+
 }

@@ -71,8 +71,9 @@ class AppRouter extends _i1.RootStackRouter {
         }),
     OfflinePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return const _i3.OfflinePaymentPage();
+        builder: (data) {
+          final args = data.argsAs<OfflinePaymentRouteArgs>();
+          return _i3.OfflinePaymentPage(key: args.key, plotId: args.plotId);
         }),
     OnlinePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -93,6 +94,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return const _i3.SettingsPage();
+        }),
+    PayHistoryRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.PayHistoryPage();
         }),
     HomeRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -145,7 +151,8 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(OnlinePaymentRoute.name, path: '/online-payment-page'),
         _i1.RouteConfig(AboutAppRoute.name, path: '/about-app-page'),
         _i1.RouteConfig(AboutUsRoute.name, path: '/about-us-page'),
-        _i1.RouteConfig(SettingsRoute.name, path: '/settings-page')
+        _i1.RouteConfig(SettingsRoute.name, path: '/settings-page'),
+        _i1.RouteConfig(PayHistoryRoute.name, path: '/pay-history-page')
       ];
 }
 
@@ -255,10 +262,21 @@ class PaymentMathodRouteArgs {
   final num propertyPrice;
 }
 
-class OfflinePaymentRoute extends _i1.PageRouteInfo {
-  const OfflinePaymentRoute() : super(name, path: '/offline-payment-page');
+class OfflinePaymentRoute extends _i1.PageRouteInfo<OfflinePaymentRouteArgs> {
+  OfflinePaymentRoute({_i2.Key? key, required String plotId})
+      : super(name,
+            path: '/offline-payment-page',
+            args: OfflinePaymentRouteArgs(key: key, plotId: plotId));
 
   static const String name = 'OfflinePaymentRoute';
+}
+
+class OfflinePaymentRouteArgs {
+  const OfflinePaymentRouteArgs({this.key, required this.plotId});
+
+  final _i2.Key? key;
+
+  final String plotId;
 }
 
 class OnlinePaymentRoute extends _i1.PageRouteInfo {
@@ -283,6 +301,12 @@ class SettingsRoute extends _i1.PageRouteInfo {
   const SettingsRoute() : super(name, path: '/settings-page');
 
   static const String name = 'SettingsRoute';
+}
+
+class PayHistoryRoute extends _i1.PageRouteInfo {
+  const PayHistoryRoute() : super(name, path: '/pay-history-page');
+
+  static const String name = 'PayHistoryRoute';
 }
 
 class HomeRoute extends _i1.PageRouteInfo {

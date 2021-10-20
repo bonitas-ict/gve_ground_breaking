@@ -70,16 +70,15 @@ class SideDrawer extends StatelessWidget {
                       ),
                       _DrawerItems(
                         () {
-                         // context.router.navigate(const MyProfileRoute());
+                          Navigator.pop(context);
+                          context.router.navigate(const PayHistoryRoute());
                         },
                         iconBackground: "assets/images/pay.svg",
                         drawerIcon: Icons.person,
                         drawerItemTitle: "Payment History",
                       ),
                       _DrawerItems(
-                        () {
-                         // context.router.navigate(const MyProfileRoute());
-                        },
+                        (){},
                         iconBackground: "assets/images/event.svg",
                         drawerIcon: Icons.person,
                         drawerItemTitle: "Event Agenda",
@@ -144,7 +143,7 @@ class _DrawerItems extends StatelessWidget {
     return GestureDetector(
       onTap: () =>onTap(),
       child: Container(
-        padding: const EdgeInsets.only(top: 36),
+        padding: const EdgeInsets.only(top: 16),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[

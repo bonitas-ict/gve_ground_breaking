@@ -4,6 +4,7 @@ class ApiRoutes {
   ///POST ENDPOINTS
   static const userRoute = 'api/user';
   static const pinCheckRoute = 'api/pin';
+  static const offlineSubmitRoute = 'api/user/document';
 
   ///GET ENDPOINTS
   static const notificationRoute = 'api/notification';
@@ -12,4 +13,5 @@ class ApiRoutes {
   static const speakerRoute = 'api/speaker/';
   static const landRoute = 'api/property';
   static const paymentVerificationRoute = 'api/property/verify-payment';
+  static const paymentHistoryRoute = 'api/user/payment';
 }

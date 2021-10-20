@@ -32,6 +32,13 @@ class NetworkHelper {
     return responseJson;
   }
 
+  // Future<dynamic> uploadActions(String url, File fileInfo, [Map<String, String>? header]) async {
+  //   var request = http.MultipartRequest('POST', Uri.parse(baseUrl + url));
+  //   request.headers['Authorization'] = header?['Authorization'] ?? '';
+  //   request.fields['clientName'] = 'Mazi Kanu';
+  //   request.files.add(http.MultipartFile.fromBytes(field, value, contentType: ))
+  // }
+
    Future<dynamic> putRequest(String url, Map<String, dynamic> body,[Map<String, String>? header]) async {
     dynamic responseJson;
     try{
@@ -86,6 +93,7 @@ class NetworkHelper {
         throw BadRequestException(responseJson['message'] ?? response.body.toString());
       case 401:
       case 403:
+      case 404:
         dynamic responseJson = json.decode( response.body.toString());
         throw UnauthorisedException(responseJson['message'] ?? response.body.toString());
       case 500:

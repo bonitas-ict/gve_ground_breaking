@@ -146,7 +146,7 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
                         //context.router.navigate(const OnlinePaymentRoute());
                         await makePayment();
                       } else {
-                        context.router.navigate(const OfflinePaymentRoute());
+                        context.router.navigate(OfflinePaymentRoute(plotId: widget.plotId));
                       }
                     },
                     child: const Text('Continue'),

@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/misc/debug_util.dart';
 
-class OfflineContainer extends StatelessWidget {
+import '../../../../presentation.dart';
+final _formKey = GlobalKey<FormBuilderState>();
+
+class OfflineContainer extends StatefulWidget {
   const OfflineContainer({ Key? key }) : super(key: key);
+
+  @override
+  State<OfflineContainer> createState() => _OfflineContainerState();
+}
+
+class _OfflineContainerState extends State<OfflineContainer> {
+
+  var selectedFileName = "Please select a file to upload";
+   /// Validate and submit form value to the server
+  void formSubmitHandler(BuildContext context){
+    _formKey.currentState?.save();
+    if (_formKey.currentState?.validate() == true) {
+      context.read<OfflinePayBloc>().add(OfflinePayEvent.submitEvidence(_formKey.currentState?.value));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,80 +39,90 @@ class OfflineContainer extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Container(
                   color: const Color(0xFFF9FBF6),
-                  //height: 400,
                   padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 95,
-                        child: FormBuilderTextField(
-                          name: 'name', 
-                          keyboardType: TextInputType.text,
-                          decoration: const InputDecoration(labelText: 'Name on payment invoice'),
-                          validator: FormBuilderValidators.compose(
-                            [FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
+                  child: FormBuilder(
+                    key: _formKey,
+                    autovalidateMode: AutovalidateMode.always,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 95,
+                          child: FormBuilderTextField(
+                            name: 'name', 
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(labelText: 'Name on payment invoice'),
+                            validator: FormBuilderValidators.compose(
+                              [FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 95,
-                        child: FormBuilderTextField(
-                          name: 'email', 
-                          keyboardType: TextInputType.text,
-                          decoration: const InputDecoration(labelText: 'Email Address'),
-                          validator: FormBuilderValidators.compose(
-                            [ FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
-                          ),
+                        const SizedBox(height: 16,),
+                        SizedBox(
+                          height: 95,
+                          child: FormBuilderField(
+                            name: 'base64Document', 
+                            validator: FormBuilderValidators.compose(
+                              [ FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
+                            ),
+                            builder: (FormFieldState<dynamic> field){
+                              return InputDecorator(
+                                decoration: InputDecoration(
+                                  labelText: 'Upload payment invoice screenshot',
+                                  contentPadding:const EdgeInsets.only(top: 6.0, bottom: 0.0),
+                                  border: InputBorder.none,
+                                  errorText: field.errorText,
+                                ),
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 4),
+                                  //height: 20,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Expanded(child: Text(selectedFileName, maxLines: 1,overflow: TextOverflow.clip,),),
+                                          const SizedBox(width: 4),
+                                          GestureDetector(child: const Icon(Icons.upload), onTap: () async{
+                                            await AppImagePicker.showPicker(
+                                              context,
+                                              (img64) {
+                                                if (img64!.isNotEmpty) {
+                                                  field.didChange(img64['base64']);
+                                                  setState(() {
+                                                    selectedFileName = img64['fileName'] ?? 'Please select a file to upload';
+                                                  });
+                                                }
+                                              },
+                                            );
+                                          },)
+                                        ],
+                                      ),
+                                      const SizedBox(height: 4,),
+                                      const Divider(color: Colors.green,)
+                                    ]
+                                  ),
+                                ),
+                              );
+                            },
+                          )
                         ),
-                      ),
-                      SizedBox(
-                        height: 95,
-                        child: FormBuilderTextField(
-                          name: 'phone', 
-                          keyboardType: TextInputType.text,
-                          decoration: const InputDecoration(labelText: 'Phone Number'),
-                          validator: FormBuilderValidators.compose(
-                            [ FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
-                          ),
-                        )
-                      ),
-                      SizedBox(
-                        height: 95,
-                        child: FormBuilderTextField(
-                          name: 'amount', 
-                          keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(labelText: 'Amount Paid'),
-                          validator: FormBuilderValidators.compose(
-                            [ FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
-                          ),
-                        )
-                      ),
-                      SizedBox(
-                        height: 95,
-                        child: FormBuilderTextField(
-                          name: 'file', 
-                          keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(labelText: 'Upload payment invoice'),
-                          validator: FormBuilderValidators.compose(
-                            [ FormBuilderValidators.required(context),FormBuilderValidators.minLength(context, 5)]
-                          ),
-                        )
-                      ),
-
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
-                onPressed: () {
-                  
-                },
-                child: const Text('Submit'),
-              ),
+            BlocBuilder<OfflinePayBloc, OfflinePayState>(
+              builder: (context, state) {
+                if(state.isSubmitting) return const Center(child: CircularProgressIndicator());
+                return SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
+                    onPressed: () => formSubmitHandler(context),
+                    child: const Text('Submit'),
+                  ),
+                );
+              },
             ),
 
           ],
