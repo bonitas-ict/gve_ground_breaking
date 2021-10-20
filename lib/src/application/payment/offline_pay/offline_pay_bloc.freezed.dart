@@ -22,9 +22,10 @@ class _$OfflinePayEventTearOff {
     );
   }
 
-  _SetPlotId setPlotId(String plotId) {
+  _SetPlotId setPlotId(String plotId, String referenceId) {
     return _SetPlotId(
       plotId,
+      referenceId,
     );
   }
 }
@@ -37,13 +38,13 @@ mixin _$OfflinePayEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic>? evidence) submitEvidence,
-    required TResult Function(String plotId) setPlotId,
+    required TResult Function(String plotId, String referenceId) setPlotId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic>? evidence)? submitEvidence,
-    TResult Function(String plotId)? setPlotId,
+    TResult Function(String plotId, String referenceId)? setPlotId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -146,7 +147,7 @@ class _$_SubmitEvidence implements _SubmitEvidence {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic>? evidence) submitEvidence,
-    required TResult Function(String plotId) setPlotId,
+    required TResult Function(String plotId, String referenceId) setPlotId,
   }) {
     return submitEvidence(evidence);
   }
@@ -155,7 +156,7 @@ class _$_SubmitEvidence implements _SubmitEvidence {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic>? evidence)? submitEvidence,
-    TResult Function(String plotId)? setPlotId,
+    TResult Function(String plotId, String referenceId)? setPlotId,
     required TResult orElse(),
   }) {
     if (submitEvidence != null) {
@@ -202,7 +203,7 @@ abstract class _$SetPlotIdCopyWith<$Res> {
   factory _$SetPlotIdCopyWith(
           _SetPlotId value, $Res Function(_SetPlotId) then) =
       __$SetPlotIdCopyWithImpl<$Res>;
-  $Res call({String plotId});
+  $Res call({String plotId, String referenceId});
 }
 
 /// @nodoc
@@ -217,11 +218,16 @@ class __$SetPlotIdCopyWithImpl<$Res> extends _$OfflinePayEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? plotId = freezed,
+    Object? referenceId = freezed,
   }) {
     return _then(_SetPlotId(
       plotId == freezed
           ? _value.plotId
           : plotId // ignore: cast_nullable_to_non_nullable
+              as String,
+      referenceId == freezed
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -230,14 +236,16 @@ class __$SetPlotIdCopyWithImpl<$Res> extends _$OfflinePayEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SetPlotId implements _SetPlotId {
-  const _$_SetPlotId(this.plotId);
+  const _$_SetPlotId(this.plotId, this.referenceId);
 
   @override
   final String plotId;
+  @override
+  final String referenceId;
 
   @override
   String toString() {
-    return 'OfflinePayEvent.setPlotId(plotId: $plotId)';
+    return 'OfflinePayEvent.setPlotId(plotId: $plotId, referenceId: $referenceId)';
   }
 
   @override
@@ -245,12 +253,17 @@ class _$_SetPlotId implements _SetPlotId {
     return identical(this, other) ||
         (other is _SetPlotId &&
             (identical(other.plotId, plotId) ||
-                const DeepCollectionEquality().equals(other.plotId, plotId)));
+                const DeepCollectionEquality().equals(other.plotId, plotId)) &&
+            (identical(other.referenceId, referenceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceId, referenceId)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(plotId);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(plotId) ^
+      const DeepCollectionEquality().hash(referenceId);
 
   @JsonKey(ignore: true)
   @override
@@ -261,20 +274,20 @@ class _$_SetPlotId implements _SetPlotId {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Map<String, dynamic>? evidence) submitEvidence,
-    required TResult Function(String plotId) setPlotId,
+    required TResult Function(String plotId, String referenceId) setPlotId,
   }) {
-    return setPlotId(plotId);
+    return setPlotId(plotId, referenceId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Map<String, dynamic>? evidence)? submitEvidence,
-    TResult Function(String plotId)? setPlotId,
+    TResult Function(String plotId, String referenceId)? setPlotId,
     required TResult orElse(),
   }) {
     if (setPlotId != null) {
-      return setPlotId(plotId);
+      return setPlotId(plotId, referenceId);
     }
     return orElse();
   }
@@ -303,9 +316,10 @@ class _$_SetPlotId implements _SetPlotId {
 }
 
 abstract class _SetPlotId implements OfflinePayEvent {
-  const factory _SetPlotId(String plotId) = _$_SetPlotId;
+  const factory _SetPlotId(String plotId, String referenceId) = _$_SetPlotId;
 
   String get plotId => throw _privateConstructorUsedError;
+  String get referenceId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetPlotIdCopyWith<_SetPlotId> get copyWith =>
       throw _privateConstructorUsedError;
@@ -317,11 +331,13 @@ class _$OfflinePayStateTearOff {
 
   _OfflinePayState call(
       {required String plotId,
+      required String referenceId,
       required bool isSubmitting,
       required Option<Either<NetworkFailure, BaseResponse>>
           authFailureOrSuccessOption}) {
     return _OfflinePayState(
       plotId: plotId,
+      referenceId: referenceId,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -334,6 +350,7 @@ const $OfflinePayState = _$OfflinePayStateTearOff();
 /// @nodoc
 mixin _$OfflinePayState {
   String get plotId => throw _privateConstructorUsedError;
+  String get referenceId => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<NetworkFailure, BaseResponse>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -350,6 +367,7 @@ abstract class $OfflinePayStateCopyWith<$Res> {
       _$OfflinePayStateCopyWithImpl<$Res>;
   $Res call(
       {String plotId,
+      String referenceId,
       bool isSubmitting,
       Option<Either<NetworkFailure, BaseResponse>> authFailureOrSuccessOption});
 }
@@ -366,6 +384,7 @@ class _$OfflinePayStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? plotId = freezed,
+    Object? referenceId = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
@@ -373,6 +392,10 @@ class _$OfflinePayStateCopyWithImpl<$Res>
       plotId: plotId == freezed
           ? _value.plotId
           : plotId // ignore: cast_nullable_to_non_nullable
+              as String,
+      referenceId: referenceId == freezed
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
               as String,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -395,6 +418,7 @@ abstract class _$OfflinePayStateCopyWith<$Res>
   @override
   $Res call(
       {String plotId,
+      String referenceId,
       bool isSubmitting,
       Option<Either<NetworkFailure, BaseResponse>> authFailureOrSuccessOption});
 }
@@ -413,6 +437,7 @@ class __$OfflinePayStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? plotId = freezed,
+    Object? referenceId = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
@@ -420,6 +445,10 @@ class __$OfflinePayStateCopyWithImpl<$Res>
       plotId: plotId == freezed
           ? _value.plotId
           : plotId // ignore: cast_nullable_to_non_nullable
+              as String,
+      referenceId: referenceId == freezed
+          ? _value.referenceId
+          : referenceId // ignore: cast_nullable_to_non_nullable
               as String,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -438,11 +467,14 @@ class __$OfflinePayStateCopyWithImpl<$Res>
 class _$_OfflinePayState implements _OfflinePayState {
   const _$_OfflinePayState(
       {required this.plotId,
+      required this.referenceId,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
   @override
   final String plotId;
+  @override
+  final String referenceId;
   @override
   final bool isSubmitting;
   @override
@@ -450,7 +482,7 @@ class _$_OfflinePayState implements _OfflinePayState {
 
   @override
   String toString() {
-    return 'OfflinePayState(plotId: $plotId, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'OfflinePayState(plotId: $plotId, referenceId: $referenceId, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -459,6 +491,9 @@ class _$_OfflinePayState implements _OfflinePayState {
         (other is _OfflinePayState &&
             (identical(other.plotId, plotId) ||
                 const DeepCollectionEquality().equals(other.plotId, plotId)) &&
+            (identical(other.referenceId, referenceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceId, referenceId)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -473,6 +508,7 @@ class _$_OfflinePayState implements _OfflinePayState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(plotId) ^
+      const DeepCollectionEquality().hash(referenceId) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -485,12 +521,15 @@ class _$_OfflinePayState implements _OfflinePayState {
 abstract class _OfflinePayState implements OfflinePayState {
   const factory _OfflinePayState(
       {required String plotId,
+      required String referenceId,
       required bool isSubmitting,
       required Option<Either<NetworkFailure, BaseResponse>>
           authFailureOrSuccessOption}) = _$_OfflinePayState;
 
   @override
   String get plotId => throw _privateConstructorUsedError;
+  @override
+  String get referenceId => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

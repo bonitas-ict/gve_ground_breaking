@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 const List<Widget> _pages = [
   _SlideItem(label:'State of the art facility', imagePath: 'https://informa-mea-res.cloudinary.com/image/upload/training/course-images/certificate-in-real-estate-process-for-development-investment-repdi-course.jpg',),
-  _SlideItem(label:'Strategic location', imagePath: 'https://torbitalimited.com/wp-content/uploads/2018/09/real-estate.jpg',),
   _SlideItem(label:'Awesome finishing', imagePath: 'https://www.norman-network.net/sites/default/files/images/122715793%20network.jpg',)
 ];
 

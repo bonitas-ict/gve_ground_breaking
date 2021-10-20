@@ -8,7 +8,13 @@ import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:gve_opening/src/presentation/presentation.dart';
 
 class PayMethodContainer extends StatefulWidget {
-  const PayMethodContainer({Key? key, required this.paymentRef, required this.amount, required this.plotId, required this.isTaken}) : super(key: key);
+  const PayMethodContainer(
+      {Key? key,
+      required this.paymentRef,
+      required this.amount,
+      required this.plotId,
+      required this.isTaken})
+      : super(key: key);
   final String? paymentRef;
   final num amount;
   final String plotId;
@@ -25,13 +31,16 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
     final Charge charge = Charge()
       ..email = "etokakingsley@gmail.com"
       ..amount = widget.amount.toInt() * 100
-      ..reference = widget.paymentRef //'ref_${DateTime.now().millisecondsSinceEpoch}'
+      ..reference =
+          widget.paymentRef //'ref_${DateTime.now().millisecondsSinceEpoch}'
       ..putCustomField('Payment for plot', widget.plotId);
     final res = await PaystackClient.checkout(context, charge: charge);
     print(res);
     if (res.status) {
       printLn('Payment received');
-      context.read<OnlinePayBloc>().add(OnlinePayEvent.verifyPayment(res.reference!));
+      context
+          .read<OnlinePayBloc>()
+          .add(OnlinePayEvent.verifyPayment(res.reference!));
     } else {
       printLn(res);
     }
@@ -43,7 +52,7 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          const _TicketSummary(),
+          _TicketSummary(amount: widget.amount, plotId: widget.plotId,),
           const SizedBox(height: 20),
           Container(
             color: const Color(0xFFF9FBF6),
@@ -120,33 +129,38 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
             height: 40,
           ),
           BlocConsumer<OnlinePayBloc, OnlinePayState>(
-            listener: ( _, OnlinePayState st){
+            listener: (_, OnlinePayState st) {
               st.map(
-                initial: (_){}, 
-                loadInProgress: (_){}, 
-                loadSuccess: (_){
-                  SnackUtil.showSuccessSnack(context: context, message: 'Payment was successful');
-                  Navigator.of(context).pop();
-                }, 
-                loadFailure: (e){
-                  SnackUtil.showErrorSnack(context: context, message: e.networkFailure.message ?? 'An Error occurred');
-                }
-              );
+                  initial: (_) {},
+                  loadInProgress: (_) {},
+                  loadSuccess: (_) {
+                    SnackUtil.showSuccessSnack(
+                        context: context, message: 'Payment was successful');
+                    Navigator.of(context).pop();
+                  },
+                  loadFailure: (e) {
+                    SnackUtil.showErrorSnack(
+                        context: context,
+                        message:
+                            e.networkFailure.message ?? 'An Error occurred');
+                  });
             },
             builder: (context, state) {
-              if(state is LoadInProgressX){
+              if (state is LoadInProgressX) {
                 return const Center(child: CircularProgressIndicator());
-              }else{
+              } else {
                 return SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
+                    style: ElevatedButton.styleFrom(
+                        primary: const Color(0xFF7EB84E)),
                     onPressed: () async {
                       if (_value == 0) {
-                        //context.router.navigate(const OnlinePaymentRoute());
                         await makePayment();
                       } else {
-                        context.router.navigate(OfflinePaymentRoute(plotId: widget.plotId));
+                        context.router.navigate(OfflinePaymentRoute(
+                            plotId: widget.plotId,
+                            refNum: widget.paymentRef ?? ''));
                       }
                     },
                     child: const Text('Continue'),
@@ -162,7 +176,10 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
 }
 
 class _TicketSummary extends StatelessWidget {
-  const _TicketSummary({Key? key}) : super(key: key);
+  const _TicketSummary({Key? key, required this.amount, required this.plotId})
+      : super(key: key);
+  final num amount;
+  final String plotId;
 
   @override
   Widget build(BuildContext context) {
@@ -207,8 +224,8 @@ class _TicketSummary extends StatelessWidget {
                       .subtitle1!
                       .copyWith(fontSize: 18),
                 ),
-                const Text('Selected Plot ID: 645'),
-                const Text('Total Cost:  ₦35,000,000')
+                Text('Selected Plot ID: $plotId'),
+                Text('Total Cost:  ${amount.toString()}')
               ],
             ),
           )

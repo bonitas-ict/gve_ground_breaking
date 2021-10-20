@@ -73,7 +73,8 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<OfflinePaymentRouteArgs>();
-          return _i3.OfflinePaymentPage(key: args.key, plotId: args.plotId);
+          return _i3.OfflinePaymentPage(
+              key: args.key, plotId: args.plotId, refNum: args.refNum);
         }),
     OnlinePaymentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -263,20 +264,25 @@ class PaymentMathodRouteArgs {
 }
 
 class OfflinePaymentRoute extends _i1.PageRouteInfo<OfflinePaymentRouteArgs> {
-  OfflinePaymentRoute({_i2.Key? key, required String plotId})
+  OfflinePaymentRoute(
+      {_i2.Key? key, required String plotId, required String refNum})
       : super(name,
             path: '/offline-payment-page',
-            args: OfflinePaymentRouteArgs(key: key, plotId: plotId));
+            args: OfflinePaymentRouteArgs(
+                key: key, plotId: plotId, refNum: refNum));
 
   static const String name = 'OfflinePaymentRoute';
 }
 
 class OfflinePaymentRouteArgs {
-  const OfflinePaymentRouteArgs({this.key, required this.plotId});
+  const OfflinePaymentRouteArgs(
+      {this.key, required this.plotId, required this.refNum});
 
   final _i2.Key? key;
 
   final String plotId;
+
+  final String refNum;
 }
 
 class OnlinePaymentRoute extends _i1.PageRouteInfo {

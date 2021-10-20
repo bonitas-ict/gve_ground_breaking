@@ -21,7 +21,7 @@ class OfflinePayBloc extends Bloc<OfflinePayEvent, OfflinePayState> {
           isSubmitting: true,
           authFailureOrSuccessOption: none(),
         ));
-        failureOrSuccess = await _paymentFacade.submitOfflinePaymentInfo({"name": event.evidence?['name'], "base64Document": event.evidence?['base64Document'], "plotId": state.plotId  });
+        failureOrSuccess = await _paymentFacade.submitOfflinePaymentInfo({"name": event.evidence?['name'], "base64Document": event.evidence?['base64Document'], "plotId": state.plotId, "referenceId": state.referenceId });
         emit(state.copyWith(
           isSubmitting: false,
           authFailureOrSuccessOption:optionOf(failureOrSuccess),
@@ -30,7 +30,7 @@ class OfflinePayBloc extends Bloc<OfflinePayEvent, OfflinePayState> {
     });
 
     on<_SetPlotId>((event, emit){
-      emit(state.copyWith(plotId: event.plotId));
+      emit(state.copyWith(plotId: event.plotId, referenceId: event.referenceId));
     });
   }
 }
