@@ -1,6 +1,5 @@
 part of 'online_pay_bloc.dart';
 
-
 @freezed
 class OnlinePayState with _$OnlinePayState {
   const factory OnlinePayState.initial() = _Initial;
