@@ -39,14 +39,32 @@ class SettingsPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
+                          color: const Color(0xFFF9FBF6),
                           width: double.infinity,
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: const [
-                              
+                              ListTile(
+                                leading: Icon(Icons.notifications),
+                                title: Text('Notifications'),
+                                subtitle: Text('Enable or disable in-app notifications.'),
+                                
+                              ),
+                              ListTile(
+                                leading: Icon(Icons.question_answer),
+                                title: Text('Notifications'),
+                                subtitle: Text('For further information, contact us.'),
+                                trailing: Icon(Icons.chevron_right_rounded)
+                              ),
+                              ListTile(
+                                title: Text('App Version'),
+                                subtitle: Text('Version 1.0'),
+                              )
                             ],
                           ),
-                        )
+                        ),
+                        const SizedBox(height: 16,),
+                        GestureDetector(child: Image.asset('assets/images/btn.png', width: 120))
                       ],
                     ),
                   ),

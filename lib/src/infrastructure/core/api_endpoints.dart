@@ -15,7 +15,7 @@ class ApiRoutes {
   static const paymentVerificationRoute = 'api/property/verify-payment';
   static const paymentHistoryRoute = 'api/user/payment';
   static const sitRoute = 'api/user/seat';
-  static const notficationRoute = 'api/user/notification';
+  static const notficationRoute = 'api/user/payment/notification';
   static const notificationCountRoute = 'api/user/notification-count';
   static const notificationMarkRoute = 'api/user/notification-mark/';
 }

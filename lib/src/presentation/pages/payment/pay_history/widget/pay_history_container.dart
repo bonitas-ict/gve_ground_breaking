@@ -34,14 +34,14 @@ class _HistoryItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('${payHistory.plotId} Purchase', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal),),
-                    Text('November 49, 2021 - 09:12 PM', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: const Color(0xFFA1A59C)),)
+                    Text(payHistory.date.split('T')[0], style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: const Color(0xFFA1A59C)),)
                   ],
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text('N10 Million', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal)),
+                  Text('N${payHistory.amount}', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal)),
                   Text(payHistory.stauts? 'Successful': 'Failed', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: payHistory.stauts? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
                 ],
               )

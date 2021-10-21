@@ -11,21 +11,25 @@ import 'package:shared_preferences/shared_preferences.dart' as _i12;
 
 import 'src/application/agenda/agenda_detail/agenda_detail_bloc.dart' as _i13;
 import 'src/application/agenda/agenda_speaker/agenda_speaker_bloc.dart' as _i14;
-import 'src/application/auth/authentication/authentication_bloc.dart' as _i26;
-import 'src/application/auth/authorization/authorization_bloc.dart' as _i27;
-import 'src/application/auth/verification/verification_bloc.dart' as _i25;
+import 'src/application/auth/authentication/authentication_bloc.dart' as _i28;
+import 'src/application/auth/authorization/authorization_bloc.dart' as _i29;
+import 'src/application/auth/verification/verification_bloc.dart' as _i27;
 import 'src/application/land/land_info/land_info_bloc.dart' as _i10;
 import 'src/application/main/home/home_bloc.dart' as _i15;
-import 'src/application/payment/offline_pay/offline_pay_bloc.dart' as _i20;
-import 'src/application/payment/online_pay/online_pay_bloc.dart' as _i21;
-import 'src/application/payment/pay_history/pay_history_bloc.dart' as _i22;
-import 'src/application/payment/payment_init/payment_init_bloc.dart' as _i23;
-import 'src/application/sit/sit_bloc.dart' as _i24;
+import 'src/application/notification/notification_count/notification_count_bloc.dart'
+    as _i20;
+import 'src/application/notification/notification_list/notification_list_bloc.dart'
+    as _i21;
+import 'src/application/payment/offline_pay/offline_pay_bloc.dart' as _i22;
+import 'src/application/payment/online_pay/online_pay_bloc.dart' as _i23;
+import 'src/application/payment/pay_history/pay_history_bloc.dart' as _i24;
+import 'src/application/payment/payment_init/payment_init_bloc.dart' as _i25;
+import 'src/application/sit/sit_bloc.dart' as _i26;
 import 'src/domain/domain.dart' as _i4;
 import 'src/domain/main/i_main_facade.dart' as _i8;
 import 'src/infrastructure/agenda/repository/agenda_facade.dart' as _i5;
 import 'src/infrastructure/auth/repository/auth_facade.dart' as _i16;
-import 'src/infrastructure/core/infrastructure_injectable.dart' as _i28;
+import 'src/infrastructure/core/infrastructure_injectable.dart' as _i30;
 import 'src/infrastructure/core/network_request_helper.dart' as _i11;
 import 'src/infrastructure/infrastructure.dart' as _i6;
 import 'src/infrastructure/land/repository/land_facade.dart' as _i7;
@@ -74,23 +78,27 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i4.ISitFacade>(() => _i19.SitFacade(
       pref: get<_i12.SharedPreferences>(),
       networkHelper: get<_i6.NetworkHelper>()));
-  gh.factory<_i20.OfflinePayBloc>(
-      () => _i20.OfflinePayBloc(paymentFacade: get<_i4.IPaymentFacade>()));
-  gh.factory<_i21.OnlinePayBloc>(
-      () => _i21.OnlinePayBloc(paymentFacade: get<_i4.IPaymentFacade>()));
-  gh.factory<_i22.PayHistoryBloc>(
-      () => _i22.PayHistoryBloc(paymentFacade: get<_i4.IPaymentFacade>()));
-  gh.factory<_i23.PaymentInitBloc>(
-      () => _i23.PaymentInitBloc(paymentFacade: get<_i4.IPaymentFacade>()));
-  gh.factory<_i24.SitBloc>(
-      () => _i24.SitBloc(sitFacade: get<_i4.ISitFacade>()));
-  gh.factory<_i25.VerificationBloc>(
-      () => _i25.VerificationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
-  gh.factory<_i26.AuthenticationBloc>(
-      () => _i26.AuthenticationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
-  gh.factory<_i27.AuthorizationBloc>(
-      () => _i27.AuthorizationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.factory<_i20.NotificationCountBloc>(() => _i20.NotificationCountBloc(
+      notificationFacade: get<_i4.INotificationFacade>()));
+  gh.factory<_i21.NotificationListBloc>(() => _i21.NotificationListBloc(
+      notificationFacade: get<_i4.INotificationFacade>()));
+  gh.factory<_i22.OfflinePayBloc>(
+      () => _i22.OfflinePayBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i23.OnlinePayBloc>(
+      () => _i23.OnlinePayBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i24.PayHistoryBloc>(
+      () => _i24.PayHistoryBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i25.PaymentInitBloc>(
+      () => _i25.PaymentInitBloc(paymentFacade: get<_i4.IPaymentFacade>()));
+  gh.factory<_i26.SitBloc>(
+      () => _i26.SitBloc(sitFacade: get<_i4.ISitFacade>()));
+  gh.factory<_i27.VerificationBloc>(
+      () => _i27.VerificationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.factory<_i28.AuthenticationBloc>(
+      () => _i28.AuthenticationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
+  gh.factory<_i29.AuthorizationBloc>(
+      () => _i29.AuthorizationBloc(iAuthFacade: get<_i4.IAuthFacade>()));
   return get;
 }
 
-class _$InfrastructureModule extends _i28.InfrastructureModule {}
+class _$InfrastructureModule extends _i30.InfrastructureModule {}

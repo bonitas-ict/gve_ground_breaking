@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/domain/domain.dart';
+
+import '../../../presentation.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({ Key? key }) : super(key: key);
@@ -44,20 +49,47 @@ class NotificationPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: 4,
-                    itemBuilder: (_, int index){
-                      return const _NotificationItem();
-                    },
-                  ),
+                const Expanded(
+                  child: _StateMachine(),
                 )
               ],
             )
           )
         ],
       ),
+    );
+  }
+}
+
+class _StateMachine extends StatelessWidget {
+  const _StateMachine({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<NotificationListBloc, NotificationListState>(
+      builder: (context, state) {
+        return state.map(
+          initial: (_)=> const Center(child: CircularProgressIndicator(),),//const HomeLoader(), 
+          loadInProgress:(_)=> const Center(child: CircularProgressIndicator(),), //const HomeLoader(), 
+          loadSuccess:(s) => _MainList(notifications: s.notifications), 
+          loadFailure:(f) => ErrorHandler(handler:()=> context.read<NotificationListBloc>().add(const NotificationListEvent.loadNotifications()),)
+        );
+      },
+    );
+  }
+}
+
+class _MainList extends StatelessWidget {
+  const _MainList({ Key? key, required this.notifications}) : super(key: key);
+  final List<NotificationMessage> notifications;
+  @override
+  Widget build(BuildContext context) {
+    if(notifications.isEmpty) return const Center(child: Text('No Notification'),);
+    return ListView.builder(
+      itemCount: notifications.length,
+      itemBuilder: (_, int index){
+        return const _NotificationItem();
+      },
     );
   }
 }

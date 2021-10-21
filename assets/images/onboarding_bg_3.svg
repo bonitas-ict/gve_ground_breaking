@@ -6,11 +6,11 @@
   </defs>
   <g id="Onboarding_Screen_C_1" data-name="Onboarding Screen (C) – 1" clip-path="url(#clip-Onboarding_Screen_C_1)">
     <rect width="414" height="896" fill="#fff"/>
-    <path id="Polygon_4" data-name="Polygon 4" d="M124.5,0,166,71.5,124.5,143h-83L0,71.5,41.5,0Z" transform="translate(452 585) rotate(90)" fill="#deedd2" opacity="0.46"/>
-    <path id="Polygon_14" data-name="Polygon 14" d="M39,0,52,23,39,46H13L0,23,13,0Z" transform="translate(322 719) rotate(90)" fill="#b7d79c" opacity="0.96"/>
-    <path id="Polygon_15" data-name="Polygon 15" d="M30.75,0,41,18,30.75,36H10.25L0,18,10.25,0Z" transform="translate(364 751) rotate(90)" fill="#b7d79c" opacity="0.45"/>
-    <circle id="Ellipse_24" data-name="Ellipse 24" cx="97" cy="97" r="97" transform="translate(-39 -74)" fill="#e8e7e7" opacity="0.8"/>
-    <circle id="Ellipse_26" data-name="Ellipse 26" cx="28.5" cy="28.5" r="28.5" transform="translate(160 51)" fill="#9a9a9a" opacity="0.2"/>
-    <circle id="Ellipse_25" data-name="Ellipse 25" cx="16.5" cy="16.5" r="16.5" transform="translate(122 108)" fill="#656565" opacity="0.6"/>
+    <path id="Polygon_37" data-name="Polygon 37" d="M99.75,0,133,57.5,99.75,115H33.25L0,57.5,33.25,0Z" transform="translate(463 -14) rotate(90)" fill="#e8e7e7"/>
+    <path id="Polygon_36" data-name="Polygon 36" d="M45.75,0,61,26.5,45.75,53H15.25L0,26.5,15.25,0Z" transform="translate(321 69) rotate(90)" fill="#f4f4f4" opacity="0.46"/>
+    <path id="Polygon_35" data-name="Polygon 35" d="M60.75,0,81,35.5,60.75,71H20.25L0,35.5,20.25,0Z" transform="translate(392 114) rotate(90)" fill="#eeeded" opacity="0.69"/>
+    <circle id="Ellipse_85" data-name="Ellipse 85" cx="102.5" cy="102.5" r="102.5" transform="translate(-79 712)" fill="#7db84d" opacity="0.8"/>
+    <circle id="Ellipse_86" data-name="Ellipse 86" cx="42.5" cy="42.5" r="42.5" transform="translate(39 621)" fill="#7db84d" opacity="0.2"/>
+    <circle id="Ellipse_87" data-name="Ellipse 87" cx="19" cy="19" r="19" transform="translate(126 718)" fill="#7db84d" opacity="0.6"/>
   </g>
 </svg>
