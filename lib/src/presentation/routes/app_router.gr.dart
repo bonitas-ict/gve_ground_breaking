@@ -91,6 +91,11 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return const _i3.AboutUsPage();
         }),
+    AboutDevRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i3.AboutDevPage();
+        }),
     SettingsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
@@ -152,6 +157,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(OnlinePaymentRoute.name, path: '/online-payment-page'),
         _i1.RouteConfig(AboutAppRoute.name, path: '/about-app-page'),
         _i1.RouteConfig(AboutUsRoute.name, path: '/about-us-page'),
+        _i1.RouteConfig(AboutDevRoute.name, path: '/about-dev-page'),
         _i1.RouteConfig(SettingsRoute.name, path: '/settings-page'),
         _i1.RouteConfig(PayHistoryRoute.name, path: '/pay-history-page')
       ];
@@ -301,6 +307,12 @@ class AboutUsRoute extends _i1.PageRouteInfo {
   const AboutUsRoute() : super(name, path: '/about-us-page');
 
   static const String name = 'AboutUsRoute';
+}
+
+class AboutDevRoute extends _i1.PageRouteInfo {
+  const AboutDevRoute() : super(name, path: '/about-dev-page');
+
+  static const String name = 'AboutDevRoute';
 }
 
 class SettingsRoute extends _i1.PageRouteInfo {

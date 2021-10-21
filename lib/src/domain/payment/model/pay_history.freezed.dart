@@ -22,14 +22,14 @@ class _$PayHistoryTearOff {
 
   _PayHistory call(
       {required String plotId,
-      required num date,
+      required String date,
       required String amount,
-      required String status}) {
+      required bool stauts}) {
     return _PayHistory(
       plotId: plotId,
       date: date,
       amount: amount,
-      status: status,
+      stauts: stauts,
     );
   }
 
@@ -44,9 +44,9 @@ const $PayHistory = _$PayHistoryTearOff();
 /// @nodoc
 mixin _$PayHistory {
   String get plotId => throw _privateConstructorUsedError;
-  num get date => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
+  bool get stauts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $PayHistoryCopyWith<$Res> {
   factory $PayHistoryCopyWith(
           PayHistory value, $Res Function(PayHistory) then) =
       _$PayHistoryCopyWithImpl<$Res>;
-  $Res call({String plotId, num date, String amount, String status});
+  $Res call({String plotId, String date, String amount, bool stauts});
 }
 
 /// @nodoc
@@ -75,7 +75,7 @@ class _$PayHistoryCopyWithImpl<$Res> implements $PayHistoryCopyWith<$Res> {
     Object? plotId = freezed,
     Object? date = freezed,
     Object? amount = freezed,
-    Object? status = freezed,
+    Object? stauts = freezed,
   }) {
     return _then(_value.copyWith(
       plotId: plotId == freezed
@@ -85,15 +85,15 @@ class _$PayHistoryCopyWithImpl<$Res> implements $PayHistoryCopyWith<$Res> {
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as num,
+              as String,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
+      stauts: stauts == freezed
+          ? _value.stauts
+          : stauts // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -104,7 +104,7 @@ abstract class _$PayHistoryCopyWith<$Res> implements $PayHistoryCopyWith<$Res> {
           _PayHistory value, $Res Function(_PayHistory) then) =
       __$PayHistoryCopyWithImpl<$Res>;
   @override
-  $Res call({String plotId, num date, String amount, String status});
+  $Res call({String plotId, String date, String amount, bool stauts});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$PayHistoryCopyWithImpl<$Res> extends _$PayHistoryCopyWithImpl<$Res>
     Object? plotId = freezed,
     Object? date = freezed,
     Object? amount = freezed,
-    Object? status = freezed,
+    Object? stauts = freezed,
   }) {
     return _then(_PayHistory(
       plotId: plotId == freezed
@@ -132,15 +132,15 @@ class __$PayHistoryCopyWithImpl<$Res> extends _$PayHistoryCopyWithImpl<$Res>
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as num,
+              as String,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
+      stauts: stauts == freezed
+          ? _value.stauts
+          : stauts // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -152,7 +152,7 @@ class _$_PayHistory implements _PayHistory {
       {required this.plotId,
       required this.date,
       required this.amount,
-      required this.status});
+      required this.stauts});
 
   factory _$_PayHistory.fromJson(Map<String, dynamic> json) =>
       _$_$_PayHistoryFromJson(json);
@@ -160,15 +160,15 @@ class _$_PayHistory implements _PayHistory {
   @override
   final String plotId;
   @override
-  final num date;
+  final String date;
   @override
   final String amount;
   @override
-  final String status;
+  final bool stauts;
 
   @override
   String toString() {
-    return 'PayHistory(plotId: $plotId, date: $date, amount: $amount, status: $status)';
+    return 'PayHistory(plotId: $plotId, date: $date, amount: $amount, stauts: $stauts)';
   }
 
   @override
@@ -181,8 +181,8 @@ class _$_PayHistory implements _PayHistory {
                 const DeepCollectionEquality().equals(other.date, date)) &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)));
+            (identical(other.stauts, stauts) ||
+                const DeepCollectionEquality().equals(other.stauts, stauts)));
   }
 
   @override
@@ -191,7 +191,7 @@ class _$_PayHistory implements _PayHistory {
       const DeepCollectionEquality().hash(plotId) ^
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(status);
+      const DeepCollectionEquality().hash(stauts);
 
   @JsonKey(ignore: true)
   @override
@@ -207,9 +207,9 @@ class _$_PayHistory implements _PayHistory {
 abstract class _PayHistory implements PayHistory {
   const factory _PayHistory(
       {required String plotId,
-      required num date,
+      required String date,
       required String amount,
-      required String status}) = _$_PayHistory;
+      required bool stauts}) = _$_PayHistory;
 
   factory _PayHistory.fromJson(Map<String, dynamic> json) =
       _$_PayHistory.fromJson;
@@ -217,11 +217,11 @@ abstract class _PayHistory implements PayHistory {
   @override
   String get plotId => throw _privateConstructorUsedError;
   @override
-  num get date => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   @override
   String get amount => throw _privateConstructorUsedError;
   @override
-  String get status => throw _privateConstructorUsedError;
+  bool get stauts => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PayHistoryCopyWith<_PayHistory> get copyWith =>

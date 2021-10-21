@@ -7,16 +7,17 @@ class PayHistoryContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 8, // ?? paymentHistories.length,
+      itemCount: paymentHistories.length,
       itemBuilder: (_, int index){
-        return const _HistoryItem();
+        return _HistoryItem(payHistory: paymentHistories[index],);
       }
     );
   }
 }
 
 class _HistoryItem extends StatelessWidget {
-  const _HistoryItem({ Key? key }) : super(key: key);
+  const _HistoryItem({ Key? key, required this.payHistory}) : super(key: key);
+  final PayHistory payHistory;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class _HistoryItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Plot 28 Purchase', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal),),
-                    Text('November 29, 2021 - 09:12 PM', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: const Color(0xFFA1A59C)),)
+                    Text('${payHistory.plotId} Purchase', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal),),
+                    Text('November 49, 2021 - 09:12 PM', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: const Color(0xFFA1A59C)),)
                   ],
                 ),
               ),
@@ -41,7 +42,7 @@ class _HistoryItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text('N10 Million', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal)),
-                  Text('Failed', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: const Color(0xFFF73112)),)
+                  Text(payHistory.stauts? 'Successful': 'Failed', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: payHistory.stauts? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
                 ],
               )
             ],

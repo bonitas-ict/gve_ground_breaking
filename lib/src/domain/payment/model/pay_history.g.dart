@@ -9,9 +9,9 @@ part of 'pay_history.dart';
 _$_PayHistory _$_$_PayHistoryFromJson(Map<String, dynamic> json) {
   return _$_PayHistory(
     plotId: json['plotId'] as String,
-    date: json['date'] as num,
+    date: json['date'] as String,
     amount: json['amount'] as String,
-    status: json['status'] as String,
+    stauts: json['stauts'] as bool,
   );
 }
 
@@ -20,5 +20,5 @@ Map<String, dynamic> _$_$_PayHistoryToJson(_$_PayHistory instance) =>
       'plotId': instance.plotId,
       'date': instance.date,
       'amount': instance.amount,
-      'status': instance.status,
+      'stauts': instance.stauts,
     };

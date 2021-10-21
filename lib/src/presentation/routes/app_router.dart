@@ -31,8 +31,9 @@ import '../presentation.dart';
   AutoRoute(page: OnlinePaymentPage),
   AutoRoute(page: AboutAppPage),
   AutoRoute(page: AboutUsPage),
+  AutoRoute(page: AboutDevPage),
   AutoRoute(page: SettingsPage),
-  AutoRoute(page: PayHistoryPage)
+  AutoRoute(page: PayHistoryPage),
 
 ])
 class $AppRouter {}

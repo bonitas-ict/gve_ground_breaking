@@ -7,9 +7,9 @@ part 'pay_history.g.dart';
 class PayHistory with _$PayHistory{
   const factory PayHistory({
     required String plotId,
-    required num date,
+    required String date,
     required String amount,
-    required String status,
+    required bool stauts,
   }) = _PayHistory;
 
   factory PayHistory.fromJson(Map<String, dynamic> json) => _$PayHistoryFromJson(json);

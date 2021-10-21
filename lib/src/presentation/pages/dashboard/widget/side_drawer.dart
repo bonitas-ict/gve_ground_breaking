@@ -44,30 +44,30 @@ class SideDrawer extends StatelessWidget {
                       const SizedBox(height: 4,),
                       Text('ESTATE', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700)),
                       const SizedBox(height: 20),
-                      _DrawerItems(
-                        () {
-                         // context.router.navigate(const MyProfileRoute());
-                        },
-                        iconBackground: "assets/images/dashboard.svg",
-                        drawerIcon: Icons.person,
-                        drawerItemTitle: "Dashboard",
-                      ),
-                      _DrawerItems(
-                        () {
-                         // context.router.navigate(const MyProfileRoute());
-                        },
-                        iconBackground: "assets/images/seat.svg",
-                        drawerIcon: Icons.person,
-                        drawerItemTitle: "Seat Allocation",
-                      ),
-                      _DrawerItems(
-                        () {
-                         // context.router.navigate(const MyProfileRoute());
-                        },
-                        iconBackground: "assets/images/land.svg",
-                        drawerIcon: Icons.person,
-                        drawerItemTitle: "Land Purchase",
-                      ),
+                      // _DrawerItems(
+                      //   () {
+                      //    // context.router.navigate(const MyProfileRoute());
+                      //   },
+                      //   iconBackground: "assets/images/dashboard.svg",
+                      //   drawerIcon: Icons.person,
+                      //   drawerItemTitle: "Dashboard",
+                      // ),
+                      // _DrawerItems(
+                      //   () {
+                      //    // context.router.navigate(const MyProfileRoute());
+                      //   },
+                      //   iconBackground: "assets/images/seat.svg",
+                      //   drawerIcon: Icons.person,
+                      //   drawerItemTitle: "Seat Allocation",
+                      // ),
+                      // _DrawerItems(
+                      //   () {
+                      //    // context.router.navigate(const MyProfileRoute());
+                      //   },
+                      //   iconBackground: "assets/images/land.svg",
+                      //   drawerIcon: Icons.person,
+                      //   drawerItemTitle: "Land Purchase",
+                      // ),
                       _DrawerItems(
                         () {
                           Navigator.pop(context);
@@ -78,23 +78,12 @@ class SideDrawer extends StatelessWidget {
                         drawerItemTitle: "Payment History",
                       ),
                       _DrawerItems(
-                        (){},
-                        iconBackground: "assets/images/event.svg",
-                        drawerIcon: Icons.person,
-                        drawerItemTitle: "Event Agenda",
-                      ),
-                      const SizedBox(height: 30,),
-                      const Divider(color: Color(0xFF7DB84D), height: 4,),
-                      const SizedBox(height: 20,),
-                      Text('ACCOUNT', style: Theme.of(context).textTheme.bodyText2!.copyWith(color:const Color(0xFFD2D2D2),fontWeight: FontWeight.w400),),
-                      const SizedBox(height: 10,),
-                       _DrawerItems(
                         () => context.router.navigate(const NotificationRoute()),
                         iconBackground: "assets/images/bell.svg",
                         drawerIcon: Icons.person,
                         drawerItemTitle: "Notifications",
                       ),
-                       _DrawerItems(
+                      _DrawerItems(
                         () {
                           context.router.navigate(const SettingsRoute());
                         },
@@ -102,6 +91,25 @@ class SideDrawer extends StatelessWidget {
                         drawerIcon: Icons.person,
                         drawerItemTitle: "App Settings",
                       ),
+                      _DrawerItems(
+                        () {
+                          context.router.navigate(const SettingsRoute());
+                        },
+                        iconBackground: "assets/images/cog.svg",
+                        drawerIcon: Icons.person,
+                        drawerItemTitle: "Logout",
+                      ),
+                      // _DrawerItems(
+                      //   (){},
+                      //   iconBackground: "assets/images/event.svg",
+                      //   drawerIcon: Icons.person,
+                      //   drawerItemTitle: "Event Agenda",
+                      // ),
+                      const SizedBox(height: 30,),
+                      const Divider(color: Color(0xFF7DB84D), height: 4,),
+                      const SizedBox(height: 20,),
+                      Text('ABOUT', style: Theme.of(context).textTheme.bodyText2!.copyWith(color:const Color(0xFFD2D2D2),fontWeight: FontWeight.w400),),
+                      const SizedBox(height: 10,),
                       _DrawerItems(
                         () {
                           context.router.navigate(const AboutAppRoute());
@@ -117,6 +125,14 @@ class SideDrawer extends StatelessWidget {
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,
                         drawerItemTitle: "About Us",
+                      ),
+                      _DrawerItems(
+                        () {
+                         context.router.navigate(const AboutDevRoute());
+                        },
+                        iconBackground: "assets/images/cog.svg",
+                        drawerIcon: Icons.person,
+                        drawerItemTitle: "About the Developers",
                       )
                     ],
                   ),
