@@ -1,12 +1,25 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gve_opening/src/application/application.dart';
 import 'package:gve_opening/src/presentation/routes/routes.dart';
 
-class SideDrawer extends StatelessWidget {
+class SideDrawer extends StatefulWidget {
   const SideDrawer({ Key? key }) : super(key: key);
 
+  @override
+  State<SideDrawer> createState() => _SideDrawerState();
+}
+
+class _SideDrawerState extends State<SideDrawer> {
+
+  @override
+  void initState() {
+    context.read<NotificationCountBloc>().add(const NotificationCountEvent.loadNotificationCount());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -77,11 +90,17 @@ class SideDrawer extends StatelessWidget {
                         drawerIcon: Icons.person,
                         drawerItemTitle: "Payment History",
                       ),
-                      _DrawerItems(
-                        () => context.router.navigate(const NotificationRoute()),
-                        iconBackground: "assets/images/bell.svg",
-                        drawerIcon: Icons.person,
-                        drawerItemTitle: "Notifications",
+                      BlocBuilder<NotificationCountBloc, NotificationCountState>(
+                        builder: (context, state) {
+                          return _DrawerItems(
+                            () => context.router.navigate(const NotificationRoute()),
+                            iconBackground: "assets/images/bell.svg",
+                            drawerIcon: Icons.person,
+                            drawerItemTitle: "Notifications",
+                            showBadge: state.notificationCount.toInt() > 0 ,
+                            counter: state.notificationCount.toInt(),
+                          );
+                        },
                       ),
                       _DrawerItems(
                         () {
@@ -149,10 +168,12 @@ class SideDrawer extends StatelessWidget {
 class _DrawerItems extends StatelessWidget {
   final IconData? drawerIcon;
   final String drawerItemTitle, iconBackground;
+  final bool showBadge;
   final Function onTap;
+  final int counter;
 
   const _DrawerItems(this.onTap,
-      {this.drawerIcon, this.drawerItemTitle = "", this.iconBackground = ""});
+      {this.drawerIcon, this.drawerItemTitle = "", this.iconBackground = "", this.showBadge= false, this.counter = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -167,9 +188,19 @@ class _DrawerItems extends StatelessWidget {
             const SizedBox(
               width: 16.45,
             ),
-            Text(
-              drawerItemTitle,
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: Colors.black),
+            Expanded(
+              child: Text(
+                drawerItemTitle,
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: Colors.black),
+              ),
+            ),
+            Visibility(
+              visible: showBadge,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2 ),
+                color: Colors.green,
+                child: Text(counter.toString(), style: const TextStyle(color: Colors.white),)
+              ),
             )
           ],
         ),

@@ -11,7 +11,10 @@ _$_NotificationMessage _$_$_NotificationMessageFromJson(
   return _$_NotificationMessage(
     title: json['title'] as String?,
     body: json['body'] as String?,
-    time: json['time'] as int,
+    date: json['date'] as String,
+    status: json['status'] as bool,
+    plotId: json['plotId'] as String,
+    amount: json['amount'] as String,
     isRead: json['isRead'] as bool? ?? false,
   );
 }
@@ -21,6 +24,9 @@ Map<String, dynamic> _$_$_NotificationMessageToJson(
     <String, dynamic>{
       'title': instance.title,
       'body': instance.body,
-      'time': instance.time,
+      'date': instance.date,
+      'status': instance.status,
+      'plotId': instance.plotId,
+      'amount': instance.amount,
       'isRead': instance.isRead,
     };

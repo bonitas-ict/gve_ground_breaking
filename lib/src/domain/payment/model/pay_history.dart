@@ -9,7 +9,8 @@ class PayHistory with _$PayHistory{
     required String plotId,
     required String date,
     required String amount,
-    required bool stauts,
+    bool? status,
+    bool? isNotPending
   }) = _PayHistory;
 
   factory PayHistory.fromJson(Map<String, dynamic> json) => _$PayHistoryFromJson(json);

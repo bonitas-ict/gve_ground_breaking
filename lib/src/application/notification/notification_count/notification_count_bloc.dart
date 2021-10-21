@@ -14,7 +14,7 @@ class NotificationCountBloc extends Bloc<NotificationCountEvent, NotificationCou
   NotificationCountBloc({required INotificationFacade notificationFacade}) : _notificationFacade = notificationFacade, super(const  NotificationCountState.initial(0)) {
     on<_LoadNotificationCount>((event, emit) async{
       emit(NotificationCountState.loadInProgress(state.notificationCount));
-      final data = await _notificationFacade.fetchNotification();
+      final data = await _notificationFacade.fetchUnReadCount();
       emit(data.fold((f) => NotificationCountState.loadFailure(state.notificationCount,f), (r) {
         return NotificationCountState.loadSuccess(r.data);
       }));

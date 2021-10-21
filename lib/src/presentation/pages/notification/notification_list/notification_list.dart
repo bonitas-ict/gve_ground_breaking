@@ -88,14 +88,15 @@ class _MainList extends StatelessWidget {
     return ListView.builder(
       itemCount: notifications.length,
       itemBuilder: (_, int index){
-        return const _NotificationItem();
+        return _NotificationItem(notification: notifications[index]);
       },
     );
   }
 }
 
 class _NotificationItem extends StatelessWidget {
-  const _NotificationItem({ Key? key }) : super(key: key);
+  const _NotificationItem({ Key? key, required this.notification }) : super(key: key);
+  final NotificationMessage notification;
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +126,7 @@ class _NotificationItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Your payment for Plot 882 has been completed; please download your receipt from the payment portal. Our team would contact you to finalize on other required documentations with you.',
+                  'Your payment of ${notification.amount} for ${notification.plotId} has been completed; Our team would reach out to close out this transaction.',
                   style: Theme.of(context).textTheme.bodyText2
                 )
               ],

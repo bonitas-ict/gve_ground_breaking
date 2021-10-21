@@ -11,7 +11,8 @@ _$_PayHistory _$_$_PayHistoryFromJson(Map<String, dynamic> json) {
     plotId: json['plotId'] as String,
     date: json['date'] as String,
     amount: json['amount'] as String,
-    stauts: json['stauts'] as bool,
+    status: json['status'] as bool?,
+    isNotPending: json['isNotPending'] as bool?,
   );
 }
 
@@ -20,5 +21,6 @@ Map<String, dynamic> _$_$_PayHistoryToJson(_$_PayHistory instance) =>
       'plotId': instance.plotId,
       'date': instance.date,
       'amount': instance.amount,
-      'stauts': instance.stauts,
+      'status': instance.status,
+      'isNotPending': instance.isNotPending,
     };

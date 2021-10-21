@@ -42,7 +42,8 @@ class _HistoryItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text('N${payHistory.amount}', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal)),
-                  Text(payHistory.stauts? 'Successful': 'Failed', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: payHistory.stauts? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
+                  Text(payHistory.isNotPending == false? 'Pending': payHistory.status == false ? 'Failed': 'Successful', 
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color:payHistory.isNotPending == false? const Color(0xFF32BDEF): payHistory.status == true ? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
                 ],
               )
             ],

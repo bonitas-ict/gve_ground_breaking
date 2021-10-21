@@ -8,7 +8,10 @@ class NotificationMessage with _$NotificationMessage{
   const factory NotificationMessage({
     required String? title,
     required String? body,
-    required int time,
+    required String date,
+    required bool status,
+    required String plotId,
+    required String amount,
     @Default(false) bool isRead,
   }) = _NotificationMessage;
 

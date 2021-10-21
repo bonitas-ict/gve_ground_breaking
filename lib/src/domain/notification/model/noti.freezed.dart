@@ -23,12 +23,18 @@ class _$NotificationMessageTearOff {
   _NotificationMessage call(
       {required String? title,
       required String? body,
-      required int time,
+      required String date,
+      required bool status,
+      required String plotId,
+      required String amount,
       bool isRead = false}) {
     return _NotificationMessage(
       title: title,
       body: body,
-      time: time,
+      date: date,
+      status: status,
+      plotId: plotId,
+      amount: amount,
       isRead: isRead,
     );
   }
@@ -45,7 +51,10 @@ const $NotificationMessage = _$NotificationMessageTearOff();
 mixin _$NotificationMessage {
   String? get title => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
-  int get time => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  bool get status => throw _privateConstructorUsedError;
+  String get plotId => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,7 +68,14 @@ abstract class $NotificationMessageCopyWith<$Res> {
   factory $NotificationMessageCopyWith(
           NotificationMessage value, $Res Function(NotificationMessage) then) =
       _$NotificationMessageCopyWithImpl<$Res>;
-  $Res call({String? title, String? body, int time, bool isRead});
+  $Res call(
+      {String? title,
+      String? body,
+      String date,
+      bool status,
+      String plotId,
+      String amount,
+      bool isRead});
 }
 
 /// @nodoc
@@ -75,7 +91,10 @@ class _$NotificationMessageCopyWithImpl<$Res>
   $Res call({
     Object? title = freezed,
     Object? body = freezed,
-    Object? time = freezed,
+    Object? date = freezed,
+    Object? status = freezed,
+    Object? plotId = freezed,
+    Object? amount = freezed,
     Object? isRead = freezed,
   }) {
     return _then(_value.copyWith(
@@ -87,10 +106,22 @@ class _$NotificationMessageCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      time: time == freezed
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as int,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+      plotId: plotId == freezed
+          ? _value.plotId
+          : plotId // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
       isRead: isRead == freezed
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
@@ -106,7 +137,14 @@ abstract class _$NotificationMessageCopyWith<$Res>
           $Res Function(_NotificationMessage) then) =
       __$NotificationMessageCopyWithImpl<$Res>;
   @override
-  $Res call({String? title, String? body, int time, bool isRead});
+  $Res call(
+      {String? title,
+      String? body,
+      String date,
+      bool status,
+      String plotId,
+      String amount,
+      bool isRead});
 }
 
 /// @nodoc
@@ -124,7 +162,10 @@ class __$NotificationMessageCopyWithImpl<$Res>
   $Res call({
     Object? title = freezed,
     Object? body = freezed,
-    Object? time = freezed,
+    Object? date = freezed,
+    Object? status = freezed,
+    Object? plotId = freezed,
+    Object? amount = freezed,
     Object? isRead = freezed,
   }) {
     return _then(_NotificationMessage(
@@ -136,10 +177,22 @@ class __$NotificationMessageCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
-      time: time == freezed
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as int,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+      plotId: plotId == freezed
+          ? _value.plotId
+          : plotId // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
       isRead: isRead == freezed
           ? _value.isRead
           : isRead // ignore: cast_nullable_to_non_nullable
@@ -154,7 +207,10 @@ class _$_NotificationMessage implements _NotificationMessage {
   const _$_NotificationMessage(
       {required this.title,
       required this.body,
-      required this.time,
+      required this.date,
+      required this.status,
+      required this.plotId,
+      required this.amount,
       this.isRead = false});
 
   factory _$_NotificationMessage.fromJson(Map<String, dynamic> json) =>
@@ -165,14 +221,20 @@ class _$_NotificationMessage implements _NotificationMessage {
   @override
   final String? body;
   @override
-  final int time;
+  final String date;
+  @override
+  final bool status;
+  @override
+  final String plotId;
+  @override
+  final String amount;
   @JsonKey(defaultValue: false)
   @override
   final bool isRead;
 
   @override
   String toString() {
-    return 'NotificationMessage(title: $title, body: $body, time: $time, isRead: $isRead)';
+    return 'NotificationMessage(title: $title, body: $body, date: $date, status: $status, plotId: $plotId, amount: $amount, isRead: $isRead)';
   }
 
   @override
@@ -183,8 +245,14 @@ class _$_NotificationMessage implements _NotificationMessage {
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.time, time) ||
-                const DeepCollectionEquality().equals(other.time, time)) &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.plotId, plotId) ||
+                const DeepCollectionEquality().equals(other.plotId, plotId)) &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)) &&
             (identical(other.isRead, isRead) ||
                 const DeepCollectionEquality().equals(other.isRead, isRead)));
   }
@@ -194,7 +262,10 @@ class _$_NotificationMessage implements _NotificationMessage {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(time) ^
+      const DeepCollectionEquality().hash(date) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(plotId) ^
+      const DeepCollectionEquality().hash(amount) ^
       const DeepCollectionEquality().hash(isRead);
 
   @JsonKey(ignore: true)
@@ -213,7 +284,10 @@ abstract class _NotificationMessage implements NotificationMessage {
   const factory _NotificationMessage(
       {required String? title,
       required String? body,
-      required int time,
+      required String date,
+      required bool status,
+      required String plotId,
+      required String amount,
       bool isRead}) = _$_NotificationMessage;
 
   factory _NotificationMessage.fromJson(Map<String, dynamic> json) =
@@ -224,7 +298,13 @@ abstract class _NotificationMessage implements NotificationMessage {
   @override
   String? get body => throw _privateConstructorUsedError;
   @override
-  int get time => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
+  @override
+  bool get status => throw _privateConstructorUsedError;
+  @override
+  String get plotId => throw _privateConstructorUsedError;
+  @override
+  String get amount => throw _privateConstructorUsedError;
   @override
   bool get isRead => throw _privateConstructorUsedError;
   @override

@@ -24,12 +24,14 @@ class _$PayHistoryTearOff {
       {required String plotId,
       required String date,
       required String amount,
-      required bool stauts}) {
+      bool? status,
+      bool? isNotPending}) {
     return _PayHistory(
       plotId: plotId,
       date: date,
       amount: amount,
-      stauts: stauts,
+      status: status,
+      isNotPending: isNotPending,
     );
   }
 
@@ -46,7 +48,8 @@ mixin _$PayHistory {
   String get plotId => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get amount => throw _privateConstructorUsedError;
-  bool get stauts => throw _privateConstructorUsedError;
+  bool? get status => throw _privateConstructorUsedError;
+  bool? get isNotPending => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +62,12 @@ abstract class $PayHistoryCopyWith<$Res> {
   factory $PayHistoryCopyWith(
           PayHistory value, $Res Function(PayHistory) then) =
       _$PayHistoryCopyWithImpl<$Res>;
-  $Res call({String plotId, String date, String amount, bool stauts});
+  $Res call(
+      {String plotId,
+      String date,
+      String amount,
+      bool? status,
+      bool? isNotPending});
 }
 
 /// @nodoc
@@ -75,7 +83,8 @@ class _$PayHistoryCopyWithImpl<$Res> implements $PayHistoryCopyWith<$Res> {
     Object? plotId = freezed,
     Object? date = freezed,
     Object? amount = freezed,
-    Object? stauts = freezed,
+    Object? status = freezed,
+    Object? isNotPending = freezed,
   }) {
     return _then(_value.copyWith(
       plotId: plotId == freezed
@@ -90,10 +99,14 @@ class _$PayHistoryCopyWithImpl<$Res> implements $PayHistoryCopyWith<$Res> {
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      stauts: stauts == freezed
-          ? _value.stauts
-          : stauts // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isNotPending: isNotPending == freezed
+          ? _value.isNotPending
+          : isNotPending // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -104,7 +117,12 @@ abstract class _$PayHistoryCopyWith<$Res> implements $PayHistoryCopyWith<$Res> {
           _PayHistory value, $Res Function(_PayHistory) then) =
       __$PayHistoryCopyWithImpl<$Res>;
   @override
-  $Res call({String plotId, String date, String amount, bool stauts});
+  $Res call(
+      {String plotId,
+      String date,
+      String amount,
+      bool? status,
+      bool? isNotPending});
 }
 
 /// @nodoc
@@ -122,7 +140,8 @@ class __$PayHistoryCopyWithImpl<$Res> extends _$PayHistoryCopyWithImpl<$Res>
     Object? plotId = freezed,
     Object? date = freezed,
     Object? amount = freezed,
-    Object? stauts = freezed,
+    Object? status = freezed,
+    Object? isNotPending = freezed,
   }) {
     return _then(_PayHistory(
       plotId: plotId == freezed
@@ -137,10 +156,14 @@ class __$PayHistoryCopyWithImpl<$Res> extends _$PayHistoryCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
-      stauts: stauts == freezed
-          ? _value.stauts
-          : stauts // ignore: cast_nullable_to_non_nullable
-              as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isNotPending: isNotPending == freezed
+          ? _value.isNotPending
+          : isNotPending // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -152,7 +175,8 @@ class _$_PayHistory implements _PayHistory {
       {required this.plotId,
       required this.date,
       required this.amount,
-      required this.stauts});
+      this.status,
+      this.isNotPending});
 
   factory _$_PayHistory.fromJson(Map<String, dynamic> json) =>
       _$_$_PayHistoryFromJson(json);
@@ -164,11 +188,13 @@ class _$_PayHistory implements _PayHistory {
   @override
   final String amount;
   @override
-  final bool stauts;
+  final bool? status;
+  @override
+  final bool? isNotPending;
 
   @override
   String toString() {
-    return 'PayHistory(plotId: $plotId, date: $date, amount: $amount, stauts: $stauts)';
+    return 'PayHistory(plotId: $plotId, date: $date, amount: $amount, status: $status, isNotPending: $isNotPending)';
   }
 
   @override
@@ -181,8 +207,11 @@ class _$_PayHistory implements _PayHistory {
                 const DeepCollectionEquality().equals(other.date, date)) &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
-            (identical(other.stauts, stauts) ||
-                const DeepCollectionEquality().equals(other.stauts, stauts)));
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.isNotPending, isNotPending) ||
+                const DeepCollectionEquality()
+                    .equals(other.isNotPending, isNotPending)));
   }
 
   @override
@@ -191,7 +220,8 @@ class _$_PayHistory implements _PayHistory {
       const DeepCollectionEquality().hash(plotId) ^
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(amount) ^
-      const DeepCollectionEquality().hash(stauts);
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(isNotPending);
 
   @JsonKey(ignore: true)
   @override
@@ -209,7 +239,8 @@ abstract class _PayHistory implements PayHistory {
       {required String plotId,
       required String date,
       required String amount,
-      required bool stauts}) = _$_PayHistory;
+      bool? status,
+      bool? isNotPending}) = _$_PayHistory;
 
   factory _PayHistory.fromJson(Map<String, dynamic> json) =
       _$_PayHistory.fromJson;
@@ -221,7 +252,9 @@ abstract class _PayHistory implements PayHistory {
   @override
   String get amount => throw _privateConstructorUsedError;
   @override
-  bool get stauts => throw _privateConstructorUsedError;
+  bool? get status => throw _privateConstructorUsedError;
+  @override
+  bool? get isNotPending => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PayHistoryCopyWith<_PayHistory> get copyWith =>

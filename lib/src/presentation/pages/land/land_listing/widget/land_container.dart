@@ -45,23 +45,30 @@ class _LandCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 180,
+    return Container(
+      margin: const EdgeInsets.only(right:8),
+      width: 175,
       child: GestureDetector(
         onTap: ()=> context.router.navigate(PaymentMathodRoute(propertyId: plot.plotId, propertyPrice: plot.price)),
         child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.0),	
+          ),
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: [
-              CachedNetworkImage(
-                imageUrl: dotenv.env['BASE_URL']!+plot.thumbnailUrl,
-                placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-                fit: BoxFit.cover,
-                height: 120,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(25.0),
+                child: CachedNetworkImage(
+                  imageUrl: dotenv.env['BASE_URL']!+plot.thumbnailUrl,
+                  placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  fit: BoxFit.cover,
+                  height: 120,
+                ),
               ),
               ListTile(
-                title:  Text(plot.size.toString()+'sqm'),
+               // title:  Text(plot.size.toString()+'sqm'),
                 subtitle: Text(
                   plot.plotId,
                   style: TextStyle(color: Colors.black.withOpacity(0.6)),
