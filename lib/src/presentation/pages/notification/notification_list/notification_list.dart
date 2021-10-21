@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gve_opening/src/application/application.dart';
 import 'package:gve_opening/src/domain/domain.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 import '../../../presentation.dart';
 
@@ -100,6 +102,8 @@ class _NotificationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateFormat dateFormat = DateFormat("yyyy-MM-ddTHH:mm:ss");
+    DateTime dateTime = dateFormat.parse(notification.date);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       margin: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
@@ -117,10 +121,10 @@ class _NotificationItem extends StatelessWidget {
                   children: [
                     Expanded(child: Text('Payment Completed', style: Theme.of(context).textTheme.bodyText1,)),
                     Row(
-                      children: const[
-                        Icon(Icons.timelapse, size: 16,),
-                        SizedBox(width: 4),
-                        Text('10:00 AM')
+                      children: [
+                        const Icon(Icons.timelapse, size: 16,),
+                        const SizedBox(width: 4),
+                        Text(timeago.format(dateTime))
                       ],
                     )
                   ],
