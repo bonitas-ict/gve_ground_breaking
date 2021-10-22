@@ -9,6 +9,10 @@ extension CurrencyExt on num {
     final currencyFormatter = NumberFormat("#,##0.00", "en_NG");
     return currencyFormatter.format(this);
   }
+
+  String formatCurrency(BuildContext context) {
+    return 'NGN'.currencySymbol(context) + formatAmount() ;
+  }
 }
 
 /// Extension function to return a valid currency symbol
@@ -19,7 +23,7 @@ extension CurrencySymbolExt on String {
     return format.currencySymbol;
   }
 
-  String formatCurrency(BuildContext context, num amount) {
-    return currencySymbol(context) + amount.formatAmount();
+  String formatCurrency(BuildContext context) {
+    return 'NGN'.currencySymbol(context) + (num.tryParse(this)?.formatAmount() ?? '0');
   }
 }

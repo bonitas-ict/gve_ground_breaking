@@ -59,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                 subtitle: const Text('Enable or disable in-app notifications.'),
                                 trailing: Switch(
                                   value: isToggled,
-                                  activeColor: const Color(0xFF6200EE),
+                                  activeColor: const Color(0xFF4D8047),
                                   onChanged: (bool value) {
                                           setState(() {
                                             isToggled = value;

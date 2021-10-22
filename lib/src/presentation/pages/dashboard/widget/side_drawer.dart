@@ -50,7 +50,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.clear), iconSize: 40,),
+                      IconButton(onPressed: ()=>Navigator.of(context).pop(), icon: const Icon(Icons.clear), iconSize: 40,),
                       const SizedBox(height: 20,),
                       Text('GREEN', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700, fontSize: 35)),
                       const SizedBox(height: 4,),

@@ -19,7 +19,7 @@ class NotificationPage extends StatelessWidget {
           SizedBox(
             height: double.infinity,
             width: double.infinity,
-            child:SvgPicture.asset('assets/images/notification_bg.svg') ,
+            child:SvgPicture.asset('assets/images/notification_bg.svg', fit: BoxFit.cover,) ,
           ),
           SizedBox(
             height: double.infinity,
@@ -130,7 +130,7 @@ class _NotificationItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Your payment of ${notification.amount} for ${notification.plotId} has been completed; Our team would reach out to close out this transaction.',
+                  'Your payment of ${notification.amount.formatCurrency(context)} for ${notification.plotId} has been completed; Our team would reach out to close out this transaction.',
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(color:Colors.black)
                 )
               ],

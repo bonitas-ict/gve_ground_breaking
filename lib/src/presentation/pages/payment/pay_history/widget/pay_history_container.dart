@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gve_opening/src/domain/payment/model/pay_history.dart';
+import 'package:gve_opening/src/presentation/utils/currency_ext.dart';
 
 class PayHistoryContainer extends StatelessWidget {
   const PayHistoryContainer({Key? key, required this.paymentHistories}): super(key: key);
@@ -41,7 +42,7 @@ class _HistoryItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text('N${payHistory.amount}', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal)),
+                  Text(payHistory.amount.formatCurrency(context), style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal)),
                   Text(payHistory.isNotPending == false? 'Pending': payHistory.status == false ? 'Failed': 'Successful', 
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color:payHistory.isNotPending == false? const Color(0xFF32BDEF): payHistory.status == true ? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
                 ],
