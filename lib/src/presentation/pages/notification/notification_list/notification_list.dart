@@ -46,7 +46,7 @@ class NotificationPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children:  [
-                        Text('Notifications', style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white),)
+                        Text('Notifications', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.white),)
                       ],
                     ),
                   ),
@@ -119,7 +119,7 @@ class _NotificationItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Expanded(child: Text('Payment Completed', style: Theme.of(context).textTheme.bodyText1,)),
+                    Expanded(child: Text('Payment Completed', style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.black),)),
                     Row(
                       children: [
                         const Icon(Icons.timelapse, size: 16,),
@@ -131,7 +131,7 @@ class _NotificationItem extends StatelessWidget {
                 ),
                 Text(
                   'Your payment of ${notification.amount} for ${notification.plotId} has been completed; Our team would reach out to close out this transaction.',
-                  style: Theme.of(context).textTheme.bodyText2
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(color:Colors.black)
                 )
               ],
             ),

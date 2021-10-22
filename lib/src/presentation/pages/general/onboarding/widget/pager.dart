@@ -33,9 +33,9 @@ class Pager extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title, style: theme.textTheme.subtitle1!.copyWith(fontSize: 19, color: const Color(0xFF598E48)),),
+                      Text(title, style: theme.textTheme.headline5,),
                       const SizedBox(height: 8),
-                      Text(description, style: theme.textTheme.bodyText2,)
+                      Text(description, style: theme.textTheme.bodyText1,)
                     ],
                   ),
                 )

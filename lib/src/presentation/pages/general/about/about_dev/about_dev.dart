@@ -25,7 +25,7 @@ class AboutDevPage extends StatelessWidget {
                         child: const Icon(Icons.arrow_back)
                       ),
                       const SizedBox(height: 40,),
-                      Text('Meet the\nDevelopers', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                      Text('Meet the\nDevelopers', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                     ],
                   ),
                 ),
@@ -38,9 +38,9 @@ class AboutDevPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('The Green Valley Estate (GVE) project is powered by the Anambra State Housing Development Corporation (ASHDC) in partnership with 8 notable real estate developers.'),
+                        Text('The Green Valley Estate (GVE) project is powered by the Anambra State Housing Development Corporation (ASHDC) in partnership with 8 notable real estate developers.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
-                        const Text('The developers of the estate are John Joe and Partners, Elson Construction, BO Limited, GWI Limited, Almatex, Anchor-Nuel, Paul-B, and Gwice Dynamic.'),
+                        Text('The developers of the estate are John Joe and Partners, Elson Construction, BO Limited, GWI Limited, Almatex, Anchor-Nuel, Paul-B, and Gwice Dynamic.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
                         Image.asset('assets/images/d1.png', width: 250,),
                         const SizedBox(height: 10),

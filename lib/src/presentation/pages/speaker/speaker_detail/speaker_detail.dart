@@ -29,10 +29,10 @@ class SpeakerDetailPage extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: ()=> Navigator.pop(context),
-                        child:const Icon(Icons.chevron_left)
+                        child:const Icon(Icons.arrow_back)
                       ),
                       const SizedBox(height: 40,),
-                      Text('Event Speaker \nDetails', style: Theme.of(context).textTheme.headline6,),
+                      Text('Event Speaker \nDetails', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                       const SizedBox(height: 40,),
                      const Expanded(child: SpeakerContainer())
                     ]

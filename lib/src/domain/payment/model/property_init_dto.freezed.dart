@@ -20,7 +20,7 @@ PropertyInitDTO _$PropertyInitDTOFromJson(Map<String, dynamic> json) {
 class _$PropertyInitDTOTearOff {
   const _$PropertyInitDTOTearOff();
 
-  _PropertyInitDTO call({required String referenceId, required bool isTaken}) {
+  _PropertyInitDTO call({required String referenceId, required bool? isTaken}) {
     return _PropertyInitDTO(
       referenceId: referenceId,
       isTaken: isTaken,
@@ -38,7 +38,7 @@ const $PropertyInitDTO = _$PropertyInitDTOTearOff();
 /// @nodoc
 mixin _$PropertyInitDTO {
   String get referenceId => throw _privateConstructorUsedError;
-  bool get isTaken => throw _privateConstructorUsedError;
+  bool? get isTaken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $PropertyInitDTOCopyWith<$Res> {
   factory $PropertyInitDTOCopyWith(
           PropertyInitDTO value, $Res Function(PropertyInitDTO) then) =
       _$PropertyInitDTOCopyWithImpl<$Res>;
-  $Res call({String referenceId, bool isTaken});
+  $Res call({String referenceId, bool? isTaken});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$PropertyInitDTOCopyWithImpl<$Res>
       isTaken: isTaken == freezed
           ? _value.isTaken
           : isTaken // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -88,7 +88,7 @@ abstract class _$PropertyInitDTOCopyWith<$Res>
           _PropertyInitDTO value, $Res Function(_PropertyInitDTO) then) =
       __$PropertyInitDTOCopyWithImpl<$Res>;
   @override
-  $Res call({String referenceId, bool isTaken});
+  $Res call({String referenceId, bool? isTaken});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$PropertyInitDTOCopyWithImpl<$Res>
       isTaken: isTaken == freezed
           ? _value.isTaken
           : isTaken // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -131,7 +131,7 @@ class _$_PropertyInitDTO implements _PropertyInitDTO {
   @override
   final String referenceId;
   @override
-  final bool isTaken;
+  final bool? isTaken;
 
   @override
   String toString() {
@@ -169,7 +169,7 @@ class _$_PropertyInitDTO implements _PropertyInitDTO {
 abstract class _PropertyInitDTO implements PropertyInitDTO {
   const factory _PropertyInitDTO(
       {required String referenceId,
-      required bool isTaken}) = _$_PropertyInitDTO;
+      required bool? isTaken}) = _$_PropertyInitDTO;
 
   factory _PropertyInitDTO.fromJson(Map<String, dynamic> json) =
       _$_PropertyInitDTO.fromJson;
@@ -177,7 +177,7 @@ abstract class _PropertyInitDTO implements PropertyInitDTO {
   @override
   String get referenceId => throw _privateConstructorUsedError;
   @override
-  bool get isTaken => throw _privateConstructorUsedError;
+  bool? get isTaken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PropertyInitDTOCopyWith<_PropertyInitDTO> get copyWith =>

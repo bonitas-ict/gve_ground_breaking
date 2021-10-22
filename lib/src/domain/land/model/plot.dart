@@ -13,6 +13,7 @@ class Plot with _$Plot{
     required String unit,
     required String plotId, 
     required String thumbnailUrl,
+    bool? isTaken,
   }) = _Plot;
 
   factory Plot.fromJson(Map<String, dynamic> json) => _$PlotFromJson(json);

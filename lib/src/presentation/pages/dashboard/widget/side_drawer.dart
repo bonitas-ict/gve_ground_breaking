@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/domain/domain.dart';
 import 'package:gve_opening/src/presentation/routes/routes.dart';
 
 class SideDrawer extends StatefulWidget {
@@ -49,13 +50,13 @@ class _SideDrawerState extends State<SideDrawer> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.cancel_outlined)),
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.clear), iconSize: 40,),
                       const SizedBox(height: 20,),
-                      Text('GREEN', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700)),
+                      Text('GREEN', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700, fontSize: 35)),
                       const SizedBox(height: 4,),
-                      Text('VALLEY', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700)),
+                      Text('VALLEY', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700, fontSize: 35)),
                       const SizedBox(height: 4,),
-                      Text('ESTATE', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700)),
+                      Text('ESTATE', style: Theme.of(context).textTheme.headline4!.copyWith(color:Colors.white,fontWeight: FontWeight.w700, fontSize: 35)),
                       const SizedBox(height: 20),
                       // _DrawerItems(
                       //   () {
@@ -112,7 +113,8 @@ class _SideDrawerState extends State<SideDrawer> {
                       ),
                       _DrawerItems(
                         () {
-                          context.router.navigate(const SettingsRoute());
+                          context.read<AuthenticationBloc>().add(const AuthenticationEvent.switchAppState(AppState.UNAUTHENTICATED));
+                          //context.router.navigate(const SettingsRoute());
                         },
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,

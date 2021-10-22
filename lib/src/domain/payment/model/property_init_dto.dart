@@ -7,7 +7,7 @@ part 'property_init_dto.g.dart';
 class PropertyInitDTO with _$PropertyInitDTO{
   const factory PropertyInitDTO({
     required String referenceId,
-    required bool isTaken,
+    required bool? isTaken,
   }) = _PropertyInitDTO;
 
   factory PropertyInitDTO.fromJson(Map<String, dynamic> json) => _$PropertyInitDTOFromJson(json);

@@ -33,15 +33,15 @@ class _HistoryItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${payHistory.plotId} Purchase', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal),),
-                    Text(payHistory.date.split('T')[0], style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: const Color(0xFFA1A59C)),)
+                    Text('${payHistory.plotId} Purchase', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),),
+                    Text(payHistory.date.split('T')[0], style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: const Color(0xFFA1A59C)),)
                   ],
                 ),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text('N${payHistory.amount}', style: Theme.of(context).textTheme.subtitle2!.copyWith(fontSize: 16, fontWeight: FontWeight.normal)),
+                  Text('N${payHistory.amount}', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal)),
                   Text(payHistory.isNotPending == false? 'Pending': payHistory.status == false ? 'Failed': 'Successful', 
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color:payHistory.isNotPending == false? const Color(0xFF32BDEF): payHistory.status == true ? const Color(0xFF3DCB76): const Color(0xFFF73112)),)
                 ],

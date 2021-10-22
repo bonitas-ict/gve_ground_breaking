@@ -59,7 +59,7 @@ class _OtpPageState extends State<OtpPage> {
                         appLoc!.enter_otp,
                         style: Theme.of(context)
                             .textTheme
-                            .headline5!
+                            .headline1!
                             .copyWith(fontSize: 18),
                       ),
                       const SizedBox(
@@ -69,7 +69,7 @@ class _OtpPageState extends State<OtpPage> {
                         appLoc.provide_otp,
                         style: Theme.of(context)
                             .textTheme
-                            .headline5!
+                            .overline!
                             .copyWith(fontSize: 18, color: const Color(0xFF959EA3)),
                         textAlign: TextAlign.center,
                       ),
@@ -113,16 +113,16 @@ class _OtpPageState extends State<OtpPage> {
                       Text(appLoc.did_not_receive_otp,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
-                              .copyWith(color: const Color(0xFFCFCFCF))),
+                              .overline!
+                              .copyWith(color: const Color(0xFFCFCFCF), fontSize: 18)),
                       const SizedBox(
                         height: 8,
                       ),
                       Text(appLoc.resend_code,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
-                              .copyWith(color: const Color(0xFF598E48)))
+                              .overline!
+                              .copyWith(color: const Color(0xFF598E48), fontSize: 18))
                     ],
                   ),
                 )

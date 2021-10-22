@@ -26,7 +26,8 @@ class _$PlotTearOff {
       required double price,
       required String unit,
       required String plotId,
-      required String thumbnailUrl}) {
+      required String thumbnailUrl,
+      bool? isTaken}) {
     return _Plot(
       id: id,
       size: size,
@@ -34,6 +35,7 @@ class _$PlotTearOff {
       unit: unit,
       plotId: plotId,
       thumbnailUrl: thumbnailUrl,
+      isTaken: isTaken,
     );
   }
 
@@ -53,6 +55,7 @@ mixin _$Plot {
   String get unit => throw _privateConstructorUsedError;
   String get plotId => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
+  bool? get isTaken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +72,8 @@ abstract class $PlotCopyWith<$Res> {
       double price,
       String unit,
       String plotId,
-      String thumbnailUrl});
+      String thumbnailUrl,
+      bool? isTaken});
 }
 
 /// @nodoc
@@ -88,6 +92,7 @@ class _$PlotCopyWithImpl<$Res> implements $PlotCopyWith<$Res> {
     Object? unit = freezed,
     Object? plotId = freezed,
     Object? thumbnailUrl = freezed,
+    Object? isTaken = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -114,6 +119,10 @@ class _$PlotCopyWithImpl<$Res> implements $PlotCopyWith<$Res> {
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isTaken: isTaken == freezed
+          ? _value.isTaken
+          : isTaken // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -129,7 +138,8 @@ abstract class _$PlotCopyWith<$Res> implements $PlotCopyWith<$Res> {
       double price,
       String unit,
       String plotId,
-      String thumbnailUrl});
+      String thumbnailUrl,
+      bool? isTaken});
 }
 
 /// @nodoc
@@ -149,6 +159,7 @@ class __$PlotCopyWithImpl<$Res> extends _$PlotCopyWithImpl<$Res>
     Object? unit = freezed,
     Object? plotId = freezed,
     Object? thumbnailUrl = freezed,
+    Object? isTaken = freezed,
   }) {
     return _then(_Plot(
       id: id == freezed
@@ -175,6 +186,10 @@ class __$PlotCopyWithImpl<$Res> extends _$PlotCopyWithImpl<$Res>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isTaken: isTaken == freezed
+          ? _value.isTaken
+          : isTaken // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -188,7 +203,8 @@ class _$_Plot with DiagnosticableTreeMixin implements _Plot {
       required this.price,
       required this.unit,
       required this.plotId,
-      required this.thumbnailUrl});
+      required this.thumbnailUrl,
+      this.isTaken});
 
   factory _$_Plot.fromJson(Map<String, dynamic> json) =>
       _$_$_PlotFromJson(json);
@@ -205,10 +221,12 @@ class _$_Plot with DiagnosticableTreeMixin implements _Plot {
   final String plotId;
   @override
   final String thumbnailUrl;
+  @override
+  final bool? isTaken;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Plot(id: $id, size: $size, price: $price, unit: $unit, plotId: $plotId, thumbnailUrl: $thumbnailUrl)';
+    return 'Plot(id: $id, size: $size, price: $price, unit: $unit, plotId: $plotId, thumbnailUrl: $thumbnailUrl, isTaken: $isTaken)';
   }
 
   @override
@@ -221,7 +239,8 @@ class _$_Plot with DiagnosticableTreeMixin implements _Plot {
       ..add(DiagnosticsProperty('price', price))
       ..add(DiagnosticsProperty('unit', unit))
       ..add(DiagnosticsProperty('plotId', plotId))
-      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl));
+      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl))
+      ..add(DiagnosticsProperty('isTaken', isTaken));
   }
 
   @override
@@ -240,7 +259,9 @@ class _$_Plot with DiagnosticableTreeMixin implements _Plot {
                 const DeepCollectionEquality().equals(other.plotId, plotId)) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.thumbnailUrl, thumbnailUrl)));
+                    .equals(other.thumbnailUrl, thumbnailUrl)) &&
+            (identical(other.isTaken, isTaken) ||
+                const DeepCollectionEquality().equals(other.isTaken, isTaken)));
   }
 
   @override
@@ -251,7 +272,8 @@ class _$_Plot with DiagnosticableTreeMixin implements _Plot {
       const DeepCollectionEquality().hash(price) ^
       const DeepCollectionEquality().hash(unit) ^
       const DeepCollectionEquality().hash(plotId) ^
-      const DeepCollectionEquality().hash(thumbnailUrl);
+      const DeepCollectionEquality().hash(thumbnailUrl) ^
+      const DeepCollectionEquality().hash(isTaken);
 
   @JsonKey(ignore: true)
   @override
@@ -271,7 +293,8 @@ abstract class _Plot implements Plot {
       required double price,
       required String unit,
       required String plotId,
-      required String thumbnailUrl}) = _$_Plot;
+      required String thumbnailUrl,
+      bool? isTaken}) = _$_Plot;
 
   factory _Plot.fromJson(Map<String, dynamic> json) = _$_Plot.fromJson;
 
@@ -287,6 +310,8 @@ abstract class _Plot implements Plot {
   String get plotId => throw _privateConstructorUsedError;
   @override
   String get thumbnailUrl => throw _privateConstructorUsedError;
+  @override
+  bool? get isTaken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$PlotCopyWith<_Plot> get copyWith => throw _privateConstructorUsedError;

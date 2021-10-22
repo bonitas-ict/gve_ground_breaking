@@ -64,9 +64,9 @@ class AccountContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 60),
-                    Text(appLoc!.hello, style: Theme.of(context).textTheme.headline6),
+                    Text(appLoc!.hello+',', style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 26)),
                     const SizedBox(height: 40),
-                    Text(appLoc.sign_up_to_get_started, style: Theme.of(context).textTheme.bodyText1),
+                    Text(appLoc.sign_up_to_get_started, style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 26, color: Colors.black)),
                     Expanded(
                       child: Container(
                         width: double.infinity,
@@ -139,7 +139,7 @@ class AccountContainer extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 16),
-                              RoundedButton(onPressed: () => formSubmitHandler(context), label: appLoc.sign_up) 
+                              SizedBox(width: 145,child: RoundedButton(onPressed: () => formSubmitHandler(context), label: appLoc.sign_up)) 
                             ],
                           ),
                         ) ,

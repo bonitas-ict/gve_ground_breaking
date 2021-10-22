@@ -38,7 +38,7 @@ class PaymentMathodPage extends StatelessWidget {
                           child: const Icon(Icons.arrow_back)
                         ),
                         const SizedBox(height: 40,),
-                        Text('Payment \nMethod', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                        Text('Payment \nMethod', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                       ],
                     ),
                   ),
@@ -67,7 +67,7 @@ class _StateMachine extends StatelessWidget {
         return state.map(
           initial: (_)=> const Center(child: CircularProgressIndicator(),),//const HomeLoader(), 
           loadInProgress:(_)=> const Center(child: CircularProgressIndicator(),), //const HomeLoader(), 
-          loadSuccess:(s) => SingleChildScrollView(child: PayMethodContainer(paymentRef: s.propertyInfo.referenceId, amount:amount,plotId: plotId,isTaken: s.propertyInfo.isTaken,),), 
+          loadSuccess:(s) => SingleChildScrollView(child: PayMethodContainer(paymentRef: s.propertyInfo.referenceId, amount:amount,plotId: plotId,isTaken: s.propertyInfo.isTaken ?? false,),), 
           loadFailure:(f) => ErrorHandler(handler:()=> context.read<PaymentInitBloc>().add(PaymentInitEvent.initPayment(plotId)),)
         );
       },

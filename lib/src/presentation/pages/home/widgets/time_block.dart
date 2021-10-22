@@ -18,7 +18,7 @@ class TimeBlock extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 4),
-        Text(_label, style: Theme.of(context).textTheme.overline!.copyWith(fontSize: 10),)
+        Text(_label, style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 10,color: const Color(0xFF959EA3)),)
       ],
     );
   }

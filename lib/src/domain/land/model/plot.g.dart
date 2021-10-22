@@ -14,6 +14,7 @@ _$_Plot _$_$_PlotFromJson(Map<String, dynamic> json) {
     unit: json['unit'] as String,
     plotId: json['plotId'] as String,
     thumbnailUrl: json['thumbnailUrl'] as String,
+    isTaken: json['isTaken'] as bool?,
   );
 }
 
@@ -24,4 +25,5 @@ Map<String, dynamic> _$_$_PlotToJson(_$_Plot instance) => <String, dynamic>{
       'unit': instance.unit,
       'plotId': instance.plotId,
       'thumbnailUrl': instance.thumbnailUrl,
+      'isTaken': instance.isTaken,
     };

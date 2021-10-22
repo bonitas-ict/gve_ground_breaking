@@ -33,7 +33,7 @@ class OfflinePaymentPage extends StatelessWidget {
                               child: const Icon(Icons.arrow_back)
                             ),
                             const SizedBox(height: 40,),
-                            Text('Offline Payment\nPortal', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                            Text('Offline Payment\nPortal', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black)),
                           ],
                         ),
                       ),

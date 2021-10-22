@@ -12,7 +12,7 @@ class HomeTimer extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Ceremony Countdown', style: Theme.of(context).textTheme.bodyText2!.copyWith(color: const Color(0xFF598E48))),
+        Text('Ceremony Countdown', style: Theme.of(context).textTheme.headline1!.copyWith(color: const Color(0xFF598E48), fontSize: 12)),
         const SizedBox(height: 20),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +43,7 @@ class HomeTimer extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Text('Event Management - Categories', style: Theme.of(context).textTheme.bodyText2!.copyWith(color: const Color(0xFF598E48))),
+        Text('Event Management - Categories', style: Theme.of(context).textTheme.headline1!.copyWith(color: const Color(0xFF598E48), fontSize: 12)),
         const SizedBox(height: 20),
         SizedBox(
           height: 180,

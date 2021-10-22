@@ -80,8 +80,8 @@ class _TapItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(filePath, fit: BoxFit.cover, width: double.infinity,),
-            Text(label, style: Theme.of(context).textTheme.bodyText1!.copyWith(color: const Color(0xFFB9D89F), fontSize: 14)),
-            Text(desc, style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 12), maxLines: 2,)
+            Text(label, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: const Color(0xFFB9D89F), fontSize: 16)),
+            Text(desc, style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 14), maxLines: 2,)
           ],
         ),
       ),

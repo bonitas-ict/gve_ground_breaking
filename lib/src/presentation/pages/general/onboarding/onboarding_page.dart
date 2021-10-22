@@ -41,7 +41,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       Pager(
         title: appLoc.onboarding_title_3,
         description: appLoc.onboarding_description_3,
-        //coverImage: 'assets/images/onboarding_bg_3.svg',
+        coverImage: 'assets/images/onboarding_bg_3.svg',
         logoImage: 'assets/images/e_pic.png',
       )
     ];

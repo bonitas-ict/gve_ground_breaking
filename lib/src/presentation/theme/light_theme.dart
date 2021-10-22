@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'colors.dart';
 
 ///LIGHT THEMEING SETUP AND MANAGMENT HAPPENS HERE
@@ -27,80 +25,82 @@ class LightTheme{
 
 TextTheme _buildAppLightTextTheme(TextTheme base){
   return base.copyWith(
-    headline1: GoogleFonts.roboto(
-      fontSize: 96,
-      fontWeight: FontWeight.w300,
-      letterSpacing: -1.5
+    
+    headline1:const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 96.0,
+      fontFamily: 'Coco'
     ),
-    headline2: GoogleFonts.roboto(
+    headline2: const TextStyle(
       color: GVEColors.black900,
       fontSize: 60,
-      fontWeight: FontWeight.w300,
-      letterSpacing: -0.5
+      letterSpacing: -0.5,
+      fontFamily: 'Frank'
     ),
-    headline3: GoogleFonts.roboto(
+    headline3: const TextStyle(
       color: GVEColors.black900,
       fontSize: 48,
-      fontWeight: FontWeight.w400
+      fontFamily: 'Frank'
     ),
-    headline4: GoogleFonts.roboto(
-      color: GVEColors.black900,
-      fontSize: 34,
-      fontWeight: FontWeight.w400,
+    headline4: const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 22,
+      fontFamily: 'Book',
       letterSpacing: 0.25
     ),
-    headline5: GoogleFonts.roboto(
-      color: const Color(0xFF598E48),
-      fontSize: 24,
-      fontWeight: FontWeight.w400
+    headline5:const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 19,
+      letterSpacing: 0.15,
+      fontFamily: 'Frank',
     ),
-    headline6: GoogleFonts.roboto(
+    headline6: const TextStyle(
       color: GVEColors.black900,
       fontSize: 20,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0.15
+      letterSpacing: 0.15,
+      fontFamily: 'Frank',
     ),
-    subtitle1: GoogleFonts.gothicA1(
-      color: const Color(0xFF598E48),
+    subtitle1: const TextStyle(
+      color: Color(0xFF598E48),
       fontSize: 16,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 0.15
-    ),
-    subtitle2: GoogleFonts.roboto(
-      color: GVEColors.black900,
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0.1
-    ),
-    bodyText1: GoogleFonts.openSans(
+      letterSpacing: 0.15,
+      fontFamily: 'Book',
+    ), 
+    subtitle2: const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 16,
+      letterSpacing: 0.15,
+      fontFamily: 'Frank',
+    ), 
+    bodyText1: const TextStyle(
       color: GVEColors.black900,
       fontSize: 16,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 0.5
-    ),
-    bodyText2: GoogleFonts.openSans(
+      letterSpacing: 0.5,
+      fontFamily: 'Book',
+    ), 
+    bodyText2: const TextStyle(
       color: GVEColors.black900,
       fontSize: 14,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 0.25
-    ),
-    button: GoogleFonts.openSans(
+      letterSpacing: 0.25,
+      fontFamily: 'Book',
+    ), 
+    button: const TextStyle(
       color: GVEColors.black900,
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
+      fontSize: 16,
       letterSpacing: 1.25,
-    ),
-    caption: GoogleFonts.openSans(
-      color: GVEColors.black900,
-      fontSize: 12,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 0.4
-    ),
-    overline: GoogleFonts.openSans(
-      color: const Color(0xFFCFCFCF),
-      fontSize: 10,
-      fontWeight: FontWeight.w400,
-      letterSpacing: 1.5
+      fontFamily: 'Book',
+    ), 
+    caption: const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 14,
+      letterSpacing: 0.4,
+      fontFamily: 'Book',
+    ), 
+    overline: const TextStyle(
+      color: Color(0xFF598E48),
+      fontSize: 16,
+      letterSpacing: 1.5,
+      fontFamily: 'Book',
     ),
   );
 }

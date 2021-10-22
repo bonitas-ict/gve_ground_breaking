@@ -114,12 +114,15 @@ class _OfflineContainerState extends State<OfflineContainer> {
             BlocBuilder<OfflinePayBloc, OfflinePayState>(
               builder: (context, state) {
                 if(state.isSubmitting) return const Center(child: CircularProgressIndicator());
-                return SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
-                    onPressed: () => formSubmitHandler(context),
-                    child: const Text('Submit'),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: const Color(0xFF7EB84E)),
+                      onPressed: () => formSubmitHandler(context),
+                      child: const Text('Submit'),
+                    ),
                   ),
                 );
               },

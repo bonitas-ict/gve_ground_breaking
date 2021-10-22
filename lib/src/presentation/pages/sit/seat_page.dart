@@ -42,7 +42,7 @@ class SeatPage extends StatelessWidget {
                                  child: SvgPicture.asset('assets/images/nav_no_bg.svg', color: Colors.white,)
                                ),
                                const SizedBox(height: 40,),
-                               Text('Seat \nAllocation', style: Theme.of(context).textTheme.subtitle1!.copyWith(color:Colors.white, ),),
+                               Text('Seat \nAllocation', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.white),),
                              ],
                            ),
                           ),

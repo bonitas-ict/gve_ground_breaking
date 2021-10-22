@@ -68,7 +68,7 @@ class VerificationContainer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(height: 60,),
-                              Text(appLoc!.welcome_back+ state.name, style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white),),
+                              Text(appLoc!.welcome_back+ state.name, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white, fontSize: 22),),
                               const SizedBox(height: 26),
                               SizedBox(
                                 height: 95,
@@ -122,7 +122,9 @@ class VerificationContainer extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text("Don't have an account? sign up", style: Theme.of(context).textTheme.bodyText2!.copyWith(color:const Color(0xFFCFCFCF)),)
+                  GestureDetector(
+                    onTap: ()=> context.router.navigate(const CreateAccountRoute()),
+                    child: Text("Don't have an account? Sign up", style: Theme.of(context).textTheme.overline!.copyWith(color:const Color(0xFFCFCFCF)),))
                 ],
               )
             )

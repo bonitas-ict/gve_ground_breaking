@@ -24,7 +24,7 @@ class AgendaRow extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              const Divider(),
+              const Divider(color: Color(0xFF598E48),),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -34,9 +34,9 @@ class AgendaRow extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(agenda.title,  style:Theme.of(context).textTheme.bodyText2),
+                            Text(agenda.title,  style:Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 15)),
                             Text(agenda.speaker?.name ?? 'Annonymous', style:Theme.of(context).textTheme.bodyText2 ,),
-                            Text("$startDate - $endDate", style:  Theme.of(context).textTheme.overline,)
+                            Text("$startDate - $endDate", style:  Theme.of(context).textTheme.overline!.copyWith(fontSize: 12, color:const Color(0xFFCDCDCD)),)
                           ],
                         )
                       ),

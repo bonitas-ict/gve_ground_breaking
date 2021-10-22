@@ -25,7 +25,7 @@ class AboutUsPage extends StatelessWidget {
                         child: const Icon(Icons.arrow_back)
                       ),
                       const SizedBox(height: 40,),
-                      Text('About\nUs', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                      Text('About\nUs', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                     ],
                   ),
                 ),
@@ -40,18 +40,18 @@ class AboutUsPage extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/ict.png', height: 60,),
                         const SizedBox(height: 20,),
-                        const Text('Bonitas ICT is an Information and Communications Technology firm with specializations in Internet Services, Software Development, Cloud Computing / Networking, and Database Management & Administration.'),
+                        Text('Bonitas ICT is an Information and Communications Technology firm with specializations in Internet Services, Software Development, Cloud Computing / Networking, and Database Management & Administration.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
-                        const Text('With most businesses facing a transition towards the current mobile-first, cloud-first business marketplace, we offer a range of services to ensure that this transition is as seamless as possible.'),
+                        Text('With most businesses facing a transition towards the current mobile-first, cloud-first business marketplace, we offer a range of services to ensure that this transition is as seamless as possible.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
-                        const Text('We are principally driven by the excitement of building technologies and solutions that help transform and improve the way businesses operate. Our actions, goals, projects, and mission are tailored around our end customers, ensuring that we turn out only the very best of solutions.'),
+                        Text('We are principally driven by the excitement of building technologies and solutions that help transform and improve the way businesses operate. Our actions, goals, projects, and mission are tailored around our end customers, ensuring that we turn out only the very best of solutions.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
                         SizedBox(
                           width: double.infinity,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text('CONTACT US', style: Theme.of(context).textTheme.subtitle1,),
+                              Text('CONTACT US', style: Theme.of(context).textTheme.subtitle2!.copyWith(color: const Color(0xFF7EB84E)),),
                               const SizedBox(height: 4),
                               const Text('+234 813 492 5452'),
                               const Text('ict@bonitasgroup.com'),

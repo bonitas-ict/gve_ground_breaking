@@ -34,7 +34,7 @@ class LandListingPage extends StatelessWidget {
                                   child: SvgPicture.asset('assets/images/nav_toggle_c.svg')
                                 ),
                                 const SizedBox(height: 40,),
-                                Text('Available \nPlots', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                                Text('Available \nPlots', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                               ],
                             ),
                           ),

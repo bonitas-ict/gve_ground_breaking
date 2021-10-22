@@ -72,9 +72,9 @@ class AuthContainer extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/user.png', height: 100,),
                         const SizedBox(height: 8,),
-                        Text(appLoc!.welcome, style: Theme.of(context).textTheme.headline5),
+                        Text(appLoc!.welcome, style: Theme.of(context).textTheme.headline4),
                         const SizedBox(height: 8,),
-                        Text(appLoc.verify_invite),
+                        Text(appLoc.verify_invite, style: Theme.of(context).textTheme.overline!.copyWith(color: const Color(0xFFCFCFCF))),
                         const SizedBox(height: 16,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -97,12 +97,12 @@ class AuthContainer extends StatelessWidget {
                           child: RectangleButton(label: appLoc.verify, onPressed:()=>formSubmitHandler(context) ,)
                         ),
                         const SizedBox(height: 16,),
-                        Text(appLoc.need_to_scan, style: Theme.of(context).textTheme.overline!.copyWith(fontSize: 14, color: const Color(0xFF598E48)), ),
+                        Text(appLoc.need_to_scan, style: Theme.of(context).textTheme.overline! ),
                         const SizedBox(height: 16,),
                         Image.asset('assets/images/qr_code.png', height: 180, ),
                         const SizedBox(height: 16,),
                         Container(
-                          width: double.infinity,
+                          width: 280,
                           padding: const EdgeInsets.symmetric(horizontal: 60),
                           child: RoundedButton(onPressed:()=> scanQR(context), label: appLoc.start_scanning ) 
                           //child: RectangleButton(label: appLoc.start_scanning, onPressed: ()=> context.router.navigate(const ScannerRoute()))
@@ -110,7 +110,7 @@ class AuthContainer extends StatelessWidget {
                         const SizedBox(height: 26,),
                         GestureDetector(
                           onTap: ()=> context.router.navigate(const CreateAccountRoute()),
-                          child: Text(appLoc.no_pin, style: Theme.of(context).textTheme.overline!.copyWith(fontSize: 12, color: const Color(0xFF598E48)), )
+                          child: Text(appLoc.no_pin, style: Theme.of(context).textTheme.overline!.copyWith( color: const Color(0xFF598E48)), )
                         ),
                       ],
                     ) ,

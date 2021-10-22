@@ -33,7 +33,7 @@ class PayHistoryPage extends StatelessWidget {
                           child: const Icon(Icons.arrow_back)
                         ),
                         const SizedBox(height: 40,),
-                        Text('Transaction \nHistory', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                        Text('Transaction \nHistory', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                       ],
                     ),
                   ),

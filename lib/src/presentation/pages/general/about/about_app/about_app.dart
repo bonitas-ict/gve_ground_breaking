@@ -25,7 +25,7 @@ class AboutAppPage extends StatelessWidget {
                         child: const Icon(Icons.arrow_back)
                       ),
                       const SizedBox(height: 40,),
-                      Text('About\nApp', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                      Text('About\nApp', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                     ],
                   ),
                 ),
@@ -40,9 +40,9 @@ class AboutAppPage extends StatelessWidget {
                       children: [
                         Image.asset('assets/images/gve.png', height: 60,),
                         const SizedBox(height: 20,),
-                        const Text('Green Valley Estate (GVE) is a smart estate project powered by the Anambra State Housing Development Corporation (ASHDC) in partnership with 8 notable real estate developers. The technology-driven estate would feature 24/7 power supply, good road network, and other facilities to cater the social and commercial needs for residents.'),
+                        Text('Green Valley Estate (GVE) is a smart estate project powered by the Anambra State Housing Development Corporation (ASHDC) in partnership with 8 notable real estate developers. The technology-driven estate would feature 24/7 power supply, good road network, and other facilities to cater the social and commercial needs for residents.',style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
-                        const Text('The GVE would also feature other facilities such as hospitals, shopping malls, clubs, and top-grade schools. The residential areas of the estate would be divided into detached and semi-detached buildings providing a exotic layout to the entire estate.')
+                        Text('The GVE would also feature other facilities such as hospitals, shopping malls, clubs, and top-grade schools. The residential areas of the estate would be divided into detached and semi-detached buildings providing a exotic layout to the entire estate.',style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16))
                       ],
                     ),
                   ),

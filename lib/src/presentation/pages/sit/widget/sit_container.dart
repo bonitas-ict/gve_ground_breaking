@@ -35,14 +35,14 @@ class SitContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 150,
+            height: 40,
           ),
           Text(
-            'Seat Detail',
+            'Seat Details',
             style: Theme.of(context)
                 .textTheme
                 .subtitle2!
-                .copyWith(color: Colors.black, fontSize: 16),
+                .copyWith(color: Colors.black, fontSize: 18),
           ),
           const SizedBox(
             height: 8,
@@ -64,13 +64,13 @@ class SitContainer extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Seat Allocation: '),
+              Text('Seat Allocation: ',style: Theme.of(context).textTheme.bodyText1),
               const SizedBox(
                 width: 8,
               ),
               Text(
                 'Table ${sit.tableNumber.toString()}, Seat ${sit.seatNumber.toString()}',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.black, ),
               ),
             ],
           )

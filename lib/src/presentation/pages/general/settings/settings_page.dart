@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gve_opening/src/application/application.dart';
+import 'package:gve_opening/src/domain/domain.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({ Key? key }) : super(key: key);
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool isToggled = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +34,7 @@ class SettingsPage extends StatelessWidget {
                         child: const Icon(Icons.arrow_back)
                       ),
                       const SizedBox(height: 40,),
-                      Text('App\nSettings', style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.black),),
+                      Text('App\nSettings', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
                     ],
                   ),
                 ),
@@ -43,20 +52,28 @@ class SettingsPage extends StatelessWidget {
                           width: double.infinity,
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
-                            children: const [
+                            children:[
                               ListTile(
-                                leading: Icon(Icons.notifications),
-                                title: Text('Notifications'),
-                                subtitle: Text('Enable or disable in-app notifications.'),
-                                
+                                leading: const Icon(Icons.notifications),
+                                title: const Text('Notifications'),
+                                subtitle: const Text('Enable or disable in-app notifications.'),
+                                trailing: Switch(
+                                  value: isToggled,
+                                  activeColor: const Color(0xFF6200EE),
+                                  onChanged: (bool value) {
+                                          setState(() {
+                                            isToggled = value;
+                                          });
+                                        },
+                                ),
                               ),
-                              ListTile(
+                              const ListTile(
                                 leading: Icon(Icons.question_answer),
                                 title: Text('Notifications'),
                                 subtitle: Text('For further information, contact us.'),
                                 trailing: Icon(Icons.chevron_right_rounded)
                               ),
-                              ListTile(
+                              const ListTile(
                                 title: Text('App Version'),
                                 subtitle: Text('Version 1.0'),
                               )
@@ -64,7 +81,10 @@ class SettingsPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 16,),
-                        GestureDetector(child: Image.asset('assets/images/btn.png', width: 120))
+                        GestureDetector(
+                          onTap: ()=>  context.read<AuthenticationBloc>().add(const AuthenticationEvent.switchAppState(AppState.UNAUTHENTICATED)),
+                          child: Image.asset('assets/images/btn.png', width: 120)
+                        )
                       ],
                     ),
                   ),

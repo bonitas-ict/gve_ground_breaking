@@ -9,7 +9,7 @@ part of 'property_init_dto.dart';
 _$_PropertyInitDTO _$_$_PropertyInitDTOFromJson(Map<String, dynamic> json) {
   return _$_PropertyInitDTO(
     referenceId: json['referenceId'] as String,
-    isTaken: json['isTaken'] as bool,
+    isTaken: json['isTaken'] as bool?,
   );
 }
 

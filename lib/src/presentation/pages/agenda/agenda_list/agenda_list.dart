@@ -32,7 +32,7 @@ class AgendaListPage extends StatelessWidget {
                         child: SvgPicture.asset('assets/images/nav_toggle.svg')
                       ),
                       const SizedBox(height: 40,),
-                      Text('Event Agenda', style: Theme.of(context).textTheme.bodyText2!.copyWith(color: const Color(0xFF598E48))),
+                      Text('Event Agenda', style: Theme.of(context).textTheme.headline1!.copyWith(color: const Color(0xFF598E48), fontSize: 16)),
                       const SizedBox(height: 20),
                       const Expanded(child: AgendaContainer())
                     ]

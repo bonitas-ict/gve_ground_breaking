@@ -52,22 +52,24 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          _TicketSummary(amount: widget.amount, plotId: widget.plotId,),
+          _TicketSummary(amount: widget.amount, plotId: widget.plotId,isTaken:  widget.isTaken,),
           const SizedBox(height: 20),
-          Container(
-            color: const Color(0xFFF9FBF6),
-            width: double.infinity,
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  leading: SvgPicture.asset('assets/images/card.svg'),
-                  title: Text(
-                    'Online Payment',
-                    style: Theme.of(context).textTheme.bodyText2,
-                  ),
-                  trailing: Radio(
+          Visibility(
+            visible: !widget.isTaken,
+            child: Container(
+              color: const Color(0xFFF9FBF6),
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ListTile(
+                    leading: SvgPicture.asset('assets/images/card.svg'),
+                    title: Text(
+                      'Online Payment',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    trailing: Radio(
                       value: 0,
                       groupValue: _value,
                       activeColor: const Color(0xFF7EB84E),
@@ -75,27 +77,29 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
                         setState(() {
                           _value = 0;
                         });
-                      }),
-                ),
-                const Divider(),
-                ListTile(
-                  leading: SvgPicture.asset('assets/images/bank.svg'),
-                  title: Text(
-                    'Offline Payment',
-                    style: Theme.of(context).textTheme.bodyText2,
+                      }
+                    ),
                   ),
-                  trailing: Radio(
-                      value: 1,
-                      groupValue: _value,
-                      activeColor: const Color(0xFF7EB84E),
-                      onChanged: (int? value) {
-                        setState(() {
-                          _value = 1;
-                        });
-                      }),
-                ),
-                //Divider()
-              ],
+                  const Divider(),
+                  ListTile(
+                    leading: SvgPicture.asset('assets/images/bank.svg'),
+                    title: Text(
+                      'Offline Payment',
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    trailing: Radio(
+                        value: 1,
+                        groupValue: _value,
+                        activeColor: const Color(0xFF7EB84E),
+                        onChanged: (int? value) {
+                          setState(() {
+                            _value = 1;
+                          });
+                        }),
+                  ),
+                  //Divider()
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -112,8 +116,8 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
                     'Bank Details',
                     style: Theme.of(context)
                         .textTheme
-                        .subtitle1!
-                        .copyWith(fontSize: 18),
+                        .subtitle2!
+                        .copyWith(fontSize: 15),
                   ),
                   const SizedBox(height: 8),
                   const Text('Bank Name: Access Bank Nigeria Plc'),
@@ -128,46 +132,52 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
           const SizedBox(
             height: 40,
           ),
-          BlocConsumer<OnlinePayBloc, OnlinePayState>(
-            listener: (_, OnlinePayState st) {
-              st.map(
-                  initial: (_) {},
-                  loadInProgress: (_) {},
-                  loadSuccess: (_) {
-                    SnackUtil.showSuccessSnack(
-                        context: context, message: 'Payment was successful');
-                    Navigator.of(context).pop();
-                  },
-                  loadFailure: (e) {
-                    SnackUtil.showErrorSnack(
-                        context: context,
-                        message:
-                            e.networkFailure.message ?? 'An Error occurred');
-                  });
-            },
-            builder: (context, state) {
-              if (state is LoadInProgressX) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF7EB84E)),
-                    onPressed: () async {
-                      if (_value == 0) {
-                        await makePayment();
-                      } else {
-                        context.router.navigate(OfflinePaymentRoute(
-                            plotId: widget.plotId,
-                            refNum: widget.paymentRef ?? ''));
-                      }
+          Visibility(
+            visible: !widget.isTaken,
+            child: BlocConsumer<OnlinePayBloc, OnlinePayState>(
+              listener: (_, OnlinePayState st) {
+                st.map(
+                    initial: (_) {},
+                    loadInProgress: (_) {},
+                    loadSuccess: (_) {
+                      SnackUtil.showSuccessSnack(
+                          context: context, message: 'Payment was successful');
+                      Navigator.of(context).pop();
                     },
-                    child: const Text('Continue'),
-                  ),
-                );
-              }
-            },
+                    loadFailure: (e) {
+                      SnackUtil.showErrorSnack(
+                          context: context,
+                          message:
+                              e.networkFailure.message ?? 'An Error occurred');
+                    });
+              },
+              builder: (context, state) {
+                if (state is LoadInProgressX) {
+                  return const Center(child: CircularProgressIndicator());
+                } else {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: const Color(0xFF7EB84E)),
+                        onPressed: () async {
+                          if (_value == 0) {
+                            await makePayment();
+                          } else {
+                            context.router.navigate(OfflinePaymentRoute(
+                                plotId: widget.plotId,
+                                refNum: widget.paymentRef ?? ''));
+                          }
+                        },
+                        child: const Text('Continue'),
+                      ),
+                    ),
+                  );
+                }
+              },
+            ),
           )
         ],
       ),
@@ -176,10 +186,11 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
 }
 
 class _TicketSummary extends StatelessWidget {
-  const _TicketSummary({Key? key, required this.amount, required this.plotId})
+  const _TicketSummary({Key? key, required this.amount, required this.plotId, required this.isTaken})
       : super(key: key);
   final num amount;
   final String plotId;
+  final bool isTaken;
 
   @override
   Widget build(BuildContext context) {
@@ -221,11 +232,12 @@ class _TicketSummary extends StatelessWidget {
                   'Ticket Summary',
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle1!
-                      .copyWith(fontSize: 18),
+                      .subtitle2!
+                      .copyWith(fontSize: 16, color: const Color(0xFF7EB84E)),
                 ),
                 Text('Selected Plot ID: $plotId'),
-                Text('Total Cost:  ${amount.toString()}')
+                Text('Total Cost:  ${amount.toString()}'),
+                Text('Availablility:  ${isTaken == true ? "Sold": "Available"}')
               ],
             ),
           )

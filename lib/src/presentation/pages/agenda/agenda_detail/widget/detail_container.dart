@@ -46,7 +46,7 @@ class _DetailInformation extends StatelessWidget {
           const SizedBox(height: 40,),
           Text(agenda.description ?? '',style:Theme.of(context).textTheme.bodyText2),
           const SizedBox(height: 40,),
-          Visibility(child: Text('Speaker(s)',style: Theme.of(context).textTheme.subtitle2 ), visible: speakers.isNotEmpty,),
+          Visibility(child: Text(speakers.length<=1? 'Speaker': 'Speakers',style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 18) ), visible: speakers.isNotEmpty,),
           ListView.builder(
             physics: const ClampingScrollPhysics(),
             shrinkWrap: true,
@@ -85,7 +85,7 @@ class _SpeakerItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(speaker.name, style: Theme.of(context).textTheme.subtitle2,),
+                  Text(speaker.name, style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 15),),
                   Text(speaker.titles ?? '', style: Theme.of(context).textTheme.bodyText2,)
                 ],
               ),

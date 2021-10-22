@@ -39,9 +39,9 @@ class _SpeakerDetail extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(speaker.name, style: Theme.of(context).textTheme.subtitle1,),
+                    Text(speaker.name, style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 16, color: const Color(0xFF7EB84E)),),
                     const SizedBox(height: 4),
-                    Text(speaker.titles ?? '',style: Theme.of(context).textTheme.bodyText2 ),
+                    Text(speaker.titles ?? '',style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14) ),
                   ],
                 ),
               ),
@@ -54,7 +54,7 @@ class _SpeakerDetail extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 40,),
-          Text(speaker.bio ?? '',style: Theme.of(context).textTheme.bodyText2 ),
+          Text(speaker.bio ?? '',style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16) ),
         ],
       )
     );
