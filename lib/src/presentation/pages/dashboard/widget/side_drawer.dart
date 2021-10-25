@@ -94,7 +94,10 @@ class _SideDrawerState extends State<SideDrawer> {
                       BlocBuilder<NotificationCountBloc, NotificationCountState>(
                         builder: (context, state) {
                           return _DrawerItems(
-                            () => context.router.navigate(const NotificationRoute()),
+                            (){
+                              Navigator.pop(context);
+                              context.navigateTo(const DashboardRoute(children: [NotificationRoute()]));
+                            } ,
                             iconBackground: "assets/images/bell.svg",
                             drawerIcon: Icons.person,
                             drawerItemTitle: "Notifications",

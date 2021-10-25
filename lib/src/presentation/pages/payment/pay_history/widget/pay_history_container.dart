@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gve_opening/src/domain/payment/model/pay_history.dart';
 import 'package:gve_opening/src/presentation/utils/currency_ext.dart';
+import 'package:intl/intl.dart';
 
 class PayHistoryContainer extends StatelessWidget {
   const PayHistoryContainer({Key? key, required this.paymentHistories}): super(key: key);
@@ -22,6 +23,10 @@ class _HistoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateFormat dateFormat = DateFormat("yyyy-MM-ddTHH:mm:ss");
+    DateTime dateTime = dateFormat.parse(payHistory.date);
+    var newDt = '${DateFormat.yMMMEd().format(dateTime) } ${DateFormat.jm().format(dateTime)}';
+    
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
@@ -31,11 +36,11 @@ class _HistoryItem extends StatelessWidget {
               Image.asset('assets/images/dollar_icon.png', height: 40,width: 40,),
               const SizedBox(width: 8,),
               Expanded(
-                child: Column(
+                child: Column( 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Plot ${payHistory.plotId.substring(4)} Purchase', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),),
-                    Text(payHistory.date.split('T')[0], style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: const Color(0xFFA1A59C)),)
+                    Text(newDt, style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: const Color(0xFFA1A59C)),)
                   ],
                 ),
               ),
