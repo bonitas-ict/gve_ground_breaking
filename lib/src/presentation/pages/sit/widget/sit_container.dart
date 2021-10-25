@@ -49,13 +49,13 @@ class SitContainer extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text('Seat No: '),
+              Text('User Pin: ', style: Theme.of(context).textTheme.bodyText1),
               const SizedBox(
                 width: 8,
               ),
               Text(
-                sit.seatNumber.toString(),
-                style: Theme.of(context).textTheme.bodyText1,
+                sit.pin.toString(),
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(color: Colors.black, ),
               ),
             ],
           ),

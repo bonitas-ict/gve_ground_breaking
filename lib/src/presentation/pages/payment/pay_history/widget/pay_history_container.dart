@@ -34,7 +34,7 @@ class _HistoryItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${payHistory.plotId} Purchase', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),),
+                    Text('Plot ${payHistory.plotId.substring(4)} Purchase', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 18, fontWeight: FontWeight.normal),),
                     Text(payHistory.date.split('T')[0], style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 14, color: const Color(0xFFA1A59C)),)
                   ],
                 ),

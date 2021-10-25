@@ -235,7 +235,7 @@ class _TicketSummary extends StatelessWidget {
                       .subtitle2!
                       .copyWith(fontSize: 16, color: const Color(0xFF7EB84E)),
                 ),
-                Text('Selected Plot ID: $plotId'),
+                Text('Selected Plot ID: ${plotId.substring(4)}'),
                 Text('Total Cost:  ${amount.formatCurrency(context)}'),
                 Text('Availablility:  ${isTaken == true ? "Sold": "Available"}')
               ],

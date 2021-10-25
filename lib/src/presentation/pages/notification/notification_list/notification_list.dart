@@ -130,7 +130,7 @@ class _NotificationItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Your payment of ${notification.amount.formatCurrency(context)} for ${notification.plotId} has been completed; Our team would reach out to close out this transaction.',
+                  'Your payment of ${notification.amount.formatCurrency(context)} for plot ${notification.plotId.substring(4)} has been completed; Our team would reach out to close out this transaction.',
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(color:Colors.black)
                 )
               ],

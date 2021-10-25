@@ -75,6 +75,7 @@ class VerificationContainer extends StatelessWidget {
                                 child: FormBuilderTextField(
                                   name: 'email', 
                                   keyboardType: TextInputType.emailAddress,
+                                  enableSuggestions: true,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(40.0),
@@ -122,9 +123,12 @@ class VerificationContainer extends StatelessWidget {
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: ()=> context.router.navigate(const CreateAccountRoute()),
-                    child: Text("Don't have an account? Sign up", style: Theme.of(context).textTheme.overline!.copyWith(color:const Color(0xFFCFCFCF)),))
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 24),
+                    child: GestureDetector(
+                      onTap: ()=> context.router.navigate(const CreateAccountRoute()),
+                      child: Text("Don't have an account? Sign up", style: Theme.of(context).textTheme.overline!.copyWith(color:const Color(0xFFCFCFCF)),)),
+                  )
                 ],
               )
             )

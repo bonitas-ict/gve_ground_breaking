@@ -45,6 +45,7 @@ class _HomeSliderState extends State<HomeSlider> {
               enableInfiniteScroll: true,
               enlargeCenterPage: false,
               autoPlayCurve: Curves.linear,
+              autoPlayAnimationDuration: const Duration(seconds: 2),
               scrollDirection: Axis.horizontal,
               autoPlayInterval: const Duration(seconds: 3),
               disableCenter: true,

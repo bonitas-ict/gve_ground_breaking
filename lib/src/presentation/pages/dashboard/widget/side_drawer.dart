@@ -137,7 +137,7 @@ class _SideDrawerState extends State<SideDrawer> {
                         },
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,
-                        drawerItemTitle: "About GVE",
+                        drawerItemTitle: "Green Valley Estate",
                       ),
                       _DrawerItems(
                         () {
@@ -145,7 +145,7 @@ class _SideDrawerState extends State<SideDrawer> {
                         },
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,
-                        drawerItemTitle: "About Us",
+                        drawerItemTitle: "Bonitas ICT",
                       ),
                       _DrawerItems(
                         () {
@@ -153,7 +153,7 @@ class _SideDrawerState extends State<SideDrawer> {
                         },
                         iconBackground: "assets/images/cog.svg",
                         drawerIcon: Icons.person,
-                        drawerItemTitle: "About the Developers",
+                        drawerItemTitle: "The Developers",
                       )
                     ],
                   ),

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
@@ -46,7 +49,7 @@ class HomeTimer extends StatelessWidget {
         Text('Event Management - Categories', style: Theme.of(context).textTheme.headline1!.copyWith(color: const Color(0xFF598E48), fontSize: 12)),
         const SizedBox(height: 20),
         SizedBox(
-          height: 180,
+          height: 165,
           child: ListView.builder(
             padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
@@ -75,9 +78,41 @@ class _Categs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: (){
+        if(Platform.isIOS){
+          print('jhh');
+          showDialog(context: context, builder: (BuildContext context){
+             return  CupertinoAlertDialog(
+              title: Text(category['title']!),
+              actions: [
+                CupertinoDialogAction(onPressed: (){
+                  Navigator.of(context).pop();
+                }, child: const Text("OK")),
+              ],
+              content: Text(category['description']!),
+            );
+          });
+        }else{
+          showDialog(context: context, builder: (BuildContext context){
+            return AlertDialog(
+              title: Text(category['title']!),
+              titleTextStyle: 
+                const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,fontSize: 20),
+                actionsOverflowButtonSpacing: 20,
+                actions: [
+                  ElevatedButton(onPressed: (){
+                    Navigator.of(context).pop();
+                  }, child: const Text("OK")),
+                ],
+                content: Text(category['description']!),
+            );
+          });
+        }
+      },
       child: SizedBox(
-        width: 130,
+        width: 120,
         child: Column(
           children: [
             Image.asset(category['path']!, fit: BoxFit.cover, height: 130,),

@@ -74,14 +74,15 @@ class _TapItem extends StatelessWidget {
         }
       },
       child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        width: 180,
+        margin: const EdgeInsets.only(right: 16),
+        width: 140,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(filePath, fit: BoxFit.cover, width: double.infinity,),
-            Text(label, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: const Color(0xFFB9D89F), fontSize: 16)),
-            Text(desc, style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 14), maxLines: 2,)
+            Image.asset(filePath, fit: BoxFit.cover, height: 110),
+            const SizedBox(height: 4),
+            Text(label, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: const Color(0xFF7EB84E), fontSize: 15), maxLines: 1),
+            Text(desc, style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black, fontSize: 12), maxLines: 2,)
           ],
         ),
       ),
