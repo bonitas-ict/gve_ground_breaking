@@ -82,7 +82,7 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
                   ),
                   const Divider(),
                   ListTile(
-                    leading: SvgPicture.asset('assets/images/bank.svg'),
+                    leading: SvgPicture.asset('assets/images/bank.svg', width:35),
                     title: Text(
                       'Offline Payment',
                       style: Theme.of(context).textTheme.bodyText2,

@@ -68,8 +68,11 @@ class _SettingsPageState extends State<SettingsPage> {
                                 ),
                               ),
                               const ListTile(
-                                leading: Icon(Icons.question_answer),
-                                title: Text('Notifications'),
+                                leading: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8),
+                                  child: Icon(Icons.help),
+                                ),
+                                title: Text('Help & Support'),
                                 subtitle: Text('For further information, contact us.'),
                                 trailing: Icon(Icons.chevron_right_rounded)
                               ),

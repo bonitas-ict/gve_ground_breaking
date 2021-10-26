@@ -40,7 +40,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<OtpRouteArgs>();
-          return _i3.OtpPage(key: args.key, hashedOtp: args.hashedOtp);
+          return _i3.OtpPage(
+              key: args.key,
+              hashedOtp: args.hashedOtp,
+              email: args.email,
+              phoneNumber: args.phoneNumber);
         }),
     DashboardRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -188,20 +192,36 @@ class CreateAccountRoute extends _i1.PageRouteInfo {
 }
 
 class OtpRoute extends _i1.PageRouteInfo<OtpRouteArgs> {
-  OtpRoute({_i2.Key? key, required String hashedOtp})
+  OtpRoute(
+      {_i2.Key? key,
+      required String hashedOtp,
+      required String email,
+      required String phoneNumber})
       : super(name,
             path: '/otp-page',
-            args: OtpRouteArgs(key: key, hashedOtp: hashedOtp));
+            args: OtpRouteArgs(
+                key: key,
+                hashedOtp: hashedOtp,
+                email: email,
+                phoneNumber: phoneNumber));
 
   static const String name = 'OtpRoute';
 }
 
 class OtpRouteArgs {
-  const OtpRouteArgs({this.key, required this.hashedOtp});
+  const OtpRouteArgs(
+      {this.key,
+      required this.hashedOtp,
+      required this.email,
+      required this.phoneNumber});
 
   final _i2.Key? key;
 
   final String hashedOtp;
+
+  final String email;
+
+  final String phoneNumber;
 }
 
 class DashboardRoute extends _i1.PageRouteInfo {

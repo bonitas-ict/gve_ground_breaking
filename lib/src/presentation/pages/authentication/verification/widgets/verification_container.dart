@@ -46,7 +46,7 @@ class VerificationContainer extends StatelessWidget {
               (failure) =>SnackUtil.showErrorSnack(context: context, message: failure.message ?? 'An unknown error occured!', title: 'An error occurred'), 
               (success){
                 SnackUtil.showSuccessSnack(context: context, message: success.metadata['testOTP'].toString(),title: 'Verify your email' );
-                context.router.navigate(OtpRoute(hashedOtp: success.data as String));
+                context.router.navigate(OtpRoute(hashedOtp: success.data as String, email: state.email, phoneNumber: state.phoneNumber));
               }
             )
           );

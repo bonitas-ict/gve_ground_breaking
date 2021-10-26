@@ -49,7 +49,7 @@ class _LandCard extends StatelessWidget {
       visible: plot.isTaken == true ? false: true,
       child: Container(
         margin: const EdgeInsets.only(right:8),
-        width: 144,
+        width: 142,
         child: GestureDetector(
           onTap: ()=> context.router.navigate(PaymentMathodRoute(propertyId: plot.plotId, propertyPrice: plot.price)),
           child: Card(

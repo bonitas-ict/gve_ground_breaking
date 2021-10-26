@@ -42,15 +42,142 @@ class AboutDevPage extends StatelessWidget {
                         const SizedBox(height: 20),
                         Text('The developers of the estate are John Joe and Partners, Elson Construction, BO Limited, GWI Limited, Almatex, Anchor-Nuel, Paul-B, and Gwice Dynamic.', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16)),
                         const SizedBox(height: 20),
-                        Image.asset('assets/images/d1.png', width: 250,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m1.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('BO Limited is an indigenous construction company....'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                         const SizedBox(height: 10),
-                        Image.asset('assets/images/d2.png', width: 250,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m2.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Elson Construction Company Limited has been in the construction business for almost a decade now, with specializations in bridge building,road constructions'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                         const SizedBox(height: 10),
-                        Image.asset('assets/images/d3.png', width: 200,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m3.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Alkatex has deep roots in the development of real estate properties in Nigeria.'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                         const SizedBox(height: 10),
-                        Image.asset('assets/images/d4.png', width: 200,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m4.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('GWI Limited has been in the business of real estate development for about twenty years now....'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                         const SizedBox(height: 10),
-                        Image.asset('assets/images/d5.png', width: 270,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m5.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('NR Anchor-Nuel Resources Limited has been a leader in development of bespoke estates since 1929....'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m6.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Gwice Dynamic Limited is positioned as a regional in the development of estate properties in Anambra State...'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m7.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('John Joe and Partners Limited is an engineering and project management consultancy with business operations in real estate'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                              Image.asset('assets/images/m8.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('Paul-B Nigeria Plc is a real estate management company in Anambra State with a management team boasting over a hundred years experience....'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        // Image.asset('assets/images/d1.png', width: 250,),
+                        // const SizedBox(height: 10),
+                        // Image.asset('assets/images/d2.png', width: 250,),
+                        // const SizedBox(height: 10),
+                        // Image.asset('assets/images/d3.png', width: 200,),
+                        // const SizedBox(height: 10),
+                        // Image.asset('assets/images/d4.png', width: 200,),
+                        // const SizedBox(height: 10),
+                        // Image.asset('assets/images/d5.png', width: 270,),
                       ],
                     ),
                   ),
