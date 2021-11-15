@@ -46,7 +46,7 @@ class _LandCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: plot.isTaken == true ? false: true,
+      visible:true, // plot.isTaken == true ? false: true,
       child: Container(
         margin: const EdgeInsets.only(right:8),
         width: 142,
@@ -56,26 +56,39 @@ class _LandCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25.0),	
             ),
+            //color: plot.isTaken == true ? Colors.grey: Colors.white,
             clipBehavior: Clip.antiAlias,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(25.0),
-                  child: CachedNetworkImage(
-                    imageUrl: dotenv.env['BASE_URL']!+plot.thumbnailUrl,
-                    placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => const Center(child:Icon(Icons.error)),
-                    fit: BoxFit.cover,
-                    height: 100,
-                  ),
+                  child: Stack(
+                    children: [
+                      CachedNetworkImage(
+                        imageUrl: dotenv.env['BASE_URL']!+plot.thumbnailUrl,
+                        placeholder: (context, url) => const Center(child:CircularProgressIndicator()),
+                        errorWidget: (context, url, error) => const Center(child:Icon(Icons.error)),
+                        fit: BoxFit.cover,
+                        height: 100,
+                      ),
+                      Visibility(
+                        visible: plot.isTaken == true ? true: false,
+                        child: Container(
+                          height: 100,
+                          color: Colors.white54,
+                          child:  Center(child: Image.asset('assets/images/sold.png')),
+                        ),
+                      ),
+                    ],
+                  )
                 ),
                 const SizedBox(height: 16,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                       plot.plotId,
-                      style: const TextStyle(color: Colors.black),
+                      style:  TextStyle(color:plot.isTaken == true? Colors.grey:  Colors.black),
                   ),
                 ),
               ],

@@ -65,10 +65,10 @@ class HomeTimer extends StatelessWidget {
 }
 
 const List<Map<String, String>> categories =[
-  {"path":'assets/images/s.png',"title":"Security" ,"description": "Lorem ipsom dolor amo blah blah blah blah blah blah blah blah"},
-  {"path":'assets/images/p.png',"title":"Parking" ,"description": "Lorem ipsom dolor amo blah blah blah blah blah blah blah blah"},
-  {"path":'assets/images/c.png',"title":"Covid" ,"description": "Lorem ipsom dolor amo blah blah blah blah blah blah blah blah"},
-  {"path":'assets/images/v.png',"title":"Venue" ,"description": "Lorem ipsom dolor amo blah blah blah blah blah blah blah blah"},
+  {"path":'assets/images/s.png',"title":"Security" ,"description": "Over an acre of land close to the event’s venue is reserved for parking."},
+  {"path":'assets/images/p.png',"title":"Parking" ,"description": "All security measures have been put in place to ensure the safety of our guests throughout the event"},
+  {"path":'assets/images/c.png',"title":"Covid" ,"description": "All Covid-19 protocols will be adhered to including temperature checks, physical distancing, use of facemasks and hand sanitisers"},
+  {"path":'assets/images/v.png',"title":"Venue" ,"description": "The event will be held at Green Valley Estate Akwa, adjacent to Ngozika Housing Estate."},
 ];
 
 class _Categs extends StatelessWidget {
