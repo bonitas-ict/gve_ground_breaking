@@ -12,6 +12,7 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt<AuthenticationBloc>()..add(const AuthenticationEvent.verifiedState())),
+        BlocProvider(create: (_) => getIt<LandInfoBloc>()..add(const LandInfoEvent.getLandsInfo())),
         BlocProvider(create: (_) => getIt<NotificationListBloc>()..add(const NotificationListEvent.loadNotifications())),
         BlocProvider(create: (_) => getIt<NotificationCountBloc>()..add(const NotificationCountEvent.loadNotificationCount())),
       ],

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paystack_client/flutter_paystack_client.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gve_opening/injection.dart';
 import 'package:gve_opening/src/application/application.dart';
 import 'package:gve_opening/src/misc/debug_util.dart';
 import 'package:gve_opening/src/presentation/presentation.dart';
+import 'package:gve_opening/src/infrastructure/core/core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PayMethodContainer extends StatefulWidget {
   const PayMethodContainer(
@@ -28,8 +31,10 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
   int _value = 0;
 
   Future<void> makePayment() async {
+    final email = getIt<SharedPreferences>().getEmail() ?? 'etokakingsley@gmail.com';
+    print('Your email is $email');
     final Charge charge = Charge()
-      ..email = "etokakingsley@gmail.com"
+      ..email = email
       ..amount = widget.amount.toInt() * 100
       ..reference =
           widget.paymentRef //'ref_${DateTime.now().millisecondsSinceEpoch}'
@@ -142,6 +147,7 @@ class _PayMethodContainerState extends State<PayMethodContainer> {
                     loadSuccess: (_) {
                       SnackUtil.showSuccessSnack(
                           context: context, message: 'Payment was successful');
+                      context.read<LandInfoBloc>().add(const LandInfoEvent.getLandsInfo());
                       Navigator.of(context).pop();
                     },
                     loadFailure: (e) {

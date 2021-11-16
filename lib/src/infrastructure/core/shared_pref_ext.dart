@@ -6,6 +6,7 @@ const String _userState = 'USER_STATE';
 const String _userToken = "USER_TOKEN";
 const String _userName = "USER_NAME";
 const String _userPin = "USER_PIN";
+const String _userEmail = "USER_mail";
 
 /// Extension class for shared preferences
 extension SharedPrefExt on SharedPreferences {
@@ -25,7 +26,6 @@ extension SharedPrefExt on SharedPreferences {
     if(token.isNotEmpty){
        await setString(_userToken, "Bearer $token");
     }
-   
   }
 
   /// retrieve the user token
@@ -38,6 +38,14 @@ extension SharedPrefExt on SharedPreferences {
 
   /// retrieve the user name
   String? getUserName() => getString(_userName);
+
+  /// STORE EMAIL
+  Future<void> setEmail(String email) async {
+    await setString(_userEmail, email);
+  }
+
+  /// retrieve the email
+  String? getEmail() => getString(_userEmail);
 
     /// STORE USER NAME
   Future<void> setUserPin(String pin) async {

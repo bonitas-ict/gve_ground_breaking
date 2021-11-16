@@ -45,6 +45,22 @@ class AboutDevPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
+                              Image.asset('assets/images/m7.png', width:70,),
+                            const SizedBox(width: 8,),
+                            const Expanded(
+                              child: Card(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text('John Joe and Partners Limited is an engineering and project management consultancy with business operations in real estate'),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
                               Image.asset('assets/images/m1.png', width:70,),
                             const SizedBox(width: 8,),
                             const Expanded(
@@ -132,22 +148,6 @@ class AboutDevPage extends StatelessWidget {
                                 child: Padding(
                                   padding: EdgeInsets.all(8.0),
                                   child: Text('Gwice Dynamic Limited is positioned as a regional in the development of estate properties in Anambra State...'),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                              Image.asset('assets/images/m7.png', width:70,),
-                            const SizedBox(width: 8,),
-                            const Expanded(
-                              child: Card(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text('John Joe and Partners Limited is an engineering and project management consultancy with business operations in real estate'),
                                 ),
                               ),
                             )

@@ -44,9 +44,9 @@ class AuthFacade implements IAuthFacade{
       };
       final Map<String, dynamic> response = await networkHelper.postRequest(ApiRoutes.pinCheckRoute, requestBody);
       final baseResponse = BaseResponse.fromJson(response);
-      pref.storeUserToken(baseResponse.token ?? '');
-      pref.setUserPin(pin);
-      pref.setUserName(baseResponse.data as String);
+      await pref.storeUserToken(baseResponse.token ?? '');
+      await pref.setUserPin(pin);
+      await pref.setUserName(baseResponse.data as String);
       return right(baseResponse);
     }on NetworkFailure catch (e) {
       return left(e);
@@ -62,7 +62,9 @@ class AuthFacade implements IAuthFacade{
       "phoneNumber": phoneNumber
     };
     final header = {'Authorization': pref.getUserToken() ?? ''};
-    return await generalRequestWrapper(networkHelper.putRequest(ApiRoutes.userRoute, body, header));
+    final d = await generalRequestWrapper(networkHelper.putRequest(ApiRoutes.userRoute, body, header));
+    await pref.setEmail(email);
+    return d;
   }
 
   Future<Either<NetworkFailure, BaseResponse>> generalRequestWrapper(Future<dynamic> request) async{
@@ -90,6 +92,7 @@ class AuthFacade implements IAuthFacade{
       pref.storeUserToken(baseResponse.token ?? '');
       //pref.setUserPin(pin);
       pref.setUserName(name);
+      pref.setEmail(email);
       return right(baseResponse);
     }on NetworkFailure catch (e) {
       return left(e);

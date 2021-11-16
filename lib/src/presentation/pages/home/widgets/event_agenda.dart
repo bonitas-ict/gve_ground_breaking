@@ -11,9 +11,9 @@ class AgendaRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startDate = DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(agenda.startTimestamp.toInt()));
-    final endDate = DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(agenda.endTimestamp.toInt()));
-    return GestureDetector(
+    final startDate = DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(agenda.startTimestamp.toInt()*1000));
+    final endDate = DateFormat.jm().format(DateTime.fromMillisecondsSinceEpoch(agenda.endTimestamp.toInt()*1000));
+    return GestureDetector( 
       onTap: () => context.router.navigate(AgendaDetailRoute(agendaId: agenda.id)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

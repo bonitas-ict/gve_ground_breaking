@@ -17,33 +17,30 @@ class LandListingPage extends StatelessWidget {
       body: Stack(
         children: [
           SvgPicture.asset('assets/images/land_bg.svg', fit: BoxFit.cover),
-          BlocProvider<LandInfoBloc>(
-            create: (context) => getIt<LandInfoBloc>()..add(const LandInfoEvent.getLandsInfo()),
-            child: SafeArea(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                GestureDetector(
-                                  onTap: ()=> scaffoldKey.currentState!.openDrawer(),
-                                  child: SvgPicture.asset('assets/images/nav_toggle_c.svg')
-                                ),
-                                const SizedBox(height: 40,),
-                                Text('Available \nPlots', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
-                              ],
-                            ),
-                          ),
-                          const Expanded(
-                            child: _StateMachine()
-                          )
-                        ],
+          SafeArea(
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        onTap: ()=> scaffoldKey.currentState!.openDrawer(),
+                        child: SvgPicture.asset('assets/images/nav_toggle_c.svg')
                       ),
-                    ),
+                      const SizedBox(height: 40,),
+                      Text('Available \nPlots', style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 16, color: Colors.black),),
+                    ],
+                  ),
+                ),
+                const Expanded(
+                  child: _StateMachine()
+                )
+              ],
+            ),
           )
         ],
       ),

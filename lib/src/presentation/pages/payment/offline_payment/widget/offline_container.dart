@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gve_opening/src/application/application.dart';
-import 'package:gve_opening/src/misc/debug_util.dart';
 
 import '../../../../presentation.dart';
 final _formKey = GlobalKey<FormBuilderState>();
@@ -111,7 +111,13 @@ class _OfflineContainerState extends State<OfflineContainer> {
                 ),
               ),
             ),
-            BlocBuilder<OfflinePayBloc, OfflinePayState>(
+            BlocConsumer<OfflinePayBloc, OfflinePayState>(
+              listener: (_, OfflinePayState st){
+                st.authFailureOrSuccessOption.fold(() => null, (a){
+                  context.read<LandInfoBloc>().add(const LandInfoEvent.getLandsInfo());
+                  context.router.popUntilRoot();
+                });
+              },
               builder: (context, state) {
                 if(state.isSubmitting) return const Center(child: CircularProgressIndicator());
                 return Padding(

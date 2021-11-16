@@ -62,13 +62,13 @@ class _TapItem extends StatelessWidget {
           case 0:
             context.navigateTo(const LandListingRoute());
             break;
-          case 1:
+          case 3:
             context.navigateTo(const AgendaListRoute());
             break;
           case 2:
             context.navigateTo(const SeatRoute());
             break;
-          case 3:
+          case 1:
           default:
             break;
         }
